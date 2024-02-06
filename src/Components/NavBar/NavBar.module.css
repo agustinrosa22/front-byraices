@@ -1,0 +1,74 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.5rem;
+    border-top: 3px solid blue;
+}
+.img{
+    width: 170px;
+}
+
+.leftSection {
+    flex: 0.5;
+    margin: 0; /* Elimina los márgenes externos */
+    position: absolute; /* Cambia la posición a absoluta */
+    top: -40px;
+   left: 2%; /* Coloca el título en el 50% del ancho del contenedor */
+}
+
+.navLinks {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    position: absolute; /* Cambia la posición a absoluta */
+    left: 50%; /* Coloca el título en el 50% del ancho del contenedor */
+    transform: translateX(-50%); /* Centra el título */
+    
+}
+
+.rightSection {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    position: absolute; /* Cambia la posición a absoluta */
+   right: 3%; /* Coloca el título en el 50% del ancho del contenedor */   
+}
+
+/* Otros estilos */
+.navContainer {
+    background-color: #f1f1f1;
+    color: blue;
+}
+
+.navLinks a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.navLinks a:hover {
+    text-decoration: underline;
+    color: blue;
+}
+
+.activeLink {
+    text-decoration: underline;
+}
+.butonexit {
+    /* Estilos por defecto */
+    border: 1px solid blue;
+    border-radius: 5px;
+    padding: 0.5rem;
+    background-color: transparent;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: blue;
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+  
+    /* Agregamos la regla para el hover */
+  }
+  .butonexit:hover {
+    background-color: rgb(189, 189, 233); /* Cambiamos el color de fondo al pasar el mouse */
+  }
