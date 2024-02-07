@@ -1,0 +1,26 @@
+/* Footer.module.css */
+
+.footerContainer {
+    width: 100%;
+    background-color: #f1f1f1;
+    padding: 20px 0; /* Espaciado interior superior e inferior */
+    /* position: fixed; */
+    bottom: 0;
+    left: 0;
+    text-align: center; /* Centrar el contenido horizontalmente */
+}
+
+.socialMedia {
+    display: flex;
+    justify-content: center; /* Centrar los elementos horizontalmente */
+}
+
+.socialIcon {
+    margin: 0 10px; /* Espaciado entre los iconos de redes sociales */
+    text-decoration: none; /* Eliminar subrayado */
+}
+
+.socialImage {
+    width: 24px; /* Tamaño de las imágenes de los iconos */
+    height: 24px; /* Tamaño de las imágenes de los iconos */
+}
