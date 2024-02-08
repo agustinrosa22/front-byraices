@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from './Register.module.css';
-import iconGoogle from '../../Assets/google.png';
+import axios from 'axios';
 
 const Register = () => {
     const [email, setEmail] = useState('');
@@ -44,13 +44,19 @@ const Register = () => {
         setPrefix(e.target.value);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (!email || !password || !name || !lastName || !phoneNumber || !prefix) {
             // Aquí puedes mostrar un mensaje de error indicando que faltan datos
             return;
         }
-        // Aquí puedes enviar los datos al backend para el registro
+        try {
+            const userData = { email, password, name, lastName, phoneNumber, prefix };
+            const response = await axios.post('/user', userData);
+            // Aquí puedes manejar la respuesta del backend según sea necesario
+        } catch (error) {
+            // Aquí puedes manejar el error de la llamada al backend
+        }
     };
 
     const isValidEmail = (email) => {
@@ -149,3 +155,4 @@ const Register = () => {
 };
 
 export default Register;
+
