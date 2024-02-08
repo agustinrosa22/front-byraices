@@ -1,7 +1,6 @@
-// Login.js
-
 import React, { useState } from "react";
 import styles from './Login.module.css';
+import iconGoogle from '../../Assets/google.png'
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -18,8 +17,8 @@ const Login = () => {
         <div className={styles.loginContainer}>
             <div className={styles.card}>
                 <div className={styles.content}>
+                    <form className={styles.form} onSubmit={handleSubmit}>
                     <h1 className={styles.title}>Ingresa tu email</h1>
-                    <form onSubmit={handleSubmit}>
                         <div className={styles.formGroup}>
                             <input
                                 placeholder="Email"
@@ -27,6 +26,7 @@ const Login = () => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
+                                className={styles.inputForm}
                             />
                         </div>
                         <div className={styles.formGroup}>
@@ -36,18 +36,22 @@ const Login = () => {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
+                                className={styles.inputForm}
                             />
                         </div>
                         <button className={styles.buttonSubmit} type="submit">Continuar</button>
                     </form>
                     <p className={styles.forgotPassword}>
-                        <a href="/recuperar-contraseña">Olvidé mi contraseña</a>
+                        <a className={styles.forgotPasswordLink} href="/recuperar-contraseña">Olvidé mi contraseña</a>
                     </p>
                 </div>
                 <div className={styles.googleButton}>
-                    <button type="button">Ingresar con Google</button>
+                    <button type="button">
+                        <img src={iconGoogle} alt="Google Icon" />
+                        Ingresar con Google
+                    </button>
                 </div>
-                <p>¿No tienes cuenta? <a href="/registro">Regístrate aquí</a></p>
+                <p className={styles.registerLink}>¿No tienes cuenta? <a href="/register">Regístrate aquí</a></p>
             </div>
         </div>
     );

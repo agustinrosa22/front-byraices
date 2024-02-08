@@ -16,7 +16,6 @@
 }
 
 .content {
-   border: 1px solid red;
     margin-bottom: 20px;
     padding-top: 1px;
     padding-left: 10%;
@@ -31,20 +30,24 @@
 }
 
 .formGroup {
-    
+  
     margin-bottom: 20px;
 }
+.form {
+    width: 90%; /* Ancho del formulario */
+    margin: auto; /* Centrar el formulario */
+}
 
-input {
-    
-    width: 100%;
+.inputForm {
+    width: 90%;
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
 .buttonSubmit {
-    width: 105%;
+    width: 100%; /* Ancho del botón igual al del contenedor del formulario */
+    margin-top: 15px; /* Espacio entre el botón y los inputs */
     padding: 15px;
     background-color: blue;
     color: #fff;
@@ -59,10 +62,44 @@ input {
 }
 
 .forgotPassword {
-    margin-top: 10px;
-    text-align: right;
+    text-align: center;
+    color: rgb(31, 30, 30);
+    text-decoration: none;
 }
 
 .googleButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 20px;
+    margin-top: 60px; 
 }
+
+.googleButton button {
+    border: 1px solid blue;
+    padding: 15px;
+    color: blue;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.googleButton button img {
+    width: 24px;
+    margin-right: 10px;
+}
+
+.forgotPasswordLink{
+    color: rgb(31, 30, 30);
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.registerLink {
+    margin-top: 30px; 
+    text-align: center; /* Centra el texto horizontalmente */
+    font-size: 16px; /* Cambia el tamaño de la fuente */
+}
+

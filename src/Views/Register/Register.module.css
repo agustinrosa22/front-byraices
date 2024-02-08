@@ -1,0 +1,106 @@
+.registerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    background-color: #fff;
+    width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.content {
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.form {
+    width: 90%; /* Ancho del formulario */
+    margin: auto; /* Centrar el formulario */
+}
+
+.formGroup {
+    margin-bottom: 15px;
+}
+
+.inputForm {
+    width: 90%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.prefixDropdown {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    width: 30%;
+    margin-right: 10px;
+}
+
+.buttonSubmit {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.buttonSubmit:hover {
+    background-color: #0056b3;
+}
+
+.googleButton button {
+    background-color: #db4437;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.googleButton button:hover {
+    background-color: #c1351d;
+}
+
+.registerLink {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.registerLink a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.forgotPassword {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.forgotPasswordLink {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.forgotPasswordLink:hover {
+    text-decoration: underline;
+}
