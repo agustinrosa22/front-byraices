@@ -3,21 +3,21 @@ import styles from './Register.module.css';
 import axios from 'axios';
 
 const Register = () => {
-    const [email, setEmail] = useState('');
+    const [mail, setMail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
     const [lastName, setLastName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [prefix, setPrefix] = useState('');
-    const [emailError, setEmailError] = useState(false);
+    const [mailError, setMailError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
     const [nameError, setNameError] = useState(false);
     const [lastNameError, setLastNameError] = useState(false);
     const [phoneNumberError, setPhoneNumberError] = useState(false);
 
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value);
-        setEmailError(!isValidEmail(e.target.value));
+    const handleMailChange = (e) => {
+        setMail(e.target.value);
+        setMailError(!isValidEmail(e.target.value));
     };
 
     const handlePasswordChange = (e) => {
@@ -46,21 +46,21 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!email || !password || !name || !lastName || !phoneNumber || !prefix) {
-            // Aquí puedes mostrar un mensaje de error indicando que faltan datos
+        if (!mail || !password || !name || !lastName || !phoneNumber || !prefix) {
+            // Mostrar mensaje de error indicando que faltan datos
             return;
         }
         try {
-            const userData = { email, password, name, lastName, phoneNumber, prefix };
+            const userData = { mail, password, name, last_name: lastName, phone_number: prefix + phoneNumber,  };
             const response = await axios.post('/user', userData);
-            // Aquí puedes manejar la respuesta del backend según sea necesario
+            // Manejar la respuesta del backend según sea necesario
         } catch (error) {
-            // Aquí puedes manejar el error de la llamada al backend
+            // Manejar el error de la llamada al backend
         }
     };
 
-    const isValidEmail = (email) => {
-        return /\S+@\S+\.\S+/.test(email);
+    const isValidEmail = (mail) => {
+        return /\S+@\S+\.\S+/.test(mail);
     };
 
     const isValidPassword = (password) => {
@@ -75,8 +75,8 @@ const Register = () => {
         return /^\d+$/.test(phoneNumber);
     };
 
-    const isFormValid = email && password && name && lastName && phoneNumber && prefix && 
-                        !emailError && !passwordError && !nameError && !lastNameError && !phoneNumberError;
+    const isFormValid = mail && password && name && lastName && phoneNumber && prefix && 
+                        !mailError && !passwordError && !nameError && !lastNameError && !phoneNumberError;
 
     return (
         <div className={styles.registerContainer}>
@@ -84,12 +84,12 @@ const Register = () => {
                 <div className={styles.content}>
                     <h1 className={styles.title}>Ingresa tus datos para crear tu cuenta</h1>
                     <form className={styles.form} onSubmit={handleSubmit}>
-                        <div className={`${styles.formGroup} ${emailError ? styles.invalidInput : ''}`}>
+                        <div className={`${styles.formGroup} ${mailError ? styles.invalidInput : ''}`}>
                             <input
                                 placeholder="Email"
                                 type="email"
-                                value={email}
-                                onChange={handleEmailChange}
+                                value={mail}
+                                onChange={handleMailChange}
                                 required
                                 className={styles.inputForm}
                             />
@@ -133,8 +133,31 @@ const Register = () => {
                                 className={styles.prefixDropdown}
                             >
                                 <option value="">Prefijo</option>
-                                <option value="+1">+1</option>
-                                <option value="+52">+52</option>
+                                <option value="+54">+54 (Argentina)</option>
+                                <option value="+591">+591 (Bolivia)</option>
+                                <option value="+55">+55 (Brasil)</option>
+                                <option value="+501">+501 (Belice)</option>
+                                <option value="+56">+56 (Chile)</option>
+                                <option value="+57">+57 (Colombia)</option>
+                                <option value="+506">+506 (Costa Rica)</option>
+                                <option value="+53">+53 (Cuba)</option>
+                                <option value="+599">+599 (Curazao)</option>
+                                <option value="+593">+593 (Ecuador)</option>
+                                <option value="+503">+503 (El Salvador)</option>
+                                <option value="+502">+502 (Guatemala)</option>
+                                <option value="+592">+592 (Guyana)</option>
+                                <option value="+509">+509 (Haití)</option>
+                                <option value="+504">+504 (Honduras)</option>
+                                <option value="+52">+52 (México)</option>
+                                <option value="+505">+505 (Nicaragua)</option>
+                                <option value="+507">+507 (Panamá)</option>
+                                <option value="+595">+595 (Paraguay)</option>
+                                <option value="+51">+51 (Perú)</option>
+                                <option value="+597">+597 (Surinam)</option>
+                                <option value="+598">+598 (Uruguay)</option>
+                                <option value="+1">+1 (Canadá)</option>
+                                <option value="+1">+1 (Estados Unidos)</option>
+                                <option value="+58">+58 (Venezuela)</option>
                                 {/* Agrega más opciones según sea necesario */}
                             </select>
                             <input
@@ -155,4 +178,3 @@ const Register = () => {
 };
 
 export default Register;
-

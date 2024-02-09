@@ -1,106 +1,109 @@
+/* Contenedor principal */
 .registerContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f7f7f7; /* Color de fondo del contenedor */
 }
 
+/* Tarjeta */
 .card {
-    background-color: #fff;
-    width: 500px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+  background-color: #fff;
+  width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
 
+/* Contenido */
 .content {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
+/* Título */
 .title {
-    font-size: 24px;
-    margin-bottom: 20px;
+  padding-left: 5%;
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 600; /* Peso de la fuente del título */
+  color: #333; /* Color del título */
 }
 
+/* Subtítulo */
 .subtitle {
-    font-size: 20px;
-    margin-bottom: 10px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: 500; /* Peso de la fuente del subtítulo */
+  color: #333; /* Color del subtítulo */
 }
 
+/* Formulario */
 .form {
-    width: 90%; /* Ancho del formulario */
-    margin: auto; /* Centrar el formulario */
+  width: 90%;
+  margin: auto;
 }
 
+/* Grupo de formulario */
 .formGroup {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
+  display: flex; /* Flexbox para colocar los elementos uno al lado del otro */
+  align-items: center; /* Alinea los elementos verticalmente */
 }
 
+/* Input */
 .inputForm {
-    width: 90%;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  width: 90%;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
 }
 
+/* Dropdown */
 .prefixDropdown {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 16px;
-    width: 30%;
-    margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  width: 30%;
+  margin-right: 10px;
 }
 
+/* Botón de envío */
 .buttonSubmit {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 18px;
-    cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
 }
 
-.buttonSubmit:hover {
-    background-color: #0056b3;
-}
 
-.googleButton button {
-    background-color: #db4437;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 16px;
-    width: 100%;
-    cursor: pointer;
-}
-
-.googleButton button:hover {
-    background-color: #c1351d;
-}
-
+/* Enlace de registro */
 .registerLink {
-    margin-top: 20px;
-    text-align: center;
+  margin-top: 20px;
+  text-align: center;
 }
 
 .registerLink a {
-    color: #007bff;
-    text-decoration: none;
+  color: #007bff;
+  text-decoration: none;
 }
 
+/* Contraseña olvidada */
 .forgotPassword {
-    text-align: center;
-    margin-top: 20px;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .forgotPasswordLink {
-    color: #007bff;
-    text-decoration: none;
+  color: #007bff;
+  text-decoration: none;
 }
 
 .forgotPasswordLink:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
