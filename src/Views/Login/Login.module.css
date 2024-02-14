@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    margin-top: 5%;
 }
 
 .card {
@@ -47,7 +47,7 @@
 
 .buttonSubmit {
     width: 100%; /* Ancho del botón igual al del contenedor del formulario */
-    margin-top: 15px; /* Espacio entre el botón y los inputs */
+    margin-top: 5%; /* Espacio entre el botón y los inputs */
     padding: 15px;
     background-color: blue;
     color: #fff;

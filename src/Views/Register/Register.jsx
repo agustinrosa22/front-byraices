@@ -171,6 +171,7 @@ const Register = () => {
                         </div>
                         <button className={styles.buttonSubmit} type="submit" disabled={!isFormValid}>Registrarme</button>
                     </form>
+                    <p className={styles.registerLink}>Si tenés cuenta <a href="/login"> Iniciá sesión</a></p>
                 </div>
             </div>
         </div>
