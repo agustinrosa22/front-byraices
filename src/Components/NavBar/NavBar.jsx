@@ -1,7 +1,7 @@
 import React, { useState }  from "react";
 import styles from './NavBar.module.css'
 import { NavLink } from "react-router-dom";
-import logo from '../../Assets/titulo.png'
+import logo from '../../Assets/tituloNuevo.png'
 
 const NavBar = ()=> {
     const [activeLink, setActiveLink] = useState(null);
@@ -22,13 +22,21 @@ const NavBar = ()=> {
                 <NavLink to='/comprar' activeClassName={styles.activeLink} onClick={() => handleNavLinkClick('comprar')} className={activeLink === 'comprar' ? styles.active : ''}>
                     Comprar
                 </NavLink>
-                <NavLink to='/vender' activeClassName={styles.activeLink} onClick={() => handleNavLinkClick('vender')} className={activeLink === 'vender' ? styles.active : ''}>
+                <NavLink to='/sell' activeClassName={styles.activeLink} onClick={() => handleNavLinkClick('vender')} className={activeLink === 'vender' ? styles.active : ''}>
                     Vender
                 </NavLink>
                 <NavLink to='/alquilar' activeClassName={styles.activeLink} onClick={() => handleNavLinkClick('alquilar')} className={activeLink === 'alquilar' ? styles.active : ''}>
                     Alquilar
                 </NavLink>
-                <NavLink to='/contacto' activeClassName={styles.activeLink} onClick={() => handleNavLinkClick('contacto')} className={activeLink === 'contacto' ? styles.active : ''}>
+                <NavLink to='/contact' activeClassName={styles.activeLink} onClick={() => handleNavLinkClick('contacto')} className={activeLink === 'contacto' ? styles.active : ''}>
+                    Emprendimientos
+                </NavLink>
+
+                <NavLink to='/contact' activeClassName={styles.activeLink} onClick={() => handleNavLinkClick('contacto')} className={activeLink === 'contacto' ? styles.active : ''}>
+                    Franquicias
+                </NavLink>
+
+                <NavLink to='/contact' activeClassName={styles.activeLink} onClick={() => handleNavLinkClick('contacto')} className={activeLink === 'contacto' ? styles.active : ''}>
                     Contacto
                 </NavLink>
             </div>
