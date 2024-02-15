@@ -29,7 +29,7 @@ const NavBar = ()=> {
                     Alquilar
                 </NavLink>
                 <NavLink to='/contact' activeClassName={styles.activeLink} onClick={() => handleNavLinkClick('contacto')} className={activeLink === 'contacto' ? styles.active : ''}>
-                    Emprendimientos
+                    Desarrollos
                 </NavLink>
 
                 <NavLink to='/contact' activeClassName={styles.activeLink} onClick={() => handleNavLinkClick('contacto')} className={activeLink === 'contacto' ? styles.active : ''}>
