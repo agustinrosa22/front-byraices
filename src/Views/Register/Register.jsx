@@ -36,8 +36,14 @@ const Register = () => {
     };
 
     const handlePhoneNumberChange = (e) => {
-        setPhoneNumber(e.target.value);
-        setPhoneNumberError(isValidPhoneNumber(e.target.value));
+        const inputValue = e.target.value;
+        const onlyNumbers = /^\d*$/;
+        if (onlyNumbers.test(inputValue)) {
+            setPhoneNumber(inputValue);
+            setPhoneNumberError(false);
+        } else {
+            setPhoneNumberError(true);
+        }
     };
 
     const handlePrefixChange = (e) => {
@@ -87,13 +93,13 @@ const Register = () => {
         return '';
     };
 
-    const isValidPhoneNumber = (phoneNumber) => {
-        const phoneNumberRegex = /^\d+$/;
-        if (!phoneNumberRegex.test(phoneNumber)) {
-            return 'El número de teléfono solo puede contener números';
-        }
-        return '';
-    };
+    // const isValidPhoneNumber = (phoneNumber) => {
+    //     const phoneNumberRegex = /^\d+$/;
+    //     if (!phoneNumberRegex.test(phoneNumber)) {
+    //         return 'El número de teléfono solo puede contener números';
+    //     }
+    //     return '';
+    // };
 
     const isFormValid = mail && password && name && lastName && phoneNumber && prefix && 
                         !mailError && !passwordError && !nameError && !lastNameError && !phoneNumberError;
@@ -149,7 +155,10 @@ const Register = () => {
                             />
                             {lastNameError && <span className={styles.errorText}>{lastNameError}</span>}
                         </div>
+                            
+                       
                         <div className={styles.formGroup}>
+                        <div className={styles.formNumber}>
                             <select
                                 value={prefix}
                                 onChange={handlePrefixChange}
@@ -192,9 +201,12 @@ const Register = () => {
                                 required
                                 className={styles.inputForm}
                             />
-                            {phoneNumberError && <span className={styles.errorText}>{phoneNumberError}</span>}
+                            {/* {phoneNumberError && <span className={styles.errorText}>{phoneNumberError}</span>} */}
                         </div>
-                        <button className={styles.buttonSubmit} type="submit" disabled={!isFormValid}>Registrarme</button>
+                        </div>
+                        <button className={styles.buttonSubmit} type="submit" disabled={!isFormValid || mailError || passwordError || nameError || lastNameError || phoneNumberError}>Registrarme</button>
+
+
                     </form>
                     <p className={styles.registerLink}>Si tenés cuenta <a href="/login"> Iniciá sesión</a></p>
                 </div>
