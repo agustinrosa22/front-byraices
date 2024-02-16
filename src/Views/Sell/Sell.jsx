@@ -4,7 +4,7 @@ import style from './Sell.module.css'
 const Sell = () =>{
     return(
         <div className={style.formContent}>
-
+             <div className={style.card}>
              <h2 className={style.title} >Vendé tu propiedad</h2>
              <p className={style.text}>Completá el formulario y nos pondremos contacto con vos para continuar con el proceso</p>
 
@@ -42,6 +42,7 @@ const Sell = () =>{
                 <input type="hidden" name="_captcha" value="false"/>
                 {/* poner la url correcta */}
              </form>
+        </div>
         </div>
     );
 };
