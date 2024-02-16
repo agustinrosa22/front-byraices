@@ -118,3 +118,10 @@ margin-bottom: 5%;
   display: flex;
   align-items: center;
 }
+
+.optionWithFlag {
+  padding-left: 30px; /* Espacio para la imagen */
+  background-repeat: no-repeat;
+  background-position: left center; /* Posición de la imagen */
+  background-image: url('../../Assets/bandera-arg.png'); /* Ruta de la imagen de la bandera de Argentina */
+}

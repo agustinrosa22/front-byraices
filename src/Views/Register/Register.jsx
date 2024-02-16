@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styles from './Register.module.css';
+import arg from '../../Assets/bandera-arg.png'
 import axios from 'axios';
+
 
 const Register = () => {
     const [mail, setMail] = useState('');
@@ -166,10 +168,14 @@ const Register = () => {
                                 className={styles.prefixDropdown}
                             >
                                 <option value="">Prefijo</option>
-                                <option value="+54">+54 (Argentina)</option>
+                                <option value="+54">
+                                +54 (Argentina) <img src={arg} alt="Bandera de Argentina" className={styles.flagIcon} />
+                                    
+                                    </option>
                                 <option value="+591">+591 (Bolivia)</option>
                                 <option value="+55">+55 (Brasil)</option>
                                 <option value="+501">+501 (Belice)</option>
+                                <option value="+1">+1 (Canadá)</option>
                                 <option value="+56">+56 (Chile)</option>
                                 <option value="+57">+57 (Colombia)</option>
                                 <option value="+506">+506 (Costa Rica)</option>
@@ -177,6 +183,7 @@ const Register = () => {
                                 <option value="+599">+599 (Curazao)</option>
                                 <option value="+593">+593 (Ecuador)</option>
                                 <option value="+503">+503 (El Salvador)</option>
+                                <option value="+1">+1 (Estados Unidos)</option>
                                 <option value="+502">+502 (Guatemala)</option>
                                 <option value="+592">+592 (Guyana)</option>
                                 <option value="+509">+509 (Haití)</option>
@@ -188,8 +195,6 @@ const Register = () => {
                                 <option value="+51">+51 (Perú)</option>
                                 <option value="+597">+597 (Surinam)</option>
                                 <option value="+598">+598 (Uruguay)</option>
-                                <option value="+1">+1 (Canadá)</option>
-                                <option value="+1">+1 (Estados Unidos)</option>
                                 <option value="+58">+58 (Venezuela)</option>
                                 {/* Agrega más opciones según sea necesario */}
                             </select>

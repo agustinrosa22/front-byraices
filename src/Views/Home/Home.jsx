@@ -1,5 +1,6 @@
 import React from "react";
 import style from './Home.module.css'
+import Lupa from '../../Assets/lupa.png'
 
 const Home = ()=>{
     return(
@@ -11,7 +12,7 @@ const Home = ()=>{
             <button className={style.button} onClick={() => window.location.href='/buy'}>Quiero comprar</button>
             <button className={style.button} onClick={() => window.location.href='/alquilar'}>Quiero alquilar</button>
             <button className={style.button} onClick={() => window.location.href='/sell'}>Quiero vender</button>
-            <button className={style.button} onClick={() => window.location.href='/emprendimientos'}>Emprendimientos</button>
+            <button className={style.button} onClick={() => window.location.href='/emprendimientos'}>Desarrollo</button>
         </div>
         <div className={style.searchContainer}>
             <input type="text" className={style.searchInput} placeholder="¿Dónde quieres mudarte?" />
@@ -29,8 +30,13 @@ const Home = ()=>{
                 <option value="quinta">Quinta</option>
                 <option value="otros">Otros</option>
             </select>
-            <button className={style.searchButton}>Buscar</button>
+            <button className={style.searchButton}>
+                        <img src={Lupa} alt="Buscar" />
+                    </button>
         </div>
+        </div>
+        <div>
+            
         </div>
     </div>
     );

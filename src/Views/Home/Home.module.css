@@ -5,19 +5,39 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+   
   }
   
   .intro {
-    background-color: #685757; /* Color de fondo diferente */
-    padding: 20px;
+    border-top: 0px;
+    background-image: url('../../Assets/departamento.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 5%;
     border-radius: 8px;
+    width: 100%;
+    padding-bottom: 10%;
+    position: relative;
+    z-index: 1; /* Asegura que los elementos dentro de .intro estén por encima */
   }
   
+  .intro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1; /* Envía el pseudo-elemento detrás de los elementos hijos de .intro */
+  }
   .title {
-    font-size: 24px;
+    margin-top: -1%;
+    text-align: center;
+    align-items: center;
+    font-size: 50px;
     margin-bottom: 20px;
-    color: #333; /* Color del título */
+    color: #ffffff; /* Color del título */
   }
   
   .buttonsContainer {
@@ -27,12 +47,14 @@
   }
   
   .button {
+    font-size: 16px;
     margin: 0 10px;
-    padding: 10px 20px;
+    padding: 15px 30px;
+    width: 15%; /* Ancho fijo para todos los botones */
     background-color: #fff;
     color: #000;
-    border: 1px solid blue;  
-    border-radius: 4px;
+    border: none;
+    border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease; 
     }
@@ -44,32 +66,40 @@
   .searchContainer {
     display: flex;
     align-items: center;
+    justify-content: center;
   }
   
   .searchInput {
-    width: 300px;
-    padding: 10px;
+    width: 30%;
+    padding: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-right: 10px;
+    
   }
   
   .propertyTypeDropdown {
-    padding: 10px;
+    padding: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-right: 10px;
   }
   
   .searchButton {
-    padding: 10px 20px;
+    padding: 15px 20px;
     background-color: blue; /* Color de fondo del botón */
     color: #fff; /* Color del texto del botón */
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
+
+  .searchButton img {
+    width: 20px; /* Ajusta el tamaño de la imagen según sea necesario */
+    height: 20px;
+    margin-right: 5px; /* Ajusta el margen entre la imagen y el texto según sea necesario */
+}
   
   .searchButton:hover {
     background-color: darkblue; /* Color de fondo al pasar el mouse */
