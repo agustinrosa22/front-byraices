@@ -3,7 +3,7 @@ import style from './Contact.module.css'
 const Contact = () => {
     return (
         <div className={style.formContent}>
-
+             <div className={style.card}>
         <h2 className={style.title} >Envíenos un mensaje</h2>
         <p className={style.text}>Completá el formulario para contactarnos sobre cualquier pregunta o comentario que tengas y nos contactaremos a la brevedad.</p>
 
@@ -31,6 +31,7 @@ const Contact = () => {
            <input type="hidden" name="_captcha" value="false"/>
            {/* poner la url correcta */}
         </form>
+   </div>
    </div>
     );
 };

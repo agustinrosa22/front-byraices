@@ -28,11 +28,11 @@ const NavBar = ()=> {
                 <NavLink to='/alquilar' activeClassName={styles.activeLink} onClick={() => handleNavLinkClick('alquilar')} className={activeLink === 'alquilar' ? styles.active : ''}>
                     Alquilar
                 </NavLink>
-                <NavLink to='/contact' activeClassName={styles.activeLink} onClick={() => handleNavLinkClick('contacto')} className={activeLink === 'contacto' ? styles.active : ''}>
+                <NavLink to='/desarrollo' activeClassName={styles.activeLink} onClick={() => handleNavLinkClick('desarrollo')} className={activeLink === 'desarrollo' ? styles.active : ''}>
                     Desarrollos
                 </NavLink>
 
-                <NavLink to='/contact' activeClassName={styles.activeLink} onClick={() => handleNavLinkClick('contacto')} className={activeLink === 'contacto' ? styles.active : ''}>
+                <NavLink to='/franquicias' activeClassName={styles.activeLink} onClick={() => handleNavLinkClick('franquicias')} className={activeLink === 'franquicias' ? styles.active : ''}>
                     Franquicias
                 </NavLink>
 
