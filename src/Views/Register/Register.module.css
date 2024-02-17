@@ -41,7 +41,7 @@ margin-bottom: 5%;
 
 /* Formulario */
 .form {
-  width: 90%;
+  width: 100%;
   margin: auto;
 }
 
@@ -51,15 +51,18 @@ margin-bottom: 5%;
   display: flex; /* Flexbox para colocar los elementos uno al lado del otro */
   flex-direction: column; /* Coloca los elementos en columnas */
   position: relative;
+
 }
 
 /* Input */
 .inputForm {
-  width: 90%;
+  width: 100%;
   padding: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
+  box-sizing: border-box; /* Incluye borde y relleno en el ancho especificado */
+  margin: 0;
 }
 
 /* Dropdown */

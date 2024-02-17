@@ -21,6 +21,7 @@
     padding-top: 1px;
     padding-left: 10%;
     padding-right: 10%;
+    
    
 }
 
@@ -31,19 +32,22 @@
 }
 
 .formGroup {
-  
     margin-bottom: 20px;
+  
 }
 .form {
     width: 90%; /* Ancho del formulario */
     margin: auto; /* Centrar el formulario */
+    
 }
 
 .inputForm {
-    width: 90%;
+    width: 100%;
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box; /* Incluye borde y relleno en el ancho especificado */
+    margin: 0;
 }
 
 .buttonSubmit {
