@@ -1,13 +1,22 @@
 import { 
   CREATE_USER_REQUEST, 
   CREATE_USER_SUCCESS, 
-  CREATE_USER_FAILURE 
+  CREATE_USER_FAILURE,
+  GET_ACTIVE_PROPERTIES_FOR_SALE_REQUEST,
+  GET_ACTIVE_PROPERTIES_FOR_SALE_SUCCESS,
+  GET_ACTIVE_PROPERTIES_FOR_SALE_FAILURE, 
+  GET_ACTIVE_PROPERTIES_FOR_RENT_REQUEST,
+  GET_ACTIVE_PROPERTIES_FOR_RENT_SUCCESS,
+  GET_ACTIVE_PROPERTIES_FOR_RENT_FAILURE
 } from './Actions/actionTypes';
 
 const initialState = {
-  propertyList: [],
+    properties: [],
+    propertiesForRent: [],
   createUserLoading: false,
-  createUserError: null
+  createUserError: null,
+  loading: false, 
+  error: null, 
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -30,6 +39,44 @@ const rootReducer = (state = initialState, action) => {
               createUserLoading: false,
               createUserError: action.error
           };
+          case GET_ACTIVE_PROPERTIES_FOR_SALE_REQUEST:
+            return {
+              ...state,
+              loading: true,
+              error: null,
+            };
+          case GET_ACTIVE_PROPERTIES_FOR_SALE_SUCCESS:
+            return {
+              ...state,
+              properties: action.payload,
+              loading: false,
+              error: null,
+            };
+          case GET_ACTIVE_PROPERTIES_FOR_SALE_FAILURE:
+            return {
+              ...state,
+              loading: false,
+              error: action.payload,
+            };
+            case GET_ACTIVE_PROPERTIES_FOR_RENT_REQUEST:
+                return {
+                  ...state,
+                  loading: true,
+                  error: null
+                };
+              case GET_ACTIVE_PROPERTIES_FOR_RENT_SUCCESS:
+                return {
+                  ...state,
+                  propertiesForRent: action.payload,
+                  loading: false,
+                  error: null
+                };
+              case GET_ACTIVE_PROPERTIES_FOR_RENT_FAILURE:
+                return {
+                  ...state,
+                  loading: false,
+                  error: action.payload
+                };
       default:
           return state;
   }

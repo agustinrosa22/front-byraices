@@ -3,18 +3,18 @@
     justify-content: space-between;
     align-items: center;
     padding: 2.5rem;
-    border-top: 3px solid blue;
+    border-top: 3px solid #3D2F87;
 }
 .img{
-    width: 170px;
+    width: 60px;
 }
 
 .leftSection {
     flex: 0.5;
     margin: 0; /* Elimina los márgenes externos */
     position: absolute; /* Cambia la posición a absoluta */
-    top: -40px;
-   left: 2%; /* Coloca el título en el 50% del ancho del contenedor */
+    top: 15px;
+   left: 1%; /* Coloca el título en el 50% del ancho del contenedor */
 }
 
 .navLinks {
@@ -39,7 +39,7 @@
 /* Otros estilos */
 .navContainer {
     background-color: #f1f1f1;
-    color: blue;
+    color: #3D2F87;
 }
 
 .navLinks a {
@@ -49,8 +49,8 @@
     transition: color 0.3s ease;
 }
 .navLinks a.active {
-    color: blue;
-    border-bottom: 1px solid blue;
+    color: #3D2F87;
+    border-bottom: 1px solid #3D2F87;
     margin-bottom: -5px; 
 }
 
@@ -60,17 +60,17 @@
 
 .activeLink {
     text-decoration: underline;
-    color: blue; /* Cambiar el color del texto al azul */
+    color: #3D2F87; /* Cambiar el color del texto al azul */
 }
 .butonexit {
     /* Estilos por defecto */
-    border: 1px solid blue;
+    border: 1px solid #3D2F87;
     border-radius: 5px;
     padding: 0.5rem;
     background-color: transparent;
     padding: 8px 16px;
     text-decoration: none;
-    color: blue;
+    color: #3D2F87;
     transition: background-color 0.3s ease; /* Transición suave del color de fondo */
   
     /* Agregamos la regla para el hover */

@@ -60,7 +60,7 @@
     }
     
     .button:hover {
-    background-color: blue;
+    background-color: #3D2F87;
     color: #fff;
     }
   .searchContainer {
@@ -87,7 +87,7 @@
   
   .searchButton {
     padding: 15px 20px;
-    background-color: blue; /* Color de fondo del botón */
+    background-color: #3D2F87; /* Color de fondo del botón */
     color: #fff; /* Color del texto del botón */
     border: none;
     border-radius: 10px;

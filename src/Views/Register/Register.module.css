@@ -79,7 +79,7 @@ margin-bottom: 5%;
 .buttonSubmit {
   width: 100%;
   margin-top: 5%;
-  background-color: blue;
+  background-color: #3D2F87;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -96,7 +96,7 @@ margin-bottom: 5%;
 }
 
 .registerLink a {
-  color: blue;
+  color: #3D2F87;
   text-decoration: none;
 }
 

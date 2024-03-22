@@ -1,7 +1,7 @@
 import React, { useState }  from "react";
 import styles from './NavBar.module.css'
 import { NavLink } from "react-router-dom";
-import logo from '../../Assets/tituloNuevo.png'
+import logo from '../../Assets/titulo.png'
 
 const NavBar = ()=> {
     const [activeLink, setActiveLink] = useState(null);
@@ -19,13 +19,13 @@ const NavBar = ()=> {
                 <NavLink to='/' activeClassName={styles.activeLink} exact onClick={() => handleNavLinkClick('home')} className={activeLink === 'home' ? styles.active : ''}>
                     Home
                 </NavLink>
-                <NavLink to='/comprar' activeClassName={styles.activeLink} onClick={() => handleNavLinkClick('comprar')} className={activeLink === 'comprar' ? styles.active : ''}>
+                <NavLink to='/sale' activeClassName={styles.activeLink} onClick={() => handleNavLinkClick('comprar')} className={activeLink === 'comprar' ? styles.active : ''}>
                     Comprar
                 </NavLink>
                 <NavLink to='/sell' activeClassName={styles.activeLink} onClick={() => handleNavLinkClick('vender')} className={activeLink === 'vender' ? styles.active : ''}>
                     Vender
                 </NavLink>
-                <NavLink to='/alquilar' activeClassName={styles.activeLink} onClick={() => handleNavLinkClick('alquilar')} className={activeLink === 'alquilar' ? styles.active : ''}>
+                <NavLink to='/rent' activeClassName={styles.activeLink} onClick={() => handleNavLinkClick('alquilar')} className={activeLink === 'alquilar' ? styles.active : ''}>
                     Alquilar
                 </NavLink>
                 <NavLink to='/desarrollo' activeClassName={styles.activeLink} onClick={() => handleNavLinkClick('desarrollo')} className={activeLink === 'desarrollo' ? styles.active : ''}>

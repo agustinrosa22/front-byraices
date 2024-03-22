@@ -1,0 +1,110 @@
+/* Card.module.css */
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex; 
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 20px;
+  }
+  
+  .link {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .image {
+    width: 100%; /* Ajustar el ancho de la imagen al 100% del contenedor */
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  
+  .price {
+    font-weight: bold;
+  }
+
+  .sellerimg {
+    width: 50px; /* Tamaño deseado de la imagen */
+    height: 50px;
+    border-radius: 50%; /* Para hacer la imagen redondeada */
+  }
+  
+  .sellerContainer{
+    display: flex; /* Utilizamos flexbox para colocar los elementos en línea */
+  align-items: center; /* Alineamos verticalmente los elementos al centro */
+  width: 100%;
+  box-sizing: border-box;
+padding-top: 25%;
+  }
+
+  .sellerDetails{
+    flex-grow: 1;
+    padding: 10px; 
+    display: flex;
+  }
+
+  
+  .detailsCardContainer {
+    padding-left: 15px;
+    font-size: 16px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 3000px !important;
+  }
+
+  .price{
+    font-size: 46px;
+    color: #333;
+    margin-top: 5px;
+    margin-bottom: -10px;
+  }
+
+  .street{
+    font-size: 20px;
+    color: #333;
+ 
+  
+  }
+  .locality{
+    font-size: 16px;
+    color: #8a8a8a;
+    
+  }
+
+  .WhatsApp{
+    width: 40px;
+    padding: 10px;
+  }
+
+  .email{
+    width: 40px;
+    padding: 10px;
+  }
+
+  .comunication{
+   align-items: end;
+   text-align: end;
+  }
+
+  .vendedorName{
+    font-size: 20px;
+    padding-right: 20px;
+  }
+
+
+  .baño{
+    width: 30px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  }
+
+  .datos{
+    display: flex;
+  }
