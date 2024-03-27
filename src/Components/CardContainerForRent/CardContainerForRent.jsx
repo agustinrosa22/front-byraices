@@ -25,11 +25,23 @@ const RentCardContainer = () => {
     <div>
       {propertiesForRent.map(property => (
         <Card
-          key={property.id}
+        key={property.id}
           id={property.id}
           photo={property.photo}
           price={property.price}
           currency={property.currency}
+          totalSquareMeters={property.totalSquareMeters}
+          coveredSquareMeters={property.coveredSquareMeters}
+          enviroments={property.enviroments}
+          bathrooms={property.bathrooms}
+          title={property.title}
+          sellerId={property.sellerId}
+          street={property.street}
+          number={property.number}
+          country={property.country}
+          province={property.province}
+          departments={property.departments}
+          locality={property.locality}
         />
       ))}
     </div>

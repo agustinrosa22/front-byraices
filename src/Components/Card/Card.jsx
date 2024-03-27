@@ -7,6 +7,8 @@ import Mail from '../../Assets/email.png'
 import baño from '../../Assets/banera.png'
 import m2Casa from '../../Assets/metro-cuadrado.png'
 import m2 from '../../Assets/metro.png';
+import { Carousel } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Card = (props) => {
     const [seller, setSeller] = useState(null);
@@ -24,14 +26,44 @@ const Card = (props) => {
   
       fetchSeller();
     }, [props.sellerId]);
+
+    window.addEventListener('load', () => {
+      const imageContainers = document.querySelectorAll('.imageContainer');
+      imageContainers.forEach(container => {
+          const image = container.querySelector('img');
+          const containerAspectRatio = container.clientWidth / container.clientHeight;
+          const imageAspectRatio = image.naturalWidth / image.naturalHeight;
+          
+          if (imageAspectRatio > containerAspectRatio) {
+              image.style.width = 'auto';
+              image.style.height = '100%';
+          } else {
+              image.style.width = '100%';
+              image.style.height = 'auto';
+          }
+  
+          // Agregar fondo gris si la imagen es más pequeña que el contenedor
+          if (image.clientWidth < container.clientWidth || image.clientHeight < container.clientHeight) {
+              image.style.backgroundColor = '#ccc';
+          }
+      });
+  });
+  
   
     return(
         <div  className={styles.card}>      
+            <div className={styles.imageContainer}>
             <Link to={`/detail/${props.id}`} className={styles.link}>
-            {props.photo && props.photo.length > 0 && (
-              <img src={props.photo[0]} alt={props.nombreProducto} className={styles.image} />
-              )}
+                    <Carousel>
+                        {props.photo &&
+                            props.photo.map((image, index) => (
+                                <Carousel.Item key={index}>
+                                    <img src={image} alt={`Slide ${index}`} className={styles.image} />
+                                </Carousel.Item>
+                            ))}
+                    </Carousel>
               </Link>
+                </div>
 <div className={styles.detailsCardContainer}>
               <Link to={`/detail/${props.id}`} className={styles.link}>
                 <p className={styles.price}>{props.price} {props.currency}</p>

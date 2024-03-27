@@ -10,6 +10,7 @@
     margin-left: 3%;
     margin-right: 3%;
     margin-top: 20px;
+    position: relative;
   }
   
   .link {
@@ -18,12 +19,36 @@
   }
   
   .image {
-    width: 100%; /* Ajustar el ancho de la imagen al 100% del contenedor */
-    height: 100%;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    max-width: 750px;
+    max-height: 400px;
+    object-fit: contain;
+    background-color: #ccc;
+    display: block;
+    margin: auto; /* Centra la imagen horizontalmente */
+    transition: transform 1s ease; /* Agrega una transición suave */
+    border-radius: 10px;
   }
   
+  .imageContainer {
+    width: 90%;
+    height: 400px; /* Ajusta este valor según tus necesidades */
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+   
+   border-radius: 10px;
+}
+
+.imageContainer .carousel-item {
+  display: block !important; /* Asegura que los ítems del carrusel se muestren como flex */
+  justify-content: center;
+  align-items: center;
+}
+
+
+
   .price {
     font-weight: bold;
   }
@@ -39,7 +64,7 @@
   align-items: center; /* Alineamos verticalmente los elementos al centro */
   width: 100%;
   box-sizing: border-box;
-padding-top: 25%;
+
   }
 
   .sellerDetails{
@@ -98,9 +123,8 @@ padding-top: 25%;
 
 
   .baño{
-    width: 30px;
+    width: 50px;
   padding-right: 10px;
-  padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
   }
@@ -108,3 +132,5 @@ padding-top: 25%;
   .datos{
     display: flex;
   }
+
+  
