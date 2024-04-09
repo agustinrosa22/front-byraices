@@ -1,0 +1,20 @@
+.carouselContainer {
+    max-width: 80%; /* ajusta el ancho máximo según tus necesidades */
+    margin: auto; /* centrar el contenedor */
+  }
+
+.carousel {
+    max-width: 80%; /* ajusta el ancho máximo según tus necesidades */
+    margin: auto; /* centrar el carrusel */
+  }
+  
+  .carousel-item {
+    height: 1000px; /* ajusta la altura según tus necesidades */
+  }
+  
+  .carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* para que las imágenes se ajusten al contenedor sin distorsionarse */
+  }
+  

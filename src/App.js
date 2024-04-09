@@ -10,6 +10,7 @@ import Home from './Views/Home/Home';
 import Sale from './Views/Sale/Sale';
 import Rent from './Views/Rent/Rent';
 import { Routes,Route} from 'react-router-dom';  
+import PropertyDetailsPage from './Views/Detail/Detail';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Route path='/contact'element={ <Contact />}/>
       <Route path='/sale'element={ <Sale />}/>
       <Route path='/rent'element={ <Rent />}/>
+      <Route path='/detail/:id'element={ <PropertyDetailsPage />}/>
     </Routes>
     {/* <Footer /> */}
   </div>
