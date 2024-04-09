@@ -10,7 +10,7 @@ const PropertyDetailsPage = ({ match }) => {
   useEffect(() => {
     const fetchProperty = async () => {
       try {
-        const response = await axios.get(`/properties/${id}`);
+        const response = await axios.get(`/property/${id}`);
         setProperty(response.data.data);
         console.log(response.data.data)
       } catch (error) {

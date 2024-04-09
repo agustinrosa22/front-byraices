@@ -11,12 +11,10 @@ const PropertyDetailsView = ({ property }) => {
 
   return (
     <div>
-      <h1>{property.title}</h1>
-      <p>{property.description}</p>
+     
       <div>
-        <h2>Fotos</h2>
         <Row>
-          <Col sm={8}>
+          <Col sm={9} className="mx-auto">
             <div className={style.carouselContainer}>
               <Carousel className={style.carousel} activeIndex={selectedPreview} onSelect={(index) => setSelectedPreview(index)}>
                 {property.photo.map((image, index) => (
@@ -30,30 +28,25 @@ const PropertyDetailsView = ({ property }) => {
               </Carousel>
             </div>
           </Col>
-          <Col sm={4}>
-            <div className={style.previewContainer}>
-              {property.photo.map((image, index) => (
-                <img
-                  key={index}
-                  src={image}
-                  alt={`Preview ${index}`}
-                  className={style.previewImg}
-                  onClick={() => handlePreviewClick(index)}
-                />
-              ))}
-            </div>
-          </Col>
         </Row>
       </div>
       <div>
+        <h3>Venta</h3>
+      <h1>{property.title}</h1>
+      <p> {property.price} {property.currency}</p>
+        <p>{property.totalSquareMeters} m2 totales</p>
+        <p>{property.coveredSquareMeters} m2 cubiertos </p>
+        <p>{property.semiCoveredSquareMeters} m2 semi-cubiertos </p>
+        <p>{property.uncovered} m2 descubiertos</p>
+        <p>{property.land} terreno</p>
+        <p>{property.environments} ambientes</p>
+        <p>{property.rooms} dormitorios</p>
+        <p>{property.bathrooms} baños</p>
+      <p>{property.garages} cochera</p>
+      <p>{property.age} Año de construcción</p>
         <h2>Detalles de la propiedad</h2>
         <p>Tipo de propiedad: {property.propertyType}</p>
-        <p>Precio: {property.price} {property.currency}</p>
-        <p>Metros cuadrados totales: {property.totalSquareMeters}</p>
-        <p>Metros cuadrados cubiertos: {property.coveredSquareMeters}</p>
-        <p>Metros cuadrados semi-cubiertos: {property.semiCoveredSquareMeters}</p>
-        <p>Metros cuadrados descubiertos: {property.uncovered}</p>
-        <p>Año de construcción: {property.age}</p>
+       
         {/* Agrega más detalles según sea necesario */}
       </div>
       <div>
