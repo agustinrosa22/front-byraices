@@ -48,26 +48,27 @@ const renderDetails = (details) => {
     aptoTuristico: "Apto Turístico"
   };
 
-  // Filtra las características que son true y obtiene su representación en texto
   const trueCharacteristics = Object.entries(details)
-    .filter(([key, value]) => value)
-    .map(([key]) => characteristicText[key]);
+  .filter(([key, value]) => value)
+  .map(([key]) => characteristicText[key]);
 
-  // Si no hay características verdaderas, no renderiza nada
-  if (trueCharacteristics.length === 0) {
-    return null;
-  }
+if (trueCharacteristics.length === 0) {
+  return null;
+}
 
-  return (
-    <div>
-      <h2>Características</h2>
+return (
+  <div className={style.dataContainer}>
+    <h2>Características</h2>
+    <div className={style.data}>
       <ul>
         {trueCharacteristics.map((characteristic, index) => (
-          <p key={index}>{characteristic}</p>
+          <li key={index}>{characteristic}</li>
         ))}
       </ul>
     </div>
-  );
+  </div>
+);
+
 };
 
 const renderDetailsAmenities = (details) => {
@@ -118,12 +119,16 @@ const renderDetailsAmenities = (details) => {
 
   return (
     <div>
+    <div className={style.dataContainer}>
       <h2>Amenities</h2>
+      </div>
+      <div className={style.data}>
       <ul>
         {trueAmenities.map((amenity, index) => (
-          <p key={index}>{amenity}</p>
+          <li key={index}>{amenity}</li>
         ))}
       </ul>
+      </div>
     </div>
   );
 };
@@ -166,12 +171,16 @@ const renderDetailsAmbientes = (details) => {
 
   return (
     <div>
+      <div className={style.dataContainer}>
       <h2>Ambientes</h2>
+      </div>
+      <div className={style.data}>
       <ul>
         {trueEnvironmentOptions.map((environmentOption, index) => (
-          <p key={index}>{environmentOption}</p>
+          <li key={index}>{environmentOption}</li>
         ))}
       </ul>
+      </div>
     </div>
   );
 };
@@ -203,12 +212,16 @@ const renderDetailsServicios = (details) => {
 
   return (
     <div>
+       <div className={style.dataContainer}>
       <h2>Servicios</h2>
+      </div>
+      <div className={style.data}>
       <ul>
         {trueServices.map((service, index) => (
-          <p key={index}>{service}</p>
+          <li key={index}>{service}</li>
         ))}
       </ul>
+      </div>
     </div>
   );
 };
@@ -269,25 +282,38 @@ const PropertyDetailsView = ({ property }) => {
           <div className={style.description}>
             <p>{property.description}</p>
           </div>
-          <div className={style.otherData}>
-            {property.propertyType && <p>Tipo de propiedad: {property.propertyType}</p>}
-            {property.totalSquareMeters && <p>Superficie total: {property.totalSquareMeters} m²</p>}
-            {property.land && <p>Superficie terreno: {property.land} m²</p>}
-            {property.semiCoveredSquareMeters && <p>Superficie semicubierta: {property.semiCoveredSquareMeters} m²</p>}
-            {property.coveredSquareMeters && <p>Superficie cubierta: {property.coveredSquareMeters} m²</p>}
-            {property.environments && <p>Ambientes: {property.environments}</p>}
-            {property.age && <p> Año de construcción: {property.age}</p>}
-            {property.rooms && <p>Dormitorios: {property.rooms}</p>} 
-            {property.bathrooms && <p>Baños: {property.bathrooms}</p>}
-            {property.toilettes && <p>Toilets: {property.toilettes}</p>}
-            {property.garages && <p>Cocheras: {property.garages}</p>}
-            {property.floorPlans && <p>Pisos de la propiedad: {property.floorPlans}</p>}
+
+          <div className={style.otherDataContainer}>
+  <div className={style.otherData}>
+    <div className={style.pairContainer}>
+      {property.propertyType && <p>Tipo de propiedad: {property.propertyType}</p>}
+      {property.totalSquareMeters && <p>Superficie total: {property.totalSquareMeters} m²</p>}
+    </div>
+    <div className={style.pairContainer}>
+      {property.land && <p>Superficie terreno: {property.land} m²</p>}
+      {property.semiCoveredSquareMeters && <p>Superficie semicubierta: {property.semiCoveredSquareMeters} m²</p>}
+    </div>
+    <div className={style.pairContainer}>
+      {property.age && <p>Año de construcción: {property.age}</p>}
+      {property.rooms && <p>Dormitorios: {property.rooms}</p>}
+    </div>
+    <div className={style.pairContainer}>
+      {property.bathrooms && <p>Baños: {property.bathrooms}</p>}
+      {property.toilettes && <p>Toilets: {property.toilettes}</p>}
+    </div>
+    <div className={style.pairContainer}>
+      {property.garages && <p>Cocheras: {property.garages}</p>}
+      {property.floorPlans && <p>Pisos de la propiedad: {property.floorPlans}</p>}
+    </div>
+  </div>
+</div>
+
+
             {/* Renderiza las características */}
             {renderDetails(property.characteristics)}
             {renderDetailsAmenities(property.amenities)}
             {renderDetailsAmbientes(property.environmentsOptions)}
             {renderDetailsServicios(property.services)}
-          </div>
         </div>
         <div>
           <h2>Ubicación</h2>

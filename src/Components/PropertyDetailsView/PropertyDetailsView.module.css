@@ -90,3 +90,74 @@ h3 {
   padding-top: 5px;
   border-radius: 5px;
 }
+
+
+.descriptionContainer {
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 60%;
+  display: flex;
+  flex-direction: column; /* Cambia la dirección del flujo a columnas */
+  border: 1px solid rgb(131, 125, 125);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.description {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  flex-basis: 100%;
+}
+
+.otherDataContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.otherData {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pairContainer {
+  width: 50%;
+  padding: 1px;
+  box-sizing: border-box;
+}
+
+.pairContainer p {
+  margin: 0;
+  padding: 5px 0;
+  line-height: 1.5;
+}
+
+
+
+
+
+
+.dataContainer {
+  margin-top: 20px;
+}
+
+.data {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.data ul {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.data li {
+  width: calc(50% - 20px); /* Ancho de cada columna */
+  margin: 5px;
+  box-sizing: border-box;
+}
+
