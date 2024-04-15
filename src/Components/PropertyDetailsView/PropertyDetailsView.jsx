@@ -1,6 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Carousel, Col, Row } from 'react-bootstrap';
+import MapContainer from '../Maps/MapContainer';
 import style from './PropertyDetailsView.module.css';
+import WhatsApp from '../../Assets/whatsapp.png'
+import Mail from '../../Assets/email.png'
+
 
 const renderDetails = (details) => {
   // Mapea las características verdaderas a su representación en texto
@@ -230,6 +235,21 @@ const renderDetailsServicios = (details) => {
 
 const PropertyDetailsView = ({ property }) => {
   const [selectedPreview, setSelectedPreview] = useState(0);
+  const [seller, setSeller] = useState(null);
+
+  useEffect(() => {
+    const fetchSeller = async () => {
+      try {
+        // Obtener los datos del usuario vendedor asociado al sellerId
+        const response = await axios.get(`http://localhost:3001/seller/${property.sellerId}`);
+        setSeller(response.data.data);
+      } catch (error) {
+        console.error('Error al obtener los datos del vendedor:', error);
+      }
+    };
+
+    fetchSeller();
+  }, [property.sellerId]);
 
   const handlePreviewClick = (index) => {
     setSelectedPreview(index);
@@ -267,9 +287,6 @@ const PropertyDetailsView = ({ property }) => {
           <div className={style.ContainerPrincipalData}>
             <p>{property.totalSquareMeters} m² totales</p>
             <p>{property.coveredSquareMeters} m² cubiertos </p>
-            <p>{property.semiCoveredSquareMeters} m² semi-cubiertos </p>
-            <p>{property.uncovered} m² descubiertos</p>
-            <p>{property.land} m² terreno</p>
             <p>{property.environments} ambientes</p>
             <p>{property.rooms} dormitorios</p>
             <p>{property.bathrooms} baños</p>
@@ -315,13 +332,75 @@ const PropertyDetailsView = ({ property }) => {
             {renderDetailsAmbientes(property.environmentsOptions)}
             {renderDetailsServicios(property.services)}
         </div>
-        <div>
+        <div className={style.ubicationContainer}>
           <h2>Ubicación</h2>
-          <p>País: {property.country}</p>
-          <p>Provincia: {property.province}</p>
-          <p>Departamento: {property.departments}</p>
-          <p>Localidad: {property.locality}</p>
-          <p>Dirección: {property.street} {property.number}</p>
+          <div className={style.dataUbication}>
+          {property.street && property.number && <p>{property.street} {property.number}, </p>}
+          {property.departments && <p>{property.departments},</p>}
+          {property.locality && <p>{property.locality},</p>}
+          {property.province && <p>{property.province},</p>}
+          {property.country && <p> {property.country}</p>}
+          </div>
+          <MapContainer location={property.location} />
+
+        </div>
+        <div>
+        {seller && (
+                <div className={style.sellerContainer}>
+
+
+                  <div className={style.contacto}>
+                    <h1>Contacto</h1>
+                    <div className={style.redes}>
+                    <a href={`mailto:${seller.mail}`} target="_blank" rel="noopener noreferrer">
+                <img className={style.email} src={Mail} alt="" />
+            </a>
+            <a href={`https://wa.me/${seller.phone_number}`} className={style.whatsappButton}>
+            {/* Otros detalles del vendedor */}
+            <img className={style.WhatsApp} src={WhatsApp} alt="" />
+            </a>
+            </div>
+                  </div> 
+
+
+
+            <div className={style.sellerDetails}>
+            <img src={seller.photo} alt="" className={style.sellerimg}/>
+            <p className={style.vendedorName}> {seller.name} {seller.last_name}</p>
+                  
+          </div>
+          <div className={style.formContent}>
+             <div className={style.card}>
+        <h2 className={style.title} >Envíenos un mensaje</h2>
+
+        <form className={style.mailForm} action={`https://formsubmit.co/${seller.mail}`} method="POST" >
+           <label className={style.mailLabel} htmlFor="name">Nombre</label>
+           <input className={style.inputText} type="text" name='name' id='name'/>
+
+           <label className={style.mailLabel} htmlFor="email">Correo electronico</label>
+           <input className={style.inputText} type="email" name='email' id='email' />
+
+           <label className={style.mailLabel} htmlFor="email">Telefono</label>
+           <input className={style.inputText} type="Text" name='Phone' id='Phone' />
+
+           <label className={style.mailLabel} htmlFor="email">Direccion</label>
+           <input className={style.inputText} type="Text" name='direction' id='direction' />
+
+           <label className={style.mailLabel} htmlFor="subject">Asunto</label>
+                <input className={style.inputText} type="text" name="subject" id="subject" />
+
+           <label className={style.mailLabel} htmlFor="coments">Comentarios</label>
+           <textarea className={style.inputText} name="coments" id="coments" cols="30" rows="5"></textarea>
+
+           <input className={style.btn} type="submit" value="Enviar"/>
+           <input type="hidden" name="_next" value="http://localhost:3000/"/>
+           <input type="hidden" name="_captcha" value="false"/>
+           {/* poner la url correcta */}
+        </form>
+   </div>
+   </div>
+          </div>
+        )}
         </div>
       </div>
     </div>
