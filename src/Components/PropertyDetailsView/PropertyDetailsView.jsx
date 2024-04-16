@@ -275,7 +275,8 @@ const PropertyDetailsView = ({ property }) => {
           </Col>
         </Row>
       </div>
-      <div>
+      <div className={style.container}>
+      <div className={style.leftContent}>
         <div className={style.ContainerIntro}>
           <div className={style.ContainerSell}>
             <div className={style.SellTitle}>
@@ -344,7 +345,8 @@ const PropertyDetailsView = ({ property }) => {
           <MapContainer location={property.location} />
 
         </div>
-        <div>
+        </div>
+        <div className={style.rightContent}>
         {seller && (
                 <div className={style.sellerContainer}>
 
@@ -402,7 +404,7 @@ const PropertyDetailsView = ({ property }) => {
           </div>
         )}
         </div>
-      </div>
+        </div>
     </div>
   );
 };

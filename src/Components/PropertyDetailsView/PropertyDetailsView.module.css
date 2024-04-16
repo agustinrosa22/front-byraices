@@ -36,7 +36,7 @@
 .ContainerIntro {
   margin-top: 50px;
   margin-left: 10px;
-  width: 40%;
+  width: 600px;
   display: flex;
   flex-direction: column; /* Cambia la dirección del flujo a columnas */
   border: 1px solid rgb(131, 125, 125);
@@ -95,7 +95,7 @@ h3 {
 .descriptionContainer {
   margin-top: 10px;
   margin-left: 10px;
-  width: 40%;
+ width: 600px;
   display: flex;
   flex-direction: column; /* Cambia la dirección del flujo a columnas */
   border: 1px solid rgb(131, 125, 125);
@@ -164,7 +164,6 @@ h3 {
 .ubicationContainer{
   margin-top: 10px;
   margin-left: 10px;
-  width: 40%;
   display: flex;
   flex-direction: column; /* Cambia la dirección del flujo a columnas */
   border: 1px solid rgb(131, 125, 125);
@@ -183,7 +182,7 @@ h3 {
 .sellerContainer {
   margin-top: 10px;
   margin-left: 10px;
-  width: 20%;
+  width: 300px;
   display: flex;
   flex-direction: column; /* Cambia la dirección del flujo a columnas */
   border: 1px solid rgb(131, 125, 125);
@@ -241,7 +240,7 @@ h3 {
 
 /* Estilo de la tarjeta */
 .card {
-  width: 100%;
+  width: auto;
   max-width: 400px; /* Ancho máximo de la tarjeta */
   padding: 0px;
   border-radius: 10px;
@@ -306,4 +305,22 @@ h3 {
 .btn:hover {
   background-color: darkblue;
 }
+
+.container {
+  display: flex; /* Utiliza flexbox para alinear los elementos en fila */
+  justify-content: center; /* Centra los elementos horizontalmente */
+}
+
+.leftContent {
+  margin-left: 50%; 
+}
+
+.rightContent {
+  flex: 1; /* Hace que los contenedores ocupen el mismo espacio */
+  margin-right: 50%; /* Agrega un pequeño espacio entre los contenedores */
+  margin-top: 40px;
+}
+
+
+
 
