@@ -7,6 +7,7 @@
   display: flex;
   justify-content: center;
   border-radius: 10px;
+  margin-top: 1%;
 }
 
 .carousel-item{
@@ -36,12 +37,13 @@
 .ContainerIntro {
   margin-top: 50px;
   margin-left: 10px;
-  width: 600px;
+  width: 850px;
   display: flex;
   flex-direction: column; /* Cambia la dirección del flujo a columnas */
   border: 1px solid rgb(131, 125, 125);
   padding: 15px;
   border-radius: 10px;
+  transition: border-color 0.5s;
 }
 
 .ContainerIntro:hover {
@@ -95,13 +97,19 @@ h3 {
 .descriptionContainer {
   margin-top: 10px;
   margin-left: 10px;
- width: 600px;
+  width: auto;
   display: flex;
   flex-direction: column; /* Cambia la dirección del flujo a columnas */
   border: 1px solid rgb(131, 125, 125);
   padding: 15px;
   border-radius: 10px;
+  transition: border-color 0.5s;
 }
+
+.descriptionContainer:hover {
+  border-color: #3D2F87; /* Cambia el color del borde al pasar el mouse sobre el contenedor */
+}
+
 
 .description {
   flex-wrap: wrap;
@@ -169,6 +177,12 @@ h3 {
   border: 1px solid rgb(131, 125, 125);
   padding: 15px;
   border-radius: 10px;
+  transition: border-color 0.5s;
+}
+
+
+.ubicationContainer:hover {
+  border-color: #3D2F87; /* Cambia el color del borde al pasar el mouse sobre el contenedor */
 }
 
 .dataUbication{
@@ -182,13 +196,18 @@ h3 {
 .sellerContainer {
   margin-top: 10px;
   margin-left: 10px;
-  width: 300px;
+  width: 400px;
   display: flex;
   flex-direction: column; /* Cambia la dirección del flujo a columnas */
   border: 1px solid rgb(131, 125, 125);
   padding: 15px;
   border-radius: 10px;
   box-sizing: border-box;
+  transition: border-color 0.5s;
+}
+
+.sellerContainer:hover {
+  border-color: #3D2F87; /* Cambia el color del borde al pasar el mouse sobre el contenedor */
 }
 
 
@@ -205,6 +224,15 @@ h3 {
   width: 50px; /* Tamaño deseado de la imagen */
   height: 50px;
   border-radius: 50%; /* Para hacer la imagen redondeada */
+  display: flex; 
+  align-items: center;
+}
+.vendedorName {
+  display: flex; 
+  align-items: center;
+  margin-left: 5%;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .contacto {
