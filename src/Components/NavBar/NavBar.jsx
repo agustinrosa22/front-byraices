@@ -8,7 +8,11 @@ const NavBar = () => {
 
     const handleNavLinkClick = (link) => {
         setActiveLink(link);
-    };
+        console.log("activeLink actualizado:", link);
+        setTimeout(() => {
+            console.clear(); // Limpiar la consola después de 3 segundos
+        }, 3000); // Tiempo en milisegundos
+    };    
 
     return (
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">

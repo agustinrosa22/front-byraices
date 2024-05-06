@@ -1,5 +1,5 @@
 .img {
-    max-width: 120px;
+    max-width: 90px;
   }
   
 .active {
@@ -20,31 +20,32 @@
   }
   
 .butonexit:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
+    background-color: #0056b3 ;
+    border-color: #0056b3 !important;
   }
   
 .navbar {
-    background-color: #ffffff;
+    background-color: #ffffff !important;
   }
   
 .nav-link {
     color: #000000;
     padding: 0.5rem 1rem;
     border-radius: 8px;
-    background-color: #f0f0f0; /* Fondo gris claro */
+    background-color: grey; /* Fondo gris claro */
     border: 2px solid transparent; /* Borde transparente */
     transition: background-color 0.3s ease-in-out; /* Transición suave del color de fondo */
 }
-  
+
 .nav-link:hover {
-    background-color: #e0e0e0; /* Cambio de color de fondo al pasar el mouse */
+    background-color: #007bff !important; /* Cambio de color de fondo al pasar el mouse */
 }
 
-.nav-link.active {
-    background-color: #007bff; /* Fondo azul cuando el enlace está activo */
-    color: #ffffff; /* Texto blanco cuando el enlace está activo */
-  }
+.nav-link:active {
+  background-color: #007bff; /* Fondo azul cuando el enlace está activo */
+  color: #ffffff; /* Color de texto blanco */
+}
+
   
 .dropdown-item {
     color: #000000;
@@ -61,7 +62,7 @@
     border-radius: 8px;
     position: absolute;
     top: calc(100% + 8px);
-    right: 0; /* Alinea el menú a la derecha */
+    right: 0;
 }
 
 .dropdown-menu.show {
@@ -70,4 +71,22 @@
 
 .navbar-nav {
     margin-left: auto; /* Mueve el menú hacia la derecha */
+}
+
+.activeLink{
+  background-color: #007bff !important;
+}
+
+/* Establecer el tamaño de fuente para pantallas más grandes */
+@media (min-width: 992px) {
+  :root {
+    --bs-nav-link-font-size: 23px; /* Tamaño de fuente más grande para pantallas grandes */
+  }
+}
+
+/* Establecer el tamaño de fuente para pantallas más pequeñas */
+@media (max-width: 991px) {
+  :root {
+    --bs-nav-link-font-size: 17px; /* Tamaño de fuente más pequeño para pantallas pequeñas */
+  }
 }
