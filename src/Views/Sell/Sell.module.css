@@ -75,20 +75,3 @@
 .btn:hover {
   background-color: darkblue;
 }
-
-/* Media queries */
-
-/* Pantallas pequeñas */
-@media (max-width: 768px) {
-  /* Agregar estilos específicos para pantallas pequeñas si es necesario */
-}
-
-/* Pantallas medianas */
-@media (min-width: 769px) and (max-width: 1024px) {
-  /* Agregar estilos específicos para pantallas medianas si es necesario */
-}
-
-/* Pantallas grandes */
-@media (min-width: 1025px) {
-  /* Agregar estilos específicos para pantallas grandes si es necesario */
-}
