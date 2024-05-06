@@ -1,0 +1,77 @@
+.img {
+    max-width: 120px;
+  }
+  
+.active {
+    color: #007bff !important;
+  }
+  
+.dropdown {
+    margin-right: 10px;
+  }
+  
+.butonexit {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+.butonexit:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
+.navbar {
+    background-color: #ffffff;
+  }
+  
+.nav-link {
+    color: #000000;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    background-color: #f0f0f0; /* Fondo gris claro */
+    border: 2px solid transparent; /* Borde transparente */
+    transition: background-color 0.3s ease-in-out; /* Transición suave del color de fondo */
+}
+  
+.nav-link:hover {
+    background-color: #e0e0e0; /* Cambio de color de fondo al pasar el mouse */
+}
+
+.nav-link.active {
+    background-color: #007bff; /* Fondo azul cuando el enlace está activo */
+    color: #ffffff; /* Texto blanco cuando el enlace está activo */
+  }
+  
+.dropdown-item {
+    color: #000000;
+  }
+  
+.dropdown-item:hover,
+.dropdown-item.active {
+    background-color: #007bff;
+    color: #ffffff;
+  }
+  
+.dropdown-menu {
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0; /* Alinea el menú a la derecha */
+}
+
+.dropdown-menu.show {
+    margin-top: 8px;
+}
+
+.navbar-nav {
+    margin-left: auto; /* Mueve el menú hacia la derecha */
+}
+
+.activeLink{
+    background-color: #0056b3;
+}

@@ -1,0 +1,77 @@
+/* Sell.module.css */
+
+/* Contenedor principal */
+.formContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Estilo de la tarjeta */
+.card {
+  width: 100%;
+  max-width: 400px; /* Ancho máximo de la tarjeta */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra del borde */
+  background-color: #F5F5F5; /* Color de fondo de la tarjeta */
+}
+
+/* Título */
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Texto */
+.text {
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Formulario */
+.mailForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Etiqueta del input */
+.mailLabel {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+/* Input de texto y textarea */
+.inputText {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  box-sizing: border-box; /* Incluye borde y relleno en el ancho especificado */
+  margin: 0;
+}
+
+/* Botón de envío */
+.btn {
+  margin-top: 3%;
+  width: 100%;
+  padding: 15px;
+  background-color: #3D2F87;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: darkblue;
+}
