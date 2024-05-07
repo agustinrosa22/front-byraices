@@ -1,86 +1,16 @@
 .img {
-    max-width: 90px;
+    max-width: 60px;
   }
-  
-.active {
-    color: #007bff !important;
-  }
-  
-.dropdown {
-    margin-right: 10px;
-  }
-  
-.butonexit {
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
-    padding: 10px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-  }
-  
-.butonexit:hover {
-    background-color: #0056b3 ;
-    border-color: #0056b3 !important;
-  }
-  
-.navbar {
-    background-color: #ffffff !important;
-  }
-  
-.nav-link {
-    color: #000000;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    background-color: grey; /* Fondo gris claro */
-    border: 2px solid transparent; /* Borde transparente */
-    transition: background-color 0.3s ease-in-out; /* Transición suave del color de fondo */
-}
-
-.nav-link:hover {
-    background-color: #007bff !important; /* Cambio de color de fondo al pasar el mouse */
-}
-
-.nav-link:active {
-  background-color: #007bff; /* Fondo azul cuando el enlace está activo */
-}
-
-  
-.dropdown-item {
-    color: #000000;
-  }
-  
-.dropdown-item:hover,
-.dropdown-item.active {
-    background-color: #007bff;
-    color: #ffffff;
-  }
-  
-.dropdown-menu {
-    border: 2px solid #007bff;
-    border-radius: 8px;
-    position: absolute;
-    top: calc(100% + 8px);
-    right: 0;
-}
-
-.dropdown-menu.show {
-    margin-top: 8px;
-}
-
-.navbar-nav {
-    margin-left: auto; /* Mueve el menú hacia la derecha */
-}
-
-.--bs-nav-link-color{
-  --bs-nav-link-color: var(--bs-navbar-color);
-}
 
 /* Establecer el tamaño de fuente para pantallas más grandes */
 @media (min-width: 992px) {
   :root {
     --bs-nav-link-font-size: 23px; /* Tamaño de fuente más grande para pantallas grandes */
   }
+  .navCenter {
+    display: flex;
+    align-items: center;
+}
 }
 
 /* Establecer el tamaño de fuente para pantallas más pequeñas */
@@ -88,7 +18,11 @@
   :root {
     --bs-nav-link-font-size: 17px; /* Tamaño de fuente más pequeño para pantallas pequeñas */
   }
-  .img {
-    max-width: 75px;
+  .logo {
+    max-width: 35px;
   }
+  .navCenter {
+    display: flex;
+    align-items: center;
+}
 }

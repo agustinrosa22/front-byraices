@@ -21,7 +21,7 @@ const NavBar = () => {
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="mr-auto">
+                <Nav className={`mx-auto ${styles.navCenter}`}>
                     <Nav.Link href="/" onClick={() => handleNavLinkClick('home')} className={activeLink === 'home' ? styles.active : ''}>
                         Home
                     </Nav.Link>
