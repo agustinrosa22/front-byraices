@@ -43,7 +43,6 @@
 
 .nav-link:active {
   background-color: #007bff; /* Fondo azul cuando el enlace está activo */
-  color: #ffffff; /* Color de texto blanco */
 }
 
   
@@ -73,8 +72,8 @@
     margin-left: auto; /* Mueve el menú hacia la derecha */
 }
 
-.activeLink{
-  background-color: #007bff !important;
+.--bs-nav-link-color{
+  --bs-nav-link-color: var(--bs-navbar-color);
 }
 
 /* Establecer el tamaño de fuente para pantallas más grandes */
@@ -88,5 +87,8 @@
 @media (max-width: 991px) {
   :root {
     --bs-nav-link-font-size: 17px; /* Tamaño de fuente más pequeño para pantallas pequeñas */
+  }
+  .img {
+    max-width: 75px;
   }
 }

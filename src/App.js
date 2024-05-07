@@ -11,6 +11,8 @@ import Sale from './Views/Sale/Sale';
 import Rent from './Views/Rent/Rent';
 import { Routes,Route} from 'react-router-dom';  
 import PropertyDetailsPage from './Views/Detail/Detail';
+import Footer from './Components/Footer/Footer';
+
 
 function App() {
   return (
@@ -26,7 +28,7 @@ function App() {
       <Route path='/rent'element={ <Rent />}/>
       <Route path='/detail/:id'element={ <PropertyDetailsPage />}/>
     </Routes>
-    {/* <Footer /> */}
+    <Footer /> 
   </div>
   );
 }
