@@ -49,7 +49,7 @@ const Card = (props) => {
       });
   });
   
-  
+    console.log(props)
     return(
         <div  className={styles.card}>      
             <div className={styles.imageContainer}>

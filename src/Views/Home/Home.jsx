@@ -1,6 +1,7 @@
 import React from "react";
 import style from './Home.module.css';
 import Lupa from '../../Assets/lupa.png';
+import Property from "../../Components/CardProperty/CardProperty"
 
 const Home = () => {
     return (
@@ -34,8 +35,7 @@ const Home = () => {
                     </button>
                 </div>
             </div>
-            <div>
-            </div>
+            <Property />
         </div>
     );
 };
