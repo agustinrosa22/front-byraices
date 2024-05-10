@@ -78,3 +78,52 @@
   .butonexit:hover {
     background-color: rgb(189, 189, 233); /* Cambiamos el color de fondo al pasar el mouse */
   }
+  .navbar-collapse {
+    /* Estilos para el desplegable del Navbar */
+    justify-content: center; /* Ejemplo */
+  }
+
+  
+
+  /* Establecer el tamaño de fuente para pantallas más grandes */
+@media (min-width: 992px) {
+  :root {
+    --bs-nav-link-font-size: 23px; /* Tamaño de fuente más grande para pantallas grandes */
+  }
+  .navCenter {
+    display: flex;
+    align-items: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 3px solid #3D2F87;
+}
+
+}
+
+/* Establecer el tamaño de fuente para pantallas más pequeñas */
+@media (max-width: 991px) {
+  :root {
+    --bs-nav-link-font-size: 17px; /* Tamaño de fuente más pequeño para pantallas pequeñas */
+  }
+  .logo {
+    max-width: 35px;
+  }
+  .navCenter {
+    display: flex;
+    align-items: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    border-top: 3px solid #3D2F87;
+}
+
+
+}
