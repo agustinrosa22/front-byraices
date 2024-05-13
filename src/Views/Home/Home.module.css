@@ -105,3 +105,10 @@
     background-color: darkblue; /* Color de fondo al pasar el mouse */
   }
   
+
+  @media screen and (max-width: 550px) {
+    .button {
+        font-size: 12px;
+        padding: 8px 15px; /* Ajustar el espaciado del texto dentro de los botones */
+    }
+  }
