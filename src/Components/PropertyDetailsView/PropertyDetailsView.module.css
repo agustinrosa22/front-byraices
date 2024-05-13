@@ -185,6 +185,10 @@ h3 {
   border-color: #3D2F87; /* Cambia el color del borde al pasar el mouse sobre el contenedor */
 }
 
+div.ubicationContainer{
+  margin-bottom: 150px /* Puedes ajustar este valor según sea necesario */
+}
+
 .dataUbication{
   display: flex;
 }
@@ -333,11 +337,7 @@ h3 {
 
 .container {
   display: flex; /* Utiliza flexbox para alinear los elementos en fila */
-  justify-content: center; /* Centra los elementos horizontalmente */
-}
-
-.leftContent {
-  margin-left: 50%; 
+  justify-content: space-between; /* Centra los elementos horizontalmente */
 }
 
 .rightContent {
@@ -346,20 +346,52 @@ h3 {
   margin-top: 40px;
 }
 
-/* Media queries */
+/* QUERYS */
 
-/* Pantallas pequeñas */
-@media (max-width: 768px) {
-  /* Agregar estilos específicos para pantallas pequeñas si es necesario */
+@media (max-width: 390px) {
+  .container {
+    position: relative; /* Asegura que el posicionamiento sea relativo */
+    display: flex; /* Usa flexbox para centrar verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    flex-direction: column; /* Alinear el contenido verticalmente */
+    max-width: 0%; /* Limita el ancho del contenido */
+    margin: auto; /* Centra horizontalmente */
+    margin-top: 50px; /* Ajusta el margen superior según sea necesario */
+  }
+  .descriptionContainer {
+    margin-bottom: 20px; /* Reducir el margen inferior */
+  }
+  
+  .leftContent {
+    margin-bottom: 20px; /* Reducir el margen inferior */
+  }
+
+  .ContainerIntro{
+    width: 250px;
+  }
 }
 
-/* Pantallas medianas */
-@media (min-width: 769px) and (max-width: 1024px) {
-  /* Agregar estilos específicos para pantallas medianas si es necesario */
-}
+@media only screen and (min-width: 768px) and (max-width: 1439px) {
+  .container {
+    position: relative; /* Asegura que el posicionamiento sea relativo */
+    display: flex; /* Usa flexbox para centrar verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    flex-direction: column; /* Alinear el contenido verticalmente */
+    max-width: 0%; /* Limita el ancho del contenido */
+    margin: auto; /* Centra horizontalmente */
+    margin-top: 50px; /* Ajusta el margen superior según sea necesario */
+  }
+  .descriptionContainer {
+    margin-bottom: 20px; /* Reducir el margen inferior */
+  }
+  
+  .leftContent {
+    margin-bottom: 20px; /* Reducir el margen inferior */
+  }
 
-/* Pantallas grandes */
-@media (min-width: 1025px) {
-  /* Agregar estilos específicos para pantallas grandes si es necesario */
+  .ContainerIntro{
+    width: 500px;
+  }
 }
-

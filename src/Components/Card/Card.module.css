@@ -132,3 +132,23 @@
   .datos{
     display: flex;
   }
+
+  @media (max-width: 767px) {
+    .datos {
+      flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas más pequeñas */
+      justify-content: center; /* Centra los elementos en el contenedor */
+    }
+  
+    .datos > * {
+      margin-right: 10px; /* Agrega un margen entre los elementos */
+      margin-bottom: 10px; /* Agrega un margen inferior entre los elementos */
+    }
+  }
+  .Card_image__\+WSBE {
+    position: absolute; /* Establece la posición absoluta para la imagen */
+    top: 0; /* Coloca la imagen en la parte superior del contenedor */
+    left: 50%; /* Centra horizontalmente la imagen */
+    transform: translateX(-50%); /* Corrige la posición horizontal */
+  }
+
+

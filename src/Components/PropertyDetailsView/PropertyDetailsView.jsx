@@ -251,29 +251,34 @@ const PropertyDetailsView = ({ property }) => {
     fetchSeller();
   }, [property.sellerId]);
 
-  const handlePreviewClick = (index) => {
+  const handleThumbnailClick = (index) => {
     setSelectedPreview(index);
   };
 
   return (
-    <div>
-      <div>
-        <Row>
-          <Col sm={9} className="mx-auto">
-            <div className={style.carouselContainer}>
-              <Carousel className={style.carousel} activeIndex={selectedPreview} onSelect={(index) => setSelectedPreview(index)}>
-                {property.photo.map((image, index) => (
-                  <Carousel.Item key={index} className={style['carousel-item']}>
-                    <img src={image} className={`d-block ${style['carousel-img']}`} alt={`Slide ${index}`} />
-                    <Carousel.Caption>
-                      <p>{index + 1} de {property.photo.length}</p>
-                    </Carousel.Caption>
-                  </Carousel.Item>
-                ))}
-              </Carousel>
-            </div>
-          </Col>
-        </Row>
+    <div className="container">
+      <div className="main-carousel">
+        <Carousel activeIndex={selectedPreview} onSelect={(index) => setSelectedPreview(index)} wrap={false}>
+          {property.photo.map((image, index) => (
+            <Carousel.Item key={index}>
+              <img src={image} className="d-block w-100" alt={`Slide ${index}`} />
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      </div>
+      <div className="thumbnail-carousel">
+        <div className="thumbnails">
+          {property.photo.map((image, index) => (
+            <img
+              key={index}
+              src={image}
+              alt={`Thumbnail ${index}`}
+              className={`thumbnail ${selectedPreview === index ? 'active' : ''}`}
+              onClick={() => handleThumbnailClick(index)}
+              style={{ width: '150px', height: 'auto', marginRight: '10px', cursor: 'pointer' }}
+            />
+          ))}
+        </div>
       </div>
       <div className={style.container}>
       <div className={style.leftContent}>
