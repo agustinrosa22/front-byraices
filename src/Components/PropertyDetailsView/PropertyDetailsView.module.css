@@ -198,8 +198,8 @@ div.ubicationContainer{
 }
 
 .sellerContainer {
-  margin-top: 10px;
-  margin-left: 10px;
+  margin-top: 50px;
+  margin-left: 20px;
   width: 400px;
   display: flex;
   flex-direction: column; /* Cambia la dirección del flujo a columnas */
@@ -343,7 +343,16 @@ div.ubicationContainer{
 .rightContent {
   flex: 1; /* Hace que los contenedores ocupen el mismo espacio */
   margin-right: 50%; /* Agrega un pequeño espacio entre los contenedores */
-  margin-top: 40px;
+  margin-top: none;
+}
+
+.col-md-4 div{
+  width: 400px;
+}
+
+.container .thumbnail {
+  max-width: 100px;
+  /* Otros estilos */
 }
 
 /* QUERYS */
@@ -368,7 +377,17 @@ div.ubicationContainer{
   }
 
   .ContainerIntro{
-    width: 250px;
+    width: 350px;
+  }
+
+  .sellerContainer{
+    width: 345px;
+    margin-top: -155px;
+  }
+
+  .container .thumbnail {
+    max-width: 51110px;
+    /* Otros estilos para dispositivos más pequeños */
   }
 }
 
@@ -392,6 +411,8 @@ div.ubicationContainer{
   }
 
   .ContainerIntro{
-    width: 500px;
+    width: 750px;
   }
+
+
 }

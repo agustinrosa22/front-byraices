@@ -257,27 +257,33 @@ const PropertyDetailsView = ({ property }) => {
 
   return (
     <div className="container">
-      <div className="main-carousel">
-        <Carousel activeIndex={selectedPreview} onSelect={(index) => setSelectedPreview(index)} wrap={false}>
-          {property.photo.map((image, index) => (
-            <Carousel.Item key={index}>
-              <img src={image} className="d-block w-100" alt={`Slide ${index}`} />
-            </Carousel.Item>
-          ))}
-        </Carousel>
-      </div>
-      <div className="thumbnail-carousel">
-        <div className="thumbnails">
-          {property.photo.map((image, index) => (
-            <img
-              key={index}
-              src={image}
-              alt={`Thumbnail ${index}`}
-              className={`thumbnail ${selectedPreview === index ? 'active' : ''}`}
-              onClick={() => handleThumbnailClick(index)}
-              style={{ width: '150px', height: 'auto', marginRight: '10px', cursor: 'pointer' }}
-            />
-          ))}
+      <div className="row">
+        <div className="col-md-8">
+          <div className="main-carousel">
+            <Carousel activeIndex={selectedPreview} onSelect={(index) => setSelectedPreview(index)} wrap={false}>
+              {property.photo.map((image, index) => (
+                <Carousel.Item key={index}>
+                  <img src={image} className="d-block w-100" alt={`Slide ${index}`} />
+                </Carousel.Item>
+              ))}
+            </Carousel>
+          </div>
+        </div>
+        <div className="col-md-4">
+          <div className="thumbnail-carousel">
+            <div className="thumbnails">
+              {property.photo.map((image, index) => (
+                <img
+                  key={index}
+                  src={image}
+                  alt={`Thumbnail ${index}`}
+                  className={`thumbnail ${selectedPreview === index ? 'active' : ''}`}
+                  onClick={() => handleThumbnailClick(index)}
+                  style={{ width: '180px', height: 'auto', marginBottom: '10px', cursor: 'pointer', border: '2px solid #ccc', borderRadius: '5px' }}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
       <div className={style.container}>
