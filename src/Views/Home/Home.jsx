@@ -1,6 +1,7 @@
 import React from "react";
 import style from './Home.module.css'
 import Lupa from '../../Assets/lupa.png'
+import LuxuryCard from "../../Components/LuxuryCard/LuxuryCard";
 
 const Home = ()=>{
     return(
@@ -35,6 +36,7 @@ const Home = ()=>{
                     </button>
         </div>
         </div>
+        <LuxuryCard/>
     </div>
     );
 };
