@@ -191,6 +191,7 @@ const renderDetailsAmbientes = (details) => {
 };
 
 const renderDetailsServicios = (details) => {
+ 
   // Mapea las opciones de servicios verdaderas a su representación en texto
   const serviceText = {
     electricidad: "Electricidad",
@@ -234,6 +235,15 @@ const renderDetailsServicios = (details) => {
 
 
 const PropertyDetailsView = ({ property }) => {
+  let title;
+
+  if (property.isForSale) {
+    title = "Venta";
+  } else if (property.isForRent) {
+    title = "Alquiler";
+  } else if (property.isUnderDevelopment) {
+    title = "Desarrollo";
+  }
   const [selectedPreview, setSelectedPreview] = useState(0);
   const [seller, setSeller] = useState(null);
 
@@ -280,7 +290,7 @@ const PropertyDetailsView = ({ property }) => {
         <div className={style.ContainerIntro}>
           <div className={style.ContainerSell}>
             <div className={style.SellTitle}>
-              <h3>Venta</h3>
+            <h3>{title}</h3>
             </div>
             <h1>{property.title}</h1>
             <p> {property.price} {property.currency}</p>
