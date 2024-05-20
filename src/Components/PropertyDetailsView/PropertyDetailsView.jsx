@@ -5,6 +5,8 @@ import MapContainer from '../Maps/MapContainer';
 import style from './PropertyDetailsView.module.css';
 import WhatsApp from '../../Assets/whatsapp.png'
 import Mail from '../../Assets/email.png'
+import { Link } from 'react-router-dom';
+
 
 
 const renderDetails = (details) => {
@@ -358,6 +360,7 @@ const PropertyDetailsView = ({ property }) => {
         </div>
         <div className={style.rightContent}>
         {seller && (
+             
                 <div className={style.sellerContainer}>
 
 
@@ -376,11 +379,12 @@ const PropertyDetailsView = ({ property }) => {
 
 
 
+            <Link to={`/seller/${seller.id}`} className={style.link}>
             <div className={style.sellerDetails}>
             <img src={seller.photo} alt="" className={style.sellerimg}/>
             <p className={style.vendedorName}> {seller.name} {seller.last_name}</p>
-                  
           </div>
+            </Link>
           <div className={style.formContent}>
              <div className={style.card}>
         <h2 className={style.title} >Envíenos un mensaje</h2>

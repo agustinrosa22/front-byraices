@@ -11,6 +11,7 @@ import Sale from './Views/Sale/Sale';
 import Rent from './Views/Rent/Rent';
 import { Routes,Route} from 'react-router-dom';  
 import PropertyDetailsPage from './Views/Detail/Detail';
+import DetailSeller from './Views/DetailSeller/DetailSeller';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Route path='/sale'element={ <Sale />}/>
       <Route path='/rent'element={ <Rent />}/>
       <Route path='/detail/:id'element={ <PropertyDetailsPage />}/>
+      <Route path='/seller/:id'element={ <DetailSeller />}/>
     </Routes>
     {/* <Footer /> */}
   </div>

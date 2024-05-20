@@ -1,0 +1,10 @@
+.containerBanner{
+    height: 300px;
+    overflow: hidden; 
+}
+
+.banner{
+    width: 100%;
+    object-fit: cover; /* La imagen se recorta para llenar el contenedor manteniendo su proporción */
+    margin-top: -200px;
+}
