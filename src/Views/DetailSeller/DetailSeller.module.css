@@ -1,10 +1,79 @@
-.containerBanner{
+.containerBanner {
     height: 300px;
-    overflow: hidden; 
-}
-
-.banner{
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .banner {
     width: 100%;
     object-fit: cover; /* La imagen se recorta para llenar el contenedor manteniendo su proporción */
     margin-top: -200px;
-}
+  }
+  
+  .container {
+    padding: 20px;
+    position: relative; /* Añadir esta propiedad para posicionar los elementos de manera relativa */
+  }
+  
+  .detail {
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+    margin-top: -100px; /* Mueve la tarjeta hacia arriba para superponerse al banner */
+    position: relative; /* Añadir esta propiedad para controlar mejor la posición */
+  }
+  
+  .detail h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .photo {
+    width: 150px; /* Ajusta el tamaño según tus necesidades */
+    height: 150px; /* Ajusta el tamaño según tus necesidades */
+    border-radius: 50%; /* Hace la imagen circular */
+    margin-bottom: 20px;
+    object-fit: cover; /* Asegura que la imagen se recorte para llenar el contenedor circular */
+  }
+  
+  .detail p {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  .detail p:last-child {
+    margin-bottom: 0;
+  }
+
+  
+.officeDetail {
+    margin-top: 20px;
+  }
+  
+  .propertiesContainer {
+    margin-top: 20px;
+  }
+  
+  .propertyCard {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  
+  .propertyCard h3 {
+    font-size: 20px;
+    margin: 0 0 10px 0;
+  }
+  
+  .propertyCard p {
+    margin: 5px 0;
+  }
+  
