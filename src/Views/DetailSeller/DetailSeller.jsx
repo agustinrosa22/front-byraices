@@ -3,15 +3,25 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import style from "./DetailSeller.module.css";
 import banner from '../../Assets/houseSeller.jpg'
+import { Carousel } from 'react-bootstrap';
 
 
 const PropertyCard = ({ property }) => {
   return (
     <div className={style.propertyCard}>
+    <Carousel>
+      {property.photo &&
+        property.photo.map((image, index) => (
+          <Carousel.Item key={index}>
+            <img src={image} alt={`Slide ${index}`} className={style.image} />
+          </Carousel.Item>
+        ))}
+    </Carousel>
+    <div className={style.propertyInfo}>
       <h3>{property.title}</h3>
-      <p>Price: {property.price} {property.currency}</p>
-      <p>Location: {property.location}</p>
+      <p>{property.price} {property.currency}</p>
     </div>
+  </div>
   );
 };
 
@@ -24,6 +34,7 @@ const DetailSeller = () => {
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const cantidad = properties.length
 
   useEffect(() => {
     const fetchSeller = async () => {
@@ -59,6 +70,8 @@ const DetailSeller = () => {
     <div className={style.containerBanner}>
       <img className={style.banner} src={banner} alt="Banner" />
     </div>
+    <div className={style.detailSeller}>
+      <div className={style.dataContainer}>
     {seller ? (
       <div className={style.detail}>
         <img src={seller.photo} alt={`${seller.name} ${seller.last_name}`} className={style.photo} />
@@ -66,32 +79,29 @@ const DetailSeller = () => {
         <p>{office.name}</p>
         <p>Email: {seller.mail}</p>
         <p>Phone Number: {seller.phone_number}</p>
-
-        {office && (
-          <div className={style.officeDetail}>
-            <h2>Office Details</h2>
-            <p>Name: {office.name}</p>
-            <p>Location: {office.location.join(', ')}</p>
-            <p>Street: {office.street}</p>
-            <p>Number: {office.number}</p>
-            <p>Country: {office.country}</p>
-            <p>Province: {office.province}</p>
-            <p>Departments: {office.departments}</p>
-            <p>Locality: {office.locality}</p>
-            <p>Phone Number: {office.phone_number}</p>
-            <p>Disclaimer: {office.disclaimer}</p>
-          </div>
-        )}
       </div>
       ) : (
         <p>Seller not found</p>
       )}
 
+         {office && (
+          <div className={style.officeDetail}>
+            <p>{office.name}</p>
+            <p>{office.street} {office.number}, {office.locality}, {office.departments}, {office.province}, {office.country}</p>
+            <p>{office.phone_number}</p>
+          </div>
+        )}
+        </div>
+
 <div className={style.propertiesContainer}>
-            <h2>Properties</h2>
+            <h2>Propiedades</h2>
+            <p>Total de propiedades: {cantidad}</p>
+            <div className={style.properties}>
             {properties.map(property => (
               <PropertyCard key={property.id} property={property} />
             ))}
+            </div>
+          </div>
           </div>
     </div>
   );

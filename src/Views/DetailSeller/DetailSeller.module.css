@@ -14,11 +14,26 @@
     padding: 20px;
     position: relative; /* Añadir esta propiedad para posicionar los elementos de manera relativa */
   }
+  .officeDetail{
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid rgb(184, 184, 184);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+    margin-top: 10px; /* Mueve la tarjeta hacia arriba para superponerse al banner */
+    position: relative; /* Añadir esta propiedad para controlar mejor la posición */
+    margin-left: 30px;
+  
+  }
   
   .detail {
     background-color: #fff;
     border-radius: 8px;
-    border: 1px solid black;
+    border: 1px solid rgb(184, 184, 184);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     max-width: 400px;
@@ -27,6 +42,7 @@
     z-index: 10;
     margin-top: -100px; /* Mueve la tarjeta hacia arriba para superponerse al banner */
     position: relative; /* Añadir esta propiedad para controlar mejor la posición */
+    margin-left: 30px;
   }
   
   .detail h1 {
@@ -58,6 +74,12 @@
   
   .propertiesContainer {
     margin-top: 20px;
+    margin-left: 25px;
+  }
+
+  .properties{
+    display: flex;
+   
   }
   
   .propertyCard {
@@ -77,3 +99,46 @@
     margin: 5px 0;
   }
   
+  .detailSeller{
+    display: flex;
+  }
+
+  .propertyCard {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 10px;
+    max-width: 300px;
+    width: 100%;
+  }
+  
+  .propertyCard .carousel {
+    height: 150px; /* Adjust the height as needed */
+  }
+  
+  .propertyCard .carousel img {
+    width: 100%;
+    height: 250px; /* Match the height to the carousel height */
+    object-fit: cover;
+  }
+
+  .image{
+    width: 350px;
+    height: 200px;
+  }
+  
+  .propertyInfo {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .propertyInfo h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .propertyInfo p {
+    font-size: 14px;
+    margin: 0;
+  }
