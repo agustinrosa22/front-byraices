@@ -78,8 +78,9 @@
   }
 
   .properties{
-    display: flex;
-   
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+    gap: 10px; /* Espacio entre las tarjetas */
   }
   
   .propertyCard {

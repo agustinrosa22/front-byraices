@@ -75,8 +75,8 @@ const DetailSeller = () => {
     {seller ? (
       <div className={style.detail}>
         <img src={seller.photo} alt={`${seller.name} ${seller.last_name}`} className={style.photo} />
-        <h1>{seller.name} {seller.last_name}</h1>
-        <p>{office.name}</p>
+        <h1>{seller?.name} {seller.last_name}</h1>
+        <p>{office?.name}</p>
         <p>Email: {seller.mail}</p>
         <p>Phone Number: {seller.phone_number}</p>
       </div>
