@@ -1,0 +1,58 @@
+.cardContainer {
+    width: 100%; /* Cambiado a un ancho relativo para adaptarse al tamaño de la pantalla */
+    max-width: 1250px; /* Ancho máximo para evitar que el contenido se expanda demasiado en pantallas grandes */
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan cuando no hay suficiente espacio */
+    justify-content: space-between;
+    padding: 20px; /* Padding añadido en lugar de usar padding-top y padding-bottom */
+  }
+  
+  .customCard {
+    flex: 0 0 30%; /* Se mantiene el tamaño fijo para cada tarjeta */
+    margin-bottom: 20px; /* Añade un margen inferior para separar las tarjetas */
+  }
+  
+  .customCardBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cardImage {
+    width: 100%; /* Cambiado a un ancho del 100% para que las imágenes se ajusten al ancho de la tarjeta */
+    height: auto; /* Altura automática para mantener la proporción de la imagen */
+  }
+  
+  .cardTitle {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .cardSubtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  /* Media query para pantallas más pequeñas */
+  @media (max-width: 768px) {
+
+    .cardContainer {
+        width: 70%; /* Cambiado a un ancho relativo para adaptarse al tamaño de la pantalla */
+        max-width: 1250px; /* Ancho máximo para evitar que el contenido se expanda demasiado en pantallas grandes */
+        display: flex;
+        flex-wrap: wrap; /* Permite que los elementos se envuelvan cuando no hay suficiente espacio */
+        justify-content: space-between;
+        flex-direction: column;
+        padding: 20px; /* Padding añadido en lugar de usar padding-top y padding-bottom */
+      }
+
+    .customCardBody {
+        flex-direction: column; /* Cambiado a flex-direction: column para dispositivos más pequeños */
+      }
+    .customCard {
+      flex: 0 0 45%; /* Reducir el tamaño de las tarjetas en pantallas más pequeñas */
+    }
+  }
+  

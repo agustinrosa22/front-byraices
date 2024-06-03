@@ -27,7 +27,7 @@ const Contact = () => {
            <textarea className={style.inputText} name="coments" id="coments" cols="30" rows="5"></textarea>
 
            <input className={style.btn} type="submit" value="Enviar"/>
-           <input type="hidden" name="_next" value="http://localhost:3000/"/>
+           <input type="hidden" name="_next" value="http://server.byraices.com:3000/"/>
            <input type="hidden" name="_captcha" value="false"/>
            {/* poner la url correcta */}
         </form>

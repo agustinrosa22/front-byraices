@@ -248,12 +248,11 @@ const PropertyDetailsView = ({ property }) => {
   }
   const [selectedPreview, setSelectedPreview] = useState(0);
   const [seller, setSeller] = useState(null);
-
   useEffect(() => {
     const fetchSeller = async () => {
       try {
         // Obtener los datos del usuario vendedor asociado al sellerId
-        const response = await axios.get(`http://localhost:3001/seller/${property.sellerId}`);
+        const response = await axios.get(`http://server.byraices.com:3000/seller/${property.sellerId}`);
         setSeller(response.data.data);
       } catch (error) {
         console.error('Error al obtener los datos del vendedor:', error);
@@ -263,29 +262,75 @@ const PropertyDetailsView = ({ property }) => {
     fetchSeller();
   }, [property.sellerId]);
 
-  const handlePreviewClick = (index) => {
-    setSelectedPreview(index);
+  useEffect(() => {
+    const adjustImages = () => {
+      const imageContainers = document.querySelectorAll(`.${style.imageContainer}`);
+      imageContainers.forEach(container => {
+        const image = container.querySelector('img');
+        const containerAspectRatio = container.clientWidth / container.clientHeight;
+        const imageAspectRatio = image.naturalWidth / image.naturalHeight;
+        
+        if (imageAspectRatio > containerAspectRatio) {
+          image.style.width = 'auto';
+          image.style.height = '100%';
+        } else {
+          image.style.width = '100%';
+          image.style.height = 'auto';
+        }
+
+        if (image.clientWidth < container.clientWidth || image.clientHeight < container.clientHeight) {
+          image.style.backgroundColor = '#ccc';
+        }
+      });
+
+
+        const images = document.querySelectorAll(`.${style.imageContainer} img`);
+    images.forEach(image => {
+      image.addEventListener('click', () => {
+        if (image.requestFullscreen) {
+          image.requestFullscreen();
+        } else if (image.mozRequestFullScreen) {
+          image.mozRequestFullScreen();
+        } else if (image.webkitRequestFullscreen) {
+          image.webkitRequestFullscreen();
+        } else if (image.msRequestFullscreen) {
+          image.msRequestFullscreen();
+        }
+      });
+    });
   };
+    window.addEventListener('load', adjustImages);
+
+    return () => {
+      window.removeEventListener('load', adjustImages);
+    };
+  }, [selectedPreview])
 
   return (
     <div>
       <div>
-        <Row>
-          <Col sm={9} className="mx-auto">
-            <div className={style.carouselContainer}>
-              <Carousel className={style.carousel} activeIndex={selectedPreview} onSelect={(index) => setSelectedPreview(index)}>
-                {property.photo.map((image, index) => (
-                  <Carousel.Item key={index} className={style['carousel-item']}>
-                    <img src={image} className={`d-block ${style['carousel-img']}`} alt={`Slide ${index}`} />
-                    <Carousel.Caption>
-                      <p>{index + 1} de {property.photo.length}</p>
-                    </Carousel.Caption>
-                  </Carousel.Item>
-                ))}
-              </Carousel>
-            </div>
-          </Col>
-        </Row>
+      <Row>
+      <Col sm={9} className="mx-auto">
+        <div className={style.carouselContainer}>
+          <Carousel className={style.carousel} activeIndex={selectedPreview} onSelect={(index) => setSelectedPreview(index)}>
+            {property.photo.map((image, index) => (
+              <Carousel.Item key={index} className={style['carousel-item']}>
+                <div className={style.imageContainer}>
+                  <img
+                    src={image}
+                    className={`d-block ${style['carousel-img']}`}
+                    alt={`Slide ${index}`}
+                  />
+                </div>
+                <Carousel.Caption>
+                  <p>{index + 1} de {property.photo.length}</p>
+                </Carousel.Caption>
+              </Carousel.Item>
+            ))}
+          </Carousel>
+        </div>
+      </Col>
+    </Row>
       </div>
       <div className={style.container}>
       <div className={style.leftContent}>
@@ -304,7 +349,7 @@ const PropertyDetailsView = ({ property }) => {
             <p>{property.rooms} dormitorios</p>
             <p>{property.bathrooms} baños</p>
             <p>{property.garages} cochera</p>
-            <p>{property.age} Año de construcción</p>
+            <p>{property.age} Años de antiguedad</p>
           </div>
         </div>
         <div className={style.descriptionContainer}>
@@ -324,7 +369,7 @@ const PropertyDetailsView = ({ property }) => {
       {property.semiCoveredSquareMeters && <p>Superficie semicubierta: {property.semiCoveredSquareMeters} m²</p>}
     </div>
     <div className={style.pairContainer}>
-      {property.age && <p>Año de construcción: {property.age}</p>}
+      {property.age && <p>Años de antiguedad: {property.age}</p>}
       {property.rooms && <p>Dormitorios: {property.rooms}</p>}
     </div>
     <div className={style.pairContainer}>
@@ -409,7 +454,7 @@ const PropertyDetailsView = ({ property }) => {
            <textarea className={style.inputText} name="coments" id="coments" cols="30" rows="5"></textarea>
 
            <input className={style.btn} type="submit" value="Enviar"/>
-           <input type="hidden" name="_next" value="http://localhost:3000/"/>
+           <input type="hidden" name="_next" value="http://server.byraices.com:3000/"/>
            <input type="hidden" name="_captcha" value="false"/>
            {/* poner la url correcta */}
         </form>

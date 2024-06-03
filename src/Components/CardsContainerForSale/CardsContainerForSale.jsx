@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchActivePropertiesForSale } from '../../Redux/Actions/actions';
 import Card from '../Card/Card';
@@ -11,19 +11,26 @@ const CardContainer = () => {
   const properties = useSelector(state => state.properties);
   const loading = useSelector(state => state.loading);
   const error = useSelector(state => state.error);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     dispatch(fetchActivePropertiesForSale());
+
+    const timeoutId = setTimeout(() => {
+      setIsLoading(false);
+    }, 2500); // Cambia el tiempo de espera según sea necesario (en milisegundos)
+
+    return () => clearTimeout(timeoutId);
   }, [dispatch]);
 
-  if (loading) {
+  if (loading || isLoading) {
     return <div className={style.containerCarga}>
 
      <img className={style.carga} src={carga} alt="Cargando..." />;
     </div>
   }
 
-  if (error) {
+  if (error || properties.length === 0) {
     return <div className={style.containerError}>
       <img className={style.img} src={title} alt="byraices" />
       <p className={style.errorMessage}>

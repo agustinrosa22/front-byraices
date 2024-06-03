@@ -1,7 +1,7 @@
 
 import './App.css';
 import NavBar from './Components/NavBar/NavBar';
-// import Footer from './Components/Footer/Footer';
+import Footer from './Components/Footer/Footer';
 import Login from './Views/Login/Login';
 import Register from './Views/Register/Register';
 import Sell from './Views/Sell/Sell';
@@ -12,6 +12,7 @@ import Rent from './Views/Rent/Rent';
 import { Routes,Route} from 'react-router-dom';  
 import PropertyDetailsPage from './Views/Detail/Detail';
 import DetailSeller from './Views/DetailSeller/DetailSeller';
+import About from './Views/About/About';
 
 function App() {
   return (
@@ -28,8 +29,9 @@ function App() {
       <Route path='/rent'element={ <Rent />}/>
       <Route path='/detail/:id'element={ <PropertyDetailsPage />}/>
       <Route path='/seller/:id'element={ <DetailSeller />}/>
+      <Route path='/about'element={ <About />}/>
     </Routes>
-    {/* <Footer /> */}
+    <Footer />
   </div>
   );
 }

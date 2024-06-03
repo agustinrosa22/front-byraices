@@ -1,0 +1,24 @@
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .imgContainer {
+    display: flex;
+    justify-content: center;
+  }
+
+  .img{
+    width: 250px;
+    
+  }
+  .text {
+    margin-top: 50px;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+  }

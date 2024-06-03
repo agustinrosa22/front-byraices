@@ -13,7 +13,7 @@ const LuxuryCard = () => {
     <div>
       <header style={{ height: '100px' }}> 
       </header>
-      <div className="gray-background" style={{ position: 'absolute', top: "47%", left: "26%", width: '50%', height: '40%', backgroundColor: 'rgba(169, 169, 169, 0.5)', zIndex: 0 }}>
+      <div className="gray-background" style={{ position: 'absolute', top: "32.5%", left: "26%", width: '50%', height: '25%', backgroundColor: 'rgba(169, 169, 169, 0.5)', zIndex: 0 }}>
       </div>
       <div style={{ position: 'relative', marginBottom: '100px', overflow: 'hidden', zIndex: 1 }}>
         <div className="main-content" style={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', margin: '0 auto', maxWidth: '1200px', marginBottom: '100px' }}>

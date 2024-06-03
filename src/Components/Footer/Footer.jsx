@@ -12,13 +12,13 @@ const Footer = () => {
             <a href="https://www.facebook.com/" className={styles.socialIcon}>
                 <img src={facebook} alt="Facebook" className={styles.socialImage} />
             </a>
-            <a href="https://www.instagram.com/" className={styles.socialIcon}>
+            <a href="https://www.instagram.com/byraicesoficial/" className={styles.socialIcon}>
                 <img src={instagram} alt="Instagram" className={styles.socialImage} />
             </a>
             <a href="https://twitter.com/" className={styles.socialIcon}>
                 <img src={twitter} alt="Twitter" className={styles.socialImage} />
             </a>
-            <a href="https://www.linkedin.com/" className={styles.socialIcon}>
+            <a href="https://www.linkedin.com/company/byraices/mycompany/" className={styles.socialIcon}>
                 <img src={linkedin} alt="LinkedIn" className={styles.socialImage} />
             </a>
         </div>

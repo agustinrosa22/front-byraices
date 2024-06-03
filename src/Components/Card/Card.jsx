@@ -17,7 +17,7 @@ const Card = (props) => {
       const fetchSeller = async () => {
         try {
           // Obtener los datos del usuario vendedor asociado al sellerId
-          const response = await axios.get(`http://localhost:3001/seller/${props.sellerId}`);
+          const response = await axios.get(`/seller/${props.sellerId}`);
           setSeller(response.data.data);
         } catch (error) {
           console.error('Error al obtener los datos del vendedor:', error);
