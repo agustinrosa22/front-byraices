@@ -24,6 +24,7 @@ function App() {
       <Route path='/sell'element={ <Sell />}/>
       <Route path='/contact'element={ <Contact />}/>
       <Route path='/sale'element={ <Sale />}/>
+      <Route path='/desarrollo'element={ <Sale />}/>
       <Route path='/rent'element={ <Rent />}/>
       <Route path='/detail/:id'element={ <PropertyDetailsPage />}/>
       <Route path='/seller/:id'element={ <DetailSeller />}/>

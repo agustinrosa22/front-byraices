@@ -1,0 +1,57 @@
+@keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  @keyframes blinkCaret {
+    from, to {
+      border-color: transparent;
+    }
+    
+  }
+
+  .containerCarga{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Altura completa de la pantalla */
+    text-align: center; /* Centra el texto */
+  }
+
+  .carga{
+    width: 400px; /* Ajusta el tamaño de la imagen según lo necesites */
+  
+  }
+
+.containerError {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Altura completa de la pantalla */
+    text-align: center; /* Centra el texto */
+  }
+  
+  .img {
+    width: 400px; /* Ajusta el tamaño de la imagen según lo necesites */
+    margin-bottom: 20px; /* Espacio entre la imagen y el texto */
+  }
+
+
+  .errorMessage {
+    font-size: 25px;
+    display: inline-block; /* Necesario para aplicar el efecto typing */
+    overflow: hidden; /* Oculta el texto fuera del ancho */
+    white-space: nowrap; /* Evita que el texto se rompa en una nueva línea */
+    border-right: 3px solid blue; /* Añade un caret azul parpadeante */
+    font-family: monospace; /* Fuente de tipo monoespaciada para efecto de máquina de escribir */
+    animation: typing 4s steps(40, end), blinkCaret .75s step-end infinite; /* Animaciones */
+  }
+.highlight {
+    color: #A83E52; /* Color rojo solo para la palabra "PROPIEDADES" */
+  }

@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchActivePropertiesForSale } from '../../Redux/Actions/actions';
 import Card from '../Card/Card';
+import style from './CardsContainerForSale.module.css'
+import title from '../../Assets/titulo.png'
+import carga from '../../Assets/carga.gif'
 
 const CardContainer = () => {
   const dispatch = useDispatch();
@@ -14,11 +17,21 @@ const CardContainer = () => {
   }, [dispatch]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <div className={style.containerCarga}>
+
+     <img className={style.carga} src={carga} alt="Cargando..." />;
+    </div>
   }
 
   if (error) {
-    return <p>Error: {error}</p>;
+    return <div className={style.containerError}>
+      <img className={style.img} src={title} alt="byraices" />
+      <p className={style.errorMessage}>
+        NO SE ENCONTRARON
+        <span className={style.highlight}> PROPIEDADES </span>
+        DISPONIBLES
+      </p>
+    </div>;
   }
 
   return (
