@@ -8,7 +8,7 @@ const NavBar = () => {
 
     const handleNavLinkClick = (link) => {
         setActiveLink(link);
-        console.log("activeLink actualizado:", link);
+      
     };
 
     return (

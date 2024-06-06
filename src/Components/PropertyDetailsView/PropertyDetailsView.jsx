@@ -252,7 +252,9 @@ const PropertyDetailsView = ({ property }) => {
     const fetchSeller = async () => {
       try {
         // Obtener los datos del usuario vendedor asociado al sellerId
-        const response = await axios.get(`http://server.byraices.com:3000/seller/${property.sellerId}`);
+        const response = await axios.get(`https://server.byraices.com/seller/${property.sellerId}`);
+
+        
         setSeller(response.data.data);
       } catch (error) {
         console.error('Error al obtener los datos del vendedor:', error);
@@ -454,7 +456,7 @@ const PropertyDetailsView = ({ property }) => {
            <textarea className={style.inputText} name="coments" id="coments" cols="30" rows="5"></textarea>
 
            <input className={style.btn} type="submit" value="Enviar"/>
-           <input type="hidden" name="_next" value="http://server.byraices.com:3000/"/>
+           <input type="hidden" name="_next" value="https://byraices.com/"/>
            <input type="hidden" name="_captcha" value="false"/>
            {/* poner la url correcta */}
         </form>

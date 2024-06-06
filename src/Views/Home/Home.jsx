@@ -9,7 +9,7 @@ const Home = ()=>{
         <div className={style.container}>
         <div className={style.intro}>
 
-        <h1 className={style.title}>Mucho más que mudarte</h1>
+        <h1 className={style.title}>MUCHO MÁS QUE MUDARTE</h1>
         <div className={style.buttonsContainer}>
             <button className={style.button} onClick={() => window.location.href='/buy'}>Quiero comprar</button>
             <button className={style.button} onClick={() => window.location.href='/alquilar'}>Quiero alquilar</button>
@@ -18,6 +18,7 @@ const Home = ()=>{
         </div>
         <div className={style.searchContainer}>
             <input type="text" className={style.searchInput} placeholder="¿Dónde quieres mudarte?" />
+            <div className={style.division}>
             <select className={style.propertyTypeDropdown}>
                 <option value="departamento">Departamento</option>
                 <option value="casa">Casa</option>
@@ -35,6 +36,7 @@ const Home = ()=>{
             <button className={style.searchButton}>
                         <img src={Lupa} alt="Buscar" />
                     </button>
+                    </div>
         </div>
         </div>
         {/* <LuxuryCard/> */}

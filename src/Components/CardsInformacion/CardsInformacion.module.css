@@ -1,16 +1,22 @@
 .cardContainer {
-    width: 100%; /* Cambiado a un ancho relativo para adaptarse al tamaño de la pantalla */
+    width: 1000px; /* Cambiado a un ancho relativo para adaptarse al tamaño de la pantalla */
     max-width: 1250px; /* Ancho máximo para evitar que el contenido se expanda demasiado en pantallas grandes */
     display: flex;
     flex-wrap: wrap; /* Permite que los elementos se envuelvan cuando no hay suficiente espacio */
     justify-content: space-between;
     padding: 20px; /* Padding añadido en lugar de usar padding-top y padding-bottom */
+ 
   }
   
   .customCard {
     flex: 0 0 30%; /* Se mantiene el tamaño fijo para cada tarjeta */
     margin-bottom: 20px; /* Añade un margen inferior para separar las tarjetas */
+    transition: box-shadow 0.3s ease-in-out; /* Suaviza la transición de la sombra */
   }
+
+  .customCard:hover {
+    box-shadow: 0 1px 20px 0 #3D2F87; /* Añade sombra al hacer hover */
+}
   
   .customCardBody {
     display: flex;

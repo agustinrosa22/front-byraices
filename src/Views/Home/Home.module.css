@@ -107,8 +107,24 @@
   
 
   @media screen and (max-width: 550px) {
+
+    .buttonsContainer {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px; /* Adjust the gap as needed */
+      margin: 20px 0;
+    }
+    
     .button {
         font-size: 12px;
         padding: 8px 15px; /* Ajustar el espaciado del texto dentro de los botones */
+        width: 150px;
+    }
+    .searchContainer{
+      flex-direction: column;
+    }
+    .searchInput{
+      width: 260px;
+      margin-bottom: 15px;
     }
   }

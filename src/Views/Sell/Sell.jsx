@@ -8,7 +8,7 @@ const Sell = () =>{
              <h2 className={style.title} >Vendé tu propiedad</h2>
              <p className={style.text}>Completá el formulario y nos pondremos contacto con vos para continuar con el proceso</p>
 
-             <form className={style.mailForm} action="https://formsubmit.co/agustinrosa1234@gmail.com" method="POST" >
+             <form className={style.mailForm} action="https://formsubmit.co/byraices@byraices.com" method="POST" >
                 <label className={style.mailLabel} htmlFor="name">Nombre</label>
                 <input className={style.inputText} type="text" name='name' id='name'/>
 
@@ -38,7 +38,7 @@ const Sell = () =>{
                 <textarea className={style.inputText} name="coments" id="coments" cols="30" rows="5"></textarea>
 
                 <input className={style.btn} type="submit" value="Enviar"/>
-                <input type="hidden" name="_next" value="http://server.byraices.com:3000/"/>
+                <input type="hidden" name="_next" value="https://byraices.com/"/>
                 <input type="hidden" name="_captcha" value="false"/>
                 {/* poner la url correcta */}
              </form>
