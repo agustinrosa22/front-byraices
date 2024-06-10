@@ -17,14 +17,14 @@ const CardsInformacion = () => {
               <Button style={{ backgroundColor: '#3D2F87', borderColor: '#3D2F87', color: 'white' }} variant="primary">Conocer más</Button>
             </Card.Body>
           </Card>
-          <Card className={styles.customCard}>
+          {/* <Card className={styles.customCard}>
             <Card.Img variant="top" src={imagen1} alt="Imagen" className={styles.cardImage} />
             <Card.Body className={styles.customCardBody}>
               <h1 className={styles.cardTitle}>DEPARTAMENTOS</h1>
               <h3 className={styles.cardSubtitle}>Nuestros departamentos de Arquitectura, Agrimensura y Escribanía en Byraices</h3>
               <Button style={{ backgroundColor: '#3D2F87', borderColor: '#3D2F87', color: 'white' }} variant="primary">Conocer más</Button>
             </Card.Body>
-          </Card>
+          </Card> */}
           <Card className={styles.customCard}>
             <Card.Img variant="top" src={imagen2} alt="Imagen" className={styles.cardImage} />
             <Card.Body className={styles.customCardBody}>

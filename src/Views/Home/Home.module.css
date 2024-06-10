@@ -104,6 +104,12 @@
   .searchButton:hover {
     background-color: darkblue; /* Color de fondo al pasar el mouse */
   }
+  .declaracion{
+    font-size: 0.8rem; /* Tamaño de la fuente pequeño */
+    color: gray; /* Color de la fuente gris */
+    text-align:justify; /* Texto centrado */
+    margin: 20px 0; /* Espacio arriba y abajo */
+  }
   
 
   @media screen and (max-width: 550px) {

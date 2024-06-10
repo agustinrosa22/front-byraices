@@ -248,21 +248,28 @@ const PropertyDetailsView = ({ property }) => {
   }
   const [selectedPreview, setSelectedPreview] = useState(0);
   const [seller, setSeller] = useState(null);
-  useEffect(() => {
-    const fetchSeller = async () => {
-      try {
-        // Obtener los datos del usuario vendedor asociado al sellerId
-        const response = await axios.get(`https://server.byraices.com/seller/${property.sellerId}`);
 
-        
-        setSeller(response.data.data);
+  useEffect(() => {
+    const fetchContact = async () => {
+      try {
+        let response;
+        if (property.martillerId !== null) {
+          // Obtener los datos del martillero si martillerId no es null
+          response = await axios.get(`/martiller/${property.martillerId}`);
+        } else if (property.sellerId !== null) {
+          // Obtener los datos del vendedor si sellerId no es null
+          response = await axios.get(`/seller/${property.sellerId}`);
+        }
+        if (response && response.data) {
+          setSeller(response.data.data);
+        }
       } catch (error) {
-        console.error('Error al obtener los datos del vendedor:', error);
+        console.error('Error al obtener los datos de contacto:', error);
       }
     };
 
-    fetchSeller();
-  }, [property.sellerId]);
+    fetchContact();
+  }, [property.martillerId, property.sellerId]);
 
   useEffect(() => {
     const adjustImages = () => {
