@@ -408,7 +408,7 @@ const PropertyDetailsView = ({ property }) => {
           {property.province && <p>{property.province},</p>}
           {property.country && <p> {property.country}</p>}
           </div>
-          <MapContainer location={property.location} />
+          {/* <MapContainer location={property.location} /> */}
 
         </div>
         </div>
@@ -435,9 +435,11 @@ const PropertyDetailsView = ({ property }) => {
 
             <Link to={`/seller/${seller.id}`} className={style.link}>
             <div className={style.sellerDetails}>
-            <img src={seller.photo} alt="" className={style.sellerimg}/>
+            {seller.photo && <img src={seller.photo} alt="" className={style.sellerimg}/>}
+            {seller.img && <img src={seller.img} alt="" className={style.sellerimg}/>}
             <p className={style.vendedorName}> {seller.name} {seller.last_name}</p>
           </div>
+          {seller.matricula && <p className={style.matricula}>{seller.matricula}</p> }
             </Link>
           <div className={style.formContent}>
              <div className={style.card}>

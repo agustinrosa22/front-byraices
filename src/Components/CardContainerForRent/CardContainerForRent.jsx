@@ -54,10 +54,11 @@ const RentCardContainer = () => {
           currency={property.currency}
           totalSquareMeters={property.totalSquareMeters}
           coveredSquareMeters={property.coveredSquareMeters}
-          enviroments={property.enviroments}
+          environments={property.environments}
           bathrooms={property.bathrooms}
           title={property.title}
           sellerId={property.sellerId}
+          martillerId={property.martillerId}
           street={property.street}
           number={property.number}
           country={property.country}
