@@ -7,12 +7,16 @@ import {
   GET_ACTIVE_PROPERTIES_FOR_SALE_FAILURE, 
   GET_ACTIVE_PROPERTIES_FOR_RENT_REQUEST,
   GET_ACTIVE_PROPERTIES_FOR_RENT_SUCCESS,
-  GET_ACTIVE_PROPERTIES_FOR_RENT_FAILURE
+  GET_ACTIVE_PROPERTIES_FOR_RENT_FAILURE,
+  GET_DEVELOPMENT_PROPERTIES_REQUEST,
+  GET_DEVELOPMENT_PROPERTIES_SUCCESS,
+  GET_DEVELOPMENT_PROPERTIES_FAILURE
 } from './Actions/actionTypes';
 
 const initialState = {
     properties: [],
     propertiesForRent: [],
+    developmentProperties: [],
   createUserLoading: false,
   createUserError: null,
   loading: false, 
@@ -77,6 +81,25 @@ const rootReducer = (state = initialState, action) => {
                   loading: false,
                   error: action.payload
                 };
+                case GET_DEVELOPMENT_PROPERTIES_REQUEST:
+                  return {
+                    ...state,
+                    loading: true,
+                    error: null,
+                  };
+                case GET_DEVELOPMENT_PROPERTIES_SUCCESS:
+                  return {
+                    ...state,
+                    developmentProperties: action.payload,
+                    loading: false,
+                    error: null,
+                  };
+                case GET_DEVELOPMENT_PROPERTIES_FAILURE:
+                  return {
+                    ...state,
+                    loading: false,
+                    error: action.payload,
+                  };
       default:
           return state;
   }

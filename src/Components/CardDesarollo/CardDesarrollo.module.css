@@ -1,0 +1,127 @@
+.carddesarrollo {
+    position: relative;
+    width: 90%;
+    height: 500px;
+    margin: auto;
+    overflow: hidden;
+    margin-top: 75px;
+    display: flex;
+    margin-left: 0;
+    overflow: visible;
+  }
+  
+  .backgroundimage {
+    width: 90%;
+    height: 400px; /* Altura deseada */
+    object-fit: cover; /* Recorta la imagen manteniendo la proporción */
+    display: block;
+    margin-left: 0;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: -75px;
+    right: 30px;
+    bottom: 0;
+    background-color: rgba(207, 207, 207, 0.9);
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    width: 550px;
+    height: 550px;
+    border-radius: 100%;
+  }
+  
+  .isologo {
+    width: 50px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 1em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  .verdesarrollosbtn {
+    background-color: #4e2993; /* Color del botón */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  
+  .verdesarrollosbtn:hover {
+    background-color: #3b2070; /* Color del botón al pasar el mouse */
+  }
+
+  /* Media Queries */
+@media (max-width: 768px) {     
+
+    .carddesarrollo {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        max-width: auto;
+        margin: auto;
+        overflow: hidden;
+        margin-top: 55px;
+        margin-bottom: 55px;
+      }
+
+      .backgroundimage {
+        width: 100%;
+        height: 500px;
+        display: block;
+      }
+    .overlay {
+      left: 0;
+      max-width: none;
+      width: 100%;
+    }
+  
+    .h2 {
+      font-size: 1.5em;
+    }
+  
+    .p {
+      font-size: 0.9em;
+    }
+  
+    .verdesarrollosbtn {
+      font-size: 0.9em;
+      padding: 8px 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .isologo {
+      width: 40px;
+      margin-bottom: 15px;
+    }
+  
+    .h2 {
+      font-size: 1.2em;
+    }
+  
+    .p {
+      font-size: 0.8em;
+    }
+  
+    .verdesarrollosbtn {
+      font-size: 0.8em;
+      padding: 6px 12px;
+    }
+  }
+  

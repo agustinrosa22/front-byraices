@@ -3,6 +3,7 @@ import style from './Home.module.css'
 import Lupa from '../../Assets/lupa.png'
 import LuxuryCard from "../../Components/LuxuryCard/LuxuryCard";
 import CardsInformacion from "../../Components/CardsInformacion/CardsInformacion";
+import CardDesarrollo from "../../Components/CardDesarollo/CardDesarrollo"
 
 const Home = ()=>{
     return(
@@ -11,10 +12,10 @@ const Home = ()=>{
 
         <h1 className={style.title}>MUCHO MÁS QUE MUDARTE</h1>
         <div className={style.buttonsContainer}>
-            <button className={style.button} onClick={() => window.location.href='/buy'}>Quiero comprar</button>
-            <button className={style.button} onClick={() => window.location.href='/alquilar'}>Quiero alquilar</button>
+            <button className={style.button} onClick={() => window.location.href='/sale'}>Quiero comprar</button>
+            <button className={style.button} onClick={() => window.location.href='/rent'}>Quiero alquilar</button>
             <button className={style.button} onClick={() => window.location.href='/sell'}>Quiero vender</button>
-            <button className={style.button} onClick={() => window.location.href='/emprendimientos'}>Desarrollo</button>
+            <button className={style.button} onClick={() => window.location.href='/desarrollo'}>Desarrollo</button>
         </div>
         <div className={style.searchContainer}>
             <input type="text" className={style.searchInput} placeholder="¿Dónde quieres mudarte?" />
@@ -40,6 +41,7 @@ const Home = ()=>{
         </div>
         </div>
         {/* <LuxuryCard/> */}
+        <CardDesarrollo/>
         <CardsInformacion/>
         <p className={style.declaracion}>
             By Raices (bajo la sociedad Ditova SAS) NO ejerce el corretaje inmobiliario. Cada oficina es de propiedad y gestión independiente. En cumplimiento de las leyes vigentes que regulan el corretaje inmobiliario, Ley Nacional 25.028, Ley 22.802 de Lealtad Comercial, Ley 24.240 de Defensa al Consumidor, las normas del Código Civil y Comercial de la Nación y Constitucionales, los agentes/gestores de By Raices NO ejercen el corretaje inmobiliario. Todas las operaciones inmobiliarias son objeto de intermediación y conclusión por parte de los corredores públicos inmobiliarios colegiados, cuyos datos se exhiben en cada publicación de propiedad objeto de comercialización.

@@ -408,7 +408,7 @@ const PropertyDetailsView = ({ property }) => {
           {property.province && <p>{property.province},</p>}
           {property.country && <p> {property.country}</p>}
           </div>
-          {/* <MapContainer location={property.location} /> */}
+          <MapContainer location={property.location} />
 
         </div>
         </div>

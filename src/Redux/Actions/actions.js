@@ -8,7 +8,10 @@ import {
     GET_ACTIVE_PROPERTIES_FOR_SALE_FAILURE,
     GET_ACTIVE_PROPERTIES_FOR_RENT_REQUEST,
     GET_ACTIVE_PROPERTIES_FOR_RENT_SUCCESS,
-    GET_ACTIVE_PROPERTIES_FOR_RENT_FAILURE
+    GET_ACTIVE_PROPERTIES_FOR_RENT_FAILURE,
+    GET_DEVELOPMENT_PROPERTIES_REQUEST,
+    GET_DEVELOPMENT_PROPERTIES_SUCCESS,
+    GET_DEVELOPMENT_PROPERTIES_FAILURE, 
 } from './actionTypes';
 
 export const createUserRequest = () => ({
@@ -76,5 +79,30 @@ export const getActivePropertiesForSaleRequest = () => ({
         type: GET_ACTIVE_PROPERTIES_FOR_RENT_FAILURE,
         payload: error.message
       });
+    }
+  };
+
+  export const getDevelopmentPropertiesRequest = () => ({
+    type: GET_DEVELOPMENT_PROPERTIES_REQUEST,
+  });
+  
+  export const getDevelopmentPropertiesSuccess = (properties) => ({
+    type: GET_DEVELOPMENT_PROPERTIES_SUCCESS,
+    payload: properties,
+  });
+  
+  export const getDevelopmentPropertiesFailure = (error) => ({
+    type: GET_DEVELOPMENT_PROPERTIES_FAILURE,
+    payload: error,
+  });
+  
+  // Thunk to fetch development properties
+  export const fetchDevelopmentProperties = () => async (dispatch) => {
+    dispatch(getDevelopmentPropertiesRequest());
+    try {
+      const response = await axios.get('/properties/active/pozo');
+      dispatch(getDevelopmentPropertiesSuccess(response.data));
+    } catch (error) {
+      dispatch(getDevelopmentPropertiesFailure(error.message));
     }
   };

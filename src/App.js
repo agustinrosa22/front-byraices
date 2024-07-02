@@ -9,6 +9,7 @@ import Contact from './Views/Contact/Contact';
 import Home from './Views/Home/Home';
 import Sale from './Views/Sale/Sale';
 import Rent from './Views/Rent/Rent';
+import Desarrollos from './Views/Desarrollo/Desarrollo'
 import { Routes,Route} from 'react-router-dom';  
 import PropertyDetailsPage from './Views/Detail/Detail';
 import DetailSeller from './Views/DetailSeller/DetailSeller';
@@ -25,7 +26,7 @@ function App() {
       <Route path='/sell'element={ <Sell />}/>
       <Route path='/contact'element={ <Contact />}/>
       <Route path='/sale'element={ <Sale />}/>
-      <Route path='/desarrollo'element={ <Sale />}/>
+      <Route path='/desarrollo'element={ <Desarrollos />}/>
       <Route path='/rent'element={ <Rent />}/>
       <Route path='/detail/:id'element={ <PropertyDetailsPage />}/>
       <Route path='/seller/:id'element={ <DetailSeller />}/>
