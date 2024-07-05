@@ -9,8 +9,8 @@ const CardDesarrollo = () => {
       <img src={buildingImage} alt="Background" className={style.backgroundimage} />
       <div className={style.overlay}>
         <img src={isologoImage} alt="Isologo" className={style.isologo} />
-        <h2>Desarrollos</h2>
-        <p>
+        <h2 className={style.titulo}>Desarrollos</h2>
+        <p className={style.text}>
           En By Raices, nos especializamos en ofrecer desarrollos inmobiliarios de la más alta calidad.
           Nuestra misión es ayudarte a encontrar el hogar de tus sueños o la inversión perfecta.
           Con una amplia variedad de propiedades disponibles y desarrollos inmobiliarios,

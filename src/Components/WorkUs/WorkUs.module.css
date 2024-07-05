@@ -6,9 +6,9 @@
     overflow: hidden;
     margin-top: 85px;
     display: flex;
-    margin-left: 0;
+    margin-right: 0;
+    justify-content: flex-end;
     overflow: visible;
-   
   }
   
   .backgroundimage {
@@ -17,43 +17,49 @@
     object-fit: cover; /* Recorta la imagen manteniendo la proporción */
     display: block;
     margin-left: 0;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
   }
   
   .overlay {
     position: absolute;
     top: -20px;
-    right: 80px;
+    left: 80px;
     bottom: 0;
-    background-color: #D6C1FF56;
+    background-color: #d3c3ae7a;
     padding: 100px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    text-align: left;
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: center; /* Centra los elementos verticalmente */
+    text-align: center; /* Centra el texto */
     width: 450px;
     height: 450px;
     border-radius: 100%;
+    text-align: left;
   }
   
   .isologo {
-    width: 30px;
+    position: absolute;
+    top: 70px; /* Ajusta la posición según sea necesario */
+    left: 90px; /* Ajusta la posición según sea necesario */
+    width: 50px;
     height: auto;
-    margin-bottom: 20px;
   }
   
   .titulo {
-    font-size: 1.5em;
+    font-size: 2em;
     margin-bottom: 10px;
+    text-align: left;
   }
   
   .text {
     font-size: 0.9em;
     line-height: 1.5;
     margin-bottom: 20px;
+    text-align: left;
   }
+  
   
   .verdesarrollosbtn {
     background-color: #4e2993; /* Color del botón */
@@ -63,32 +69,31 @@
     font-size: 1em;
     cursor: pointer;
     text-transform: uppercase;
-    align-self: center; /* Centrar el botón */
   }
   
   .verdesarrollosbtn:hover {
     background-color: #3b2070; /* Color del botón al pasar el mouse */
   }
-
+  
   /* Media Queries */
-@media (max-width: 768px) {     
-
+  @media (max-width: 768px) {     
     .carddesarrollo {
-        position: relative;
-        width: 100%;
-        height: 500px;
-        max-width: auto;
-        margin: auto;
-        overflow: hidden;
-        margin-top: 55px;
-        margin-bottom: 55px;
-      }
-
-      .backgroundimage {
-        width: 100%;
-        height: 500px;
-        display: block;
-      }
+      position: relative;
+      width: 100%;
+      height: 500px;
+      max-width: auto;
+      margin: auto;
+      overflow: hidden;
+      margin-top: 55px;
+      margin-bottom: 55px;
+    }
+  
+    .backgroundimage {
+      width: 100%;
+      height: 500px;
+      display: block;
+    }
+  
     .overlay {
       left: 0;
       max-width: none;

@@ -4,7 +4,7 @@ import luxuryimage from '../../Assets/luxury.jpeg';
 import tituloLuxury from '../../Assets/tituloluxury.png';
 import style from './LuxuryCard.module.css';
 
-import logoByraices from '../../Assets/logoByraices.png';
+import logoByraices from '../../Assets/titulo.png';
 
 const LuxuryCard = () => {
   return (

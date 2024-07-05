@@ -6,7 +6,7 @@
   overflow: hidden;
   margin-top: 85px;
   display: flex;
-  right: -60px;
+  margin-right: 0;
   justify-content: flex-end;
   overflow: visible;
 }
@@ -17,29 +17,31 @@
   object-fit: cover; /* Recorta la imagen manteniendo la proporción */
   display: block;
   margin-left: 0;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .overlay {
   position: absolute;
-  top: -75px;
-  left: 0;
+  top: -20px;
+  left: 80px;
   bottom: 0;
-  background-color: #d4c4aee1;
+  background-color: #d3c3ae7a;
   padding: 100px;
   display: flex;
   flex-direction: column;
   align-items: center; /* Centra los elementos horizontalmente */
   justify-content: center; /* Centra los elementos verticalmente */
   text-align: center; /* Centra el texto */
-  width: 550px;
-  height: 550px;
+  width: 450px;
+  height: 450px;
   border-radius: 100%;
 }
 
 .isologo {
   position: absolute;
   top: 90px; /* Ajusta la posición según sea necesario */
-  left: 140px; /* Ajusta la posición según sea necesario */
+  left: 90px; /* Ajusta la posición según sea necesario */
   width: 50px;
   height: auto;
 }
@@ -63,26 +65,25 @@
   background-color: #3b2070; /* Color del botón al pasar el mouse */
 }
 
-
 /* Media Queries */
 @media (max-width: 768px) {     
-
   .carddesarrollo {
-      position: relative;
-      width: 100%;
-      height: 500px;
-      max-width: auto;
-      margin: auto;
-      overflow: hidden;
-      margin-top: 55px;
-      margin-bottom: 55px;
-    }
+    position: relative;
+    width: 100%;
+    height: 500px;
+    max-width: auto;
+    margin: auto;
+    overflow: hidden;
+    margin-top: 55px;
+    margin-bottom: 55px;
+  }
 
-    .backgroundimage {
-      width: 100%;
-      height: 500px;
-      display: block;
-    }
+  .backgroundimage {
+    width: 100%;
+    height: 500px;
+    display: block;
+  }
+
   .overlay {
     left: 0;
     max-width: none;
