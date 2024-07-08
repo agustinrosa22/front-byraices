@@ -12,6 +12,9 @@ import {
     GET_DEVELOPMENT_PROPERTIES_REQUEST,
     GET_DEVELOPMENT_PROPERTIES_SUCCESS,
     GET_DEVELOPMENT_PROPERTIES_FAILURE, 
+    GET_LUXURY_PROPERTIES_REQUEST,
+    GET_LUXURY_PROPERTIES_SUCCESS,
+    GET_LUXURY_PROPERTIES_FAILURE, 
 } from './actionTypes';
 
 export const createUserRequest = () => ({
@@ -104,5 +107,30 @@ export const getActivePropertiesForSaleRequest = () => ({
       dispatch(getDevelopmentPropertiesSuccess(response.data));
     } catch (error) {
       dispatch(getDevelopmentPropertiesFailure(error.message));
+    }
+  };
+
+  export const getLuxuryPropertiesRequest = () => ({
+    type: GET_LUXURY_PROPERTIES_REQUEST,
+  });
+  
+  export const getLuxuryPropertiesSuccess = (properties) => ({
+    type: GET_LUXURY_PROPERTIES_SUCCESS,
+    payload: properties,
+  });
+  
+  export const getLuxuryPropertiesFailure = (error) => ({
+    type: GET_LUXURY_PROPERTIES_FAILURE,
+    payload: error,
+  });
+  
+  // Thunk to fetch development properties
+  export const fetchLuxuryProperties = () => async (dispatch) => {
+    dispatch(getLuxuryPropertiesRequest());
+    try {
+      const response = await axios.get('/properties/luxury');
+      dispatch(getLuxuryPropertiesSuccess(response.data));
+    } catch (error) {
+      dispatch(getLuxuryPropertiesFailure(error.message));
     }
   };

@@ -11,7 +11,7 @@ const WorkUs = () => {
       <img src={logoByraices} alt="Isologo" className={style.isologo} />
       <h2 className={style.titulo}>Trabaja con nosotros</h2>
       <p className={style.text}>Si eres una persona apasionada por los negocios y con una gran ambición de crecer escríbenos.</p>
-      <button className={style.verdesarrollosbtn} onClick={() => window.location.href='/desarrollo'}>CONTACTANOS</button>
+      <button className={style.verdesarrollosbtn} onClick={() => window.location.href='/SumateANuestroEquipo'}>CONTACTANOS</button>
     </div>
   </div>
   

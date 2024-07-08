@@ -11,7 +11,7 @@ const ContactUs = () => {
       <div className={style.overlay}>
         <h2 className={style.titulo}>¿Quiénes somos?</h2>
         <img className={style.byraicesImg} src={logocompleto} alt="" />
-        <button className={style.verdesarrollosbtn} onClick={() => window.location.href='/desarrollo'} >CONOCENOS</button>
+        <button className={style.verdesarrollosbtn} onClick={() => window.location.href='/QuienesSomos'} >CONOCENOS</button>
       </div>
     </div>
   );

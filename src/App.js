@@ -13,7 +13,10 @@ import Desarrollos from './Views/Desarrollo/Desarrollo'
 import { Routes,Route} from 'react-router-dom';  
 import PropertyDetailsPage from './Views/Detail/Detail';
 import DetailSeller from './Views/DetailSeller/DetailSeller';
+import Luxury from './Views/Luxury/Luxury';
 import About from './Views/About/About';
+import QuienesSomos from './Views/QuienesSomos/QuienesSomos';
+import SumateANuestroEquipo from './Views/SumateANuestroEquipo/SumateANuestroEquipo';
 
 function App() {
   return (
@@ -30,6 +33,9 @@ function App() {
       <Route path='/rent'element={ <Rent />}/>
       <Route path='/detail/:id'element={ <PropertyDetailsPage />}/>
       <Route path='/seller/:id'element={ <DetailSeller />}/>
+      <Route path='/luxury'element={ <Luxury />}/>
+      <Route path='/QuienesSomos'element={ <QuienesSomos />}/>
+      <Route path='/SumateANuestroEquipo'element={ <SumateANuestroEquipo />}/>
       <Route path='/about'element={ <About />}/>
     </Routes>
     <Footer />
