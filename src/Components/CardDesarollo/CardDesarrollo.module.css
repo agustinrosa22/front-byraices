@@ -81,31 +81,45 @@
         margin: auto;
         overflow: hidden;
         margin-top: 55px;
-        margin-bottom: 55px;
+        margin-bottom: 1px;
       }
 
       .backgroundimage {
         width: 100%;
-        height: 500px;
+        height: 350px;
         display: block;
+        border-radius: 10px;
       }
     .overlay {
+      top: 0px;
       left: 0;
       max-width: none;
       width: 100%;
+      height: 70%;
+      background-color: #d6c1ffc7;
+      align-items: center;
     }
   
-    .h2 {
-      font-size: 1.5em;
+    .titulo {
+      font-size: 1.2em;
+      text-align: center;
     }
   
-    .p {
-      font-size: 0.9em;
+    .text {
+      font-size: 0.8em; /* Disminuye el tamaño de la fuente */
+      line-height: 1.2; /* Reduce el interlineado para comprimir el texto */
+      text-align: center; /* Justifica el texto para mejor presentación */
+      width: 100%; /* Ajusta el ancho del contenedor de texto */
+      max-width: 600px; /* Establece un ancho máximo */
+      margin-bottom: 20px;
     }
   
     .verdesarrollosbtn {
       font-size: 0.9em;
       padding: 8px 16px;
+    }
+    .isologo {
+      display: none; 
     }
   }
   

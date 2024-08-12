@@ -1,0 +1,23 @@
+.franquiciaContainer {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .buildingImage, .isologoImage {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .mapContainer {
+    margin-top: 20px;
+  }
+  
+  .argentinaMap .province {
+    fill: #ccc;
+    transition: fill 0.2s;
+  }
+  
+  .argentinaMap .province:hover {
+    fill: blue;
+    cursor: pointer;
+  }

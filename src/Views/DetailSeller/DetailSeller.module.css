@@ -143,3 +143,71 @@
     font-size: 14px;
     margin: 0;
   }
+  .link{
+    text-decoration: none;
+    color: black;
+  }
+
+  @media (max-width: 768px) {
+    .officeDetail{
+      margin-left: 0px;
+    }
+
+    .detail{
+      margin-left: 0px;
+    }
+    .containerBanner {
+      height: 300px;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .banner {
+      width: 100%;
+      object-fit: cover; /* La imagen se recorta para llenar el contenedor manteniendo su proporción */
+      margin-top: -100px;
+    }
+    .detailSeller{
+      flex-direction: column;
+    }
+
+    .properties{
+      grid-template-columns: repeat(2, 1fr); 
+      flex-direction: column;
+    }
+
+    .dataContainer {
+      display: flex;
+      flex-direction: column; /* Mantén la disposición en fila por defecto */
+      justify-content: center;
+      align-items: center; /* Alinea los elementos hacia el inicio */
+    }
+
+  }
+
+  @media (max-width: 480px) {
+    .containerBanner {
+      min-height: 150px; /* Reduce la altura mínima en móviles */
+    }
+  
+    .banner {
+      height: auto; /* Ajusta la altura de la imagen según el contenido */
+      margin-top: 0; /* Elimina el margin-top en móviles */
+    }
+    
+  .detailSeller{
+    flex-direction: column;
+  }
+  
+  .properties{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); 
+    gap: 0px; /* Espacio entre las tarjetas */
+    flex-direction: column;
+  }
+
+  .propertiesContainer {
+    margin-top: 20px;
+    margin-left: 0px;
+  }
+  }

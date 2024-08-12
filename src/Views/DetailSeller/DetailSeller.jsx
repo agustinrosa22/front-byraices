@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import style from "./DetailSeller.module.css";
 import banner from '../../Assets/houseSeller.jpg';
 import { Carousel } from 'react-bootstrap';
@@ -8,6 +9,7 @@ import { Carousel } from 'react-bootstrap';
 const PropertyCard = ({ property }) => {
   return (
     <div className={style.propertyCard}>
+       <Link to={`/detail/${property.id}`} className={style.link}>
       <Carousel>
         {property.photo &&
           property.photo.map((image, index) => (
@@ -20,6 +22,7 @@ const PropertyCard = ({ property }) => {
         <h3>{property.title}</h3>
         <p>{property.price} {property.currency}</p>
       </div>
+      </Link>
     </div>
   );
 };
@@ -83,8 +86,8 @@ const DetailSeller = () => {
               <img src={seller.photo} alt={`${seller.name} ${seller.last_name}`} className={style.photo} />
               <h1>{seller.name} {seller.last_name}</h1>
               <p>{office?.name}</p>
-              <p>Email: {seller.mail}</p>
-              <p>Phone Number: {seller.phone_number}</p>
+              <p> {seller.mail}</p>
+              <p>{seller.phone_number}</p>
             </div>
           ) : (
             <p>Seller not found</p>
@@ -92,9 +95,9 @@ const DetailSeller = () => {
           {martiller && (
             <div className={style.officeDetail}>
               <h2>Martillero</h2>
-              <p>Nombre: {martiller.name} {martiller.last_name}</p>
-              <p>Email: {martiller.mail}</p>
-              <p>Teléfono: {martiller.phone_number}</p>
+              <p>{martiller.name} {martiller.last_name}</p>
+              <p>{martiller.mail}</p>
+              <p>{martiller.phone_number}</p>
               <img src={martiller.img} alt={`${martiller.name} ${martiller.last_name}`} className={style.photo} />
             </div>
           )}

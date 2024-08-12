@@ -315,6 +315,18 @@ const PropertyDetailsView = ({ property }) => {
     };
   }, [selectedPreview])
 
+   // Calcula la antigüedad en años si el campo age tiene 4 dígitos
+   const calculateAntiquity = (age) => {
+    const currentYear = new Date().getFullYear();
+    return currentYear - age;
+  };
+
+  // Verifica si la edad es un año de 4 dígitos o un valor directo
+  const displayAge = (age) => {
+    return age.toString().length === 4 ? calculateAntiquity(age) : age;
+  };
+
+
   return (
     <div>
       <div>
@@ -358,7 +370,7 @@ const PropertyDetailsView = ({ property }) => {
             <p>{property.rooms} dormitorios</p>
             <p>{property.bathrooms} baños</p>
             <p>{property.garages} cochera</p>
-            <p>{property.age} Años de antiguedad</p>
+            <p>{displayAge(property.age)} Años de antiguedad</p>
           </div>
         </div>
         <div className={style.descriptionContainer}>
@@ -378,7 +390,7 @@ const PropertyDetailsView = ({ property }) => {
       {property.semiCoveredSquareMeters && <p>Superficie semicubierta: {property.semiCoveredSquareMeters} m²</p>}
     </div>
     <div className={style.pairContainer}>
-      {property.age && <p>Años de antiguedad: {property.age}</p>}
+      {property.age && <p>Años de antiguedad: {displayAge(property.age)}</p>}
       {property.rooms && <p>Dormitorios: {property.rooms}</p>}
     </div>
     <div className={style.pairContainer}>

@@ -13,7 +13,7 @@ const LuxuryCard = () => {
     <div className={style.overlay}>
       <img src={logoByraices} alt="Isologo" className={style.isologo} />
       <img src={tituloLuxury} alt="Título" className={style.titulo}/>
-      <button className={style.verdesarrollosbtn} onClick={() => window.location.href='/luxury'}>VER DESARROLLOS</button>
+      <button className={style.verdesarrollosbtn} onClick={() => window.location.href='/luxury'}>VER PROPIEDADES</button>
     </div>
   </div>
   

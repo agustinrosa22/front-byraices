@@ -17,6 +17,7 @@ import Luxury from './Views/Luxury/Luxury';
 import About from './Views/About/About';
 import QuienesSomos from './Views/QuienesSomos/QuienesSomos';
 import SumateANuestroEquipo from './Views/SumateANuestroEquipo/SumateANuestroEquipo';
+import Franquicia from './Views/Franquicia/Franquicia';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
       <Route path='/QuienesSomos'element={ <QuienesSomos />}/>
       <Route path='/SumateANuestroEquipo'element={ <SumateANuestroEquipo />}/>
       <Route path='/about'element={ <About />}/>
+      <Route path='/franquicias'element={ <Franquicia />}/>
     </Routes>
     <Footer />
   </div>
