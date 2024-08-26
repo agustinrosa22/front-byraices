@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import style from "./DetailSeller.module.css";
+import style from "./DetailMartiller.module.css";
 import banner from '../../Assets/houseSeller.jpg';
 import { Carousel } from 'react-bootstrap';
 import carga from '../../Assets/carga.gif';
@@ -28,7 +28,7 @@ const PropertyCard = ({ property }) => {
   );
 };
 
-const DetailSeller = () => {
+const DetailMartiller = () => {
   const { id } = useParams();
   const [seller, setSeller] = useState(null);
   const [office, setOffice] = useState(null);
@@ -42,7 +42,7 @@ const DetailSeller = () => {
   useEffect(() => {
     const fetchSeller = async () => {
       try {
-        const response = await axios.get(`/seller/${id}`);
+        const response = await axios.get(`/martiller/${id}`);
         const sellerData = response.data.data;
         setSeller(sellerData);
 
@@ -53,7 +53,7 @@ const DetailSeller = () => {
         }
 
         // Fetch properties related to the seller
-        const propertiesResponse = await axios.get(`/properties/seller/true/${id}`);
+        const propertiesResponse = await axios.get(`/properties/martiller/${id}`);
         setProperties(propertiesResponse.data.data);
 
         // Fetch martiller details if martillerId exists
@@ -86,7 +86,7 @@ const DetailSeller = () => {
         <div className={style.dataContainer}>
           {seller ? (
             <div className={style.detail}>
-              <img src={seller.photo} alt={`${seller.name} ${seller.last_name}`} className={style.photo} />
+              <img src={seller.img} alt={`${seller.name} ${seller.last_name}`} className={style.photo} />
               <h1>{seller.name} {seller.last_name}</h1>
               <p>{office?.name}</p>
               <p> {seller.mail}</p>
@@ -130,5 +130,5 @@ const DetailSeller = () => {
   );
 };
 
-export default DetailSeller;
+export default DetailMartiller;
 

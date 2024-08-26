@@ -10,39 +10,55 @@
   margin-top: 1%;
 }
 
-.carousel-item {
-  justify-content: center;
-  align-items: center;
-  object-fit: contain;
-  width: 100%;
+/* Añadir la clase para el efecto de desvanecimiento */
+.carousel-fade .carousel-item {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
+
+.carousel-fade .carousel-item.active,
+.carousel-fade .carousel-item-next.carousel-item-left,
+.carousel-fade .carousel-item-prev.carousel-item-right {
+  opacity: 1;
+  transform: none;
+}
+
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+  transform: none;
+}
+
+.carousel-inner {
+  transition: transform 0.5s ease-in-out;
+}
+
 
 .carousel-img {
-  max-width: 100%;
-  height: auto; /* Ajusta la imagen para que mantenga su proporción */
-  object-fit: contain; /* Hace que la imagen se ajuste dentro del contenedor manteniendo su relación de aspecto */
-  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen se adapte bien al contenedor */
+  transition: opacity 0.5s ease-in-out; /* Suaviza la transición de las imágenes */
 }
 
+.imageContainer {
+  width: 100%;
+  height: 500px; /* Ajusta según tus necesidades */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+}
 .carousel-caption {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente para las leyendas */
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
   padding: 10px;
-  width: 100%; /* Asegura que la leyenda ocupe todo el ancho del contenedor */
-}
-
-.imageContainer {
   width: 100%;
-  height: 500px; /* Ajusta este valor según tus necesidades */
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .ContainerIntro {

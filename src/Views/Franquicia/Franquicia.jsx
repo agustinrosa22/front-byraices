@@ -30,7 +30,7 @@ const Franquicia = () => {
         soporte integral que te ayudará a alcanzar tus metas empresariales. No pierdas la oportunidad de crecer con 
         nosotros y transformar tu futuro. ¡Empieza tu viaje con By Raices hoy mismo!
       </p>
-      <Map
+      {/* <Map
         data={{
           map: MAP_JSON,
           width: 600,
@@ -39,7 +39,7 @@ const Franquicia = () => {
           scale: 420,
           currency: "$"
         }}
-      />
+      /> */}
     </div>
   );
 };
