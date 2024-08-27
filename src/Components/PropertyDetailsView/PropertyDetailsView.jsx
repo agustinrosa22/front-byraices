@@ -6,6 +6,13 @@ import style from './PropertyDetailsView.module.css';
 import WhatsApp from '../../Assets/whatsapp.png'
 import Mail from '../../Assets/email.png'
 import { Link } from 'react-router-dom';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/effect-fade';
+
+
 
 
 
@@ -271,49 +278,17 @@ const PropertyDetailsView = ({ property }) => {
     fetchContact();
   }, [property.martillerId, property.sellerId]);
 
-  // useEffect(() => {
-  //   const adjustImages = () => {
-  //     const imageContainers = document.querySelectorAll(`.${style.imageContainer}`);
-  //     imageContainers.forEach(container => {
-  //       const image = container.querySelector('img');
-  //       const containerAspectRatio = container.clientWidth / container.clientHeight;
-  //       const imageAspectRatio = image.naturalWidth / image.naturalHeight;
-        
-  //       if (imageAspectRatio > containerAspectRatio) {
-  //         image.style.width = 'auto';
-  //         image.style.height = '100%';
-  //       } else {
-  //         image.style.width = '100%';
-  //         image.style.height = 'auto';
-  //       }
-
-  //       if (image.clientWidth < container.clientWidth || image.clientHeight < container.clientHeight) {
-  //         image.style.backgroundColor = '#ccc';
-  //       }
-  //     });
-
-
-  //       const images = document.querySelectorAll(`.${style.imageContainer} img`);
-  //   images.forEach(image => {
-  //     image.addEventListener('click', () => {
-  //       if (image.requestFullscreen) {
-  //         image.requestFullscreen();
-  //       } else if (image.mozRequestFullScreen) {
-  //         image.mozRequestFullScreen();
-  //       } else if (image.webkitRequestFullscreen) {
-  //         image.webkitRequestFullscreen();
-  //       } else if (image.msRequestFullscreen) {
-  //         image.msRequestFullscreen();
-  //       }
-  //     });
-  //   });
+  // const settings = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   fade: true, // Para un efecto de desvanecimiento
   // };
-  //   window.addEventListener('load', adjustImages);
 
-  //   return () => {
-  //     window.removeEventListener('load', adjustImages);
-  //   };
-  // }, [selectedPreview])
+
+
 
    // Calcula la antigüedad en años si el campo age tiene 4 dígitos
    const calculateAntiquity = (age) => {
@@ -327,6 +302,7 @@ const PropertyDetailsView = ({ property }) => {
   };
 
 
+
   return (
     <div>
       <div>
@@ -334,27 +310,26 @@ const PropertyDetailsView = ({ property }) => {
         <Col sm={9} className="mx-auto">
           <div className={style.carouselContainer}>
             {Array.isArray(property.photo) && property.photo.length > 0 ? (
-              <Carousel
-                className={`${style.carousel} carousel-fade`}
-                activeIndex={selectedPreview}
-                onSelect={(index) => setSelectedPreview(index)}
-                interval={3000} // Cambia de slide cada 3 segundos
+              <Swiper
+                effect="fade"
+                spaceBetween={30}
+                slidesPerView={1}
+                pagination={{ clickable: true }}
+                navigation
+                loop={true}
               >
                 {property.photo.map((image, index) => (
-                  <Carousel.Item key={index} className={style['carousel-item']}>
+                  <SwiperSlide key={index}>
                     <div className={style.imageContainer}>
                       <img
                         src={image}
-                        className={`d-block ${style['carousel-img']}`}
+                        className={style['carousel-img']}
                         alt={`Slide ${index}`}
                       />
                     </div>
-                    <Carousel.Caption>
-                      <p>{index + 1} de {property.photo.length}</p>
-                    </Carousel.Caption>
-                  </Carousel.Item>
+                  </SwiperSlide>
                 ))}
-              </Carousel>
+              </Swiper>
             ) : (
               <p>No hay imágenes disponibles.</p>
             )}

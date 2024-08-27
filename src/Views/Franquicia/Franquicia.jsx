@@ -3,8 +3,7 @@ import buildingImage from '../../Assets/build.jpeg'; // Reemplaza con la ruta co
 import isologoImage from '../../Assets/logoByraices.png'; // Reemplaza con la ruta correcta
 import style from './Franquicia.module.css';
 import ReactDOM from "react-dom";
-import Map from "./Map";
-import { MAP_JSON } from "./Map/constants";
+
 
 const Franquicia = () => {
 
