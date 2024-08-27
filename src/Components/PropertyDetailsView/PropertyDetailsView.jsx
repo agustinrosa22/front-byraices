@@ -6,10 +6,11 @@ import style from './PropertyDetailsView.module.css';
 import WhatsApp from '../../Assets/whatsapp.png'
 import Mail from '../../Assets/email.png'
 import { Link } from 'react-router-dom';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, EffectFade } from 'swiper/modules';
 import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
 
@@ -243,6 +244,7 @@ const renderDetailsServicios = (details) => {
 
 
 
+
 const PropertyDetailsView = ({ property }) => {
   let title;
 
@@ -307,35 +309,65 @@ const PropertyDetailsView = ({ property }) => {
     <div>
       <div>
       <Row>
-        <Col sm={9} className="mx-auto">
-          <div className={style.carouselContainer}>
-            {Array.isArray(property.photo) && property.photo.length > 0 ? (
+  <Col sm={9} className="mx-auto">
+    <div className={style.carouselContainer}>
+      {Array.isArray(property.photo) && property.photo.length > 0 ? (
+        <>
               <Swiper
-                effect="fade"
-                spaceBetween={30}
-                slidesPerView={1}
-                pagination={{ clickable: true }}
-                navigation
-                loop={true}
-              >
-                {property.photo.map((image, index) => (
-                  <SwiperSlide key={index}>
-                    <div className={style.imageContainer}>
-                      <img
-                        src={image}
-                        className={style['carousel-img']}
-                        alt={`Slide ${index}`}
-                      />
-                    </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            ) : (
-              <p>No hay imágenes disponibles.</p>
-            )}
-          </div>
-        </Col>
-      </Row>
+      effect="fade"
+      spaceBetween={30}
+      slidesPerView={1}
+      pagination={{ clickable: true }}
+      navigation={{
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      }}
+      loop={true}
+      modules={[Navigation, Pagination]}
+    >
+            {property.photo.map((image, index) => (
+              <SwiperSlide key={index}>
+                <div className={style.imageContainer}>
+                  <img
+                    src={image}
+                    className={style['carousel-img']}
+                    alt={`Slide ${index}`}
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+             {/* Botones de navegación personalizados */}
+      <div
+        className="swiper-button-prev"
+        style={{
+          color: '#3e2f877c', // Color personalizado
+          cursor: 'pointer', // Cambia el cursor al pasar por encima
+          userSelect: 'none', // Previene la selección de texto
+          left: '10px', // Posición personalizada
+          zIndex: 10, // Asegura que esté encima de las imágenes
+        }}
+      ></div>
+
+      <div
+        className="swiper-button-next"
+        style={{
+          color: '#3e2f877c', // Color personalizado
+          cursor: 'pointer', // Cambia el cursor al pasar por encima
+          userSelect: 'none', // Previene la selección de texto
+          right: '10px', // Posición personalizada
+          zIndex: 10, // Asegura que esté encima de las imágenes
+        }}
+      ></div>
+          </Swiper>
+        </>
+      ) : (
+        <p>No hay imágenes disponibles.</p>
+      )}
+    </div>
+  </Col>
+</Row>
+
+
       </div>
       <div className={style.container}>
       <div className={style.leftContent}>

@@ -2,7 +2,9 @@
   width: 100%;
   height: 700px; /* Ajusta esta altura según el tamaño deseado para tu carrusel */
   overflow: hidden; /* Asegúrate de que cualquier contenido fuera del área visible sea ocultado */
+  position: relative;
 }
+
 
 .swiper-slide {
   display: flex;
@@ -16,12 +18,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
 .carousel-img {
   max-height: 100%;
   max-width: 100%;
   object-fit: contain; /* Ajusta la imagen para mantener la proporción sin recortarla */
+  z-index: 1; /* Asegura que la imagen esté delante */
 }
 
 .ContainerIntro {
