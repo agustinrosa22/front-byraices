@@ -18,35 +18,29 @@
     color: #333;
   }
   
-  .image {
-    max-width: 750px;
-    max-height: 400px;
-    object-fit: contain;
-    background-color: #ccc;
-    display: block;
-    margin: auto; /* Centra la imagen horizontalmente */
-    transition: transform 1s ease; /* Agrega una transición suave */
-    border-radius: 10px;
-  }
-  
   .imageContainer {
-    width: 95%;
-    height: 400px; /* Ajusta este valor según tus necesidades */
-    overflow: hidden;
-    position: relative;
-
+    width: 100%; /* El contenedor ocupará todo el ancho disponible */
+    height: 500px; /* Ajusta este valor según tus necesidades */
     display: flex;
     justify-content: center;
-   
-   border-radius: 10px;
-}
-
-.imageContainer .carousel-item {
-  display: block !important; /* Asegura que los ítems del carrusel se muestren como flex */
-  justify-content: center;
-  align-items: center;
-}
-
+    align-items: center;
+    overflow: hidden; /* Oculta cualquier parte de la imagen que se salga del contenedor */
+    background-color: #f0f0f0; /* Color de fondo del contenedor */
+    position: relative;
+    border-radius: 10px; /* Esquinas redondeadas del contenedor */
+  }
+  
+  .carousel-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ajusta la imagen para que se vea completa dentro del contenedor */
+    transition: transform 0.5s ease; /* Transición suave para cualquier transformación */
+    display: block;
+    margin: auto; /* Centra la imagen dentro del contenedor */
+  }
+  
+  
+  
   .sellerimg {
     width: 50px; /* Tamaño deseado de la imagen */
     height: 50px;
