@@ -7,7 +7,7 @@ import WhatsApp from '../../Assets/whatsapp.png'
 import Mail from '../../Assets/email.png'
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, EffectFade } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -323,7 +323,11 @@ const PropertyDetailsView = ({ property }) => {
         prevEl: '.swiper-button-prev',
       }}
       loop={true}
-      modules={[Navigation, Pagination]}
+      modules={[Navigation, Pagination, Autoplay]}
+      autoplay={{
+        delay: 5000, 
+        disableOnInteraction: false, 
+      }}
     >
             {property.photo.map((image, index) => (
               <SwiperSlide key={index}>
