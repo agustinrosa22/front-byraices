@@ -179,14 +179,19 @@ h3 {
   border-color: #3D2F87; /* Cambia el color del borde al pasar el mouse sobre el contenedor */
 }
 
-.dataUbication{
+.dataUbication {
   display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se muevan a una nueva línea si no hay espacio */
+  gap: 5px; /* Añade un pequeño espacio entre los elementos */
+  justify-content: flex-start; /* Alinea los elementos al principio */
+  align-items: center; /* Alinea los elementos verticalmente al centro */
 }
 
 .dataUbication p {
   padding-right: 5px;
+  margin: 0; /* Elimina cualquier margen adicional que pueda causar desajustes */
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
 }
-
 .sellerContainer {
   margin-top: 10px;
   margin-left: 10px;
