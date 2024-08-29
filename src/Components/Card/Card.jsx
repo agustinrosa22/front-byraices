@@ -58,7 +58,7 @@ const Card = (props) => {
         disableOnInteraction: false, // El autoplay no se detiene al interactuar
       }}
       loop={true} // Permite que el carrusel se repita en bucle
-      
+      allowTouchMove={false} // Desactiva el arrastre manual
     >
         {photos.map((image, index) => (
           <SwiperSlide key={index}>
@@ -78,7 +78,7 @@ const Card = (props) => {
   
 </div>
       <div className={styles.detailsCardContainer}>
-        <Link to={`/detail/${props.id}`} className={styles.link}>
+        {/* <Link to={`/detail/${props.id}`} className={styles.link}> */}
           <p className={styles.price}>{props.price} {props.currency}</p>
           <p className={styles.street}>{props.street} {props.number}</p>
           <p className={styles.locality}>{props.locality}, {props.departments}, {props.province}</p>
@@ -92,8 +92,10 @@ const Card = (props) => {
             <img className={styles.baño} src={baño} alt="" />
             <p>{props.bathrooms} baños</p>
           </div>
-          <p>{props.title}</p>
-        </Link>
+          <div className={styles.tituloContainer}>
+    <p className={styles.titulo}>{props.title}</p>
+  </div>
+        {/* </Link> */}
         {contact && (
           <div className={styles.sellerContainer}>
             {contact.photo && <img src={contact.photo} alt="" className={styles.sellerimg}/>}
