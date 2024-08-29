@@ -18,6 +18,8 @@
     text-decoration: none;
     color: #333;
     overflow: hidden;
+    box-sizing: border-box;
+    overflow: hidden; /* Cambiado a 'hidden' para evitar desbordamiento */
   }
   
   .imageContainer {
@@ -70,9 +72,9 @@
     font-size: 16px !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    width: auto !important; /* Elimina el ancho fijo para adaptarse al contenedor */
+    width: 3000px !important;
     overflow: hidden;
-}
+  }
 
   .price{
     font-size: 46px;
@@ -261,5 +263,11 @@
   white-space: normal; /* Permite el salto de línea en pantallas pequeñas */
   word-wrap: break-word; /* Asegura que las palabras largas se ajusten */
 }
+  
+.detailsCardContainer {
+  width: auto !important;
+ 
+}
+
   }
   
