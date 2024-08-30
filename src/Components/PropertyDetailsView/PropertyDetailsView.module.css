@@ -354,7 +354,19 @@ h3 {
   text-align: center;
 }
 
+@media screen and (max-width: 1440px) {
+  .carouselContainer {
+    height: 550px; /* Ajusta la altura para pantallas más pequeñas */
+  }
 
+  .imageContainer {
+    height: 550px; /* Asegúrate de que el contenedor de imagen también se ajuste */
+  }
+  
+  .carousel-img {
+    object-fit: contain; /* Asegura que la imagen mantenga su proporción en pantallas pequeñas */
+  }
+}
 
 @media screen and (max-width: 550px) {
   .carouselContainer {
