@@ -3,6 +3,7 @@
   height: 700px; /* Ajusta esta altura según el tamaño deseado para tu carrusel */
   overflow: hidden; /* Asegúrate de que cualquier contenido fuera del área visible sea ocultado */
   position: relative;
+
 }
 
 

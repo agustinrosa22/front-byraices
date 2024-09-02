@@ -385,12 +385,14 @@ const PropertyDetailsView = ({ property }) => {
           </div>
           <div className={style.ContainerPrincipalData}>
             <p>{property.totalSquareMeters} m² totales</p>
-            <p>{property.coveredSquareMeters} m² cubiertos </p>
-            <p>{property.environments} ambientes</p>
-            <p>{property.rooms} dormitorios</p>
-            <p>{property.bathrooms} baños</p>
-            <p>{property.garages} cochera</p>
-            <p>{displayAge(property.age)} Años de antiguedad</p>
+            {property.coveredSquareMeters > 0 && <p>{property.coveredSquareMeters} m² cubiertos</p>}
+            {property.environments > 0 && <p>{property.environments} ambientes</p>}
+            {property.rooms > 0 && <p>{property.rooms} dormitorios</p>}
+            {property.bathrooms > 0 && <p>{property.bathrooms} baños</p>}
+            {property.garages > 0 && <p>{property.garages} cochera</p>}
+
+            <p>{property.age === 0 || displayAge(property.age) === 0 ? "A estrenar" : `${displayAge(property.age)} Años de antigüedad`}</p>
+
           </div>
         </div>
         <div className={style.descriptionContainer}>
@@ -402,24 +404,32 @@ const PropertyDetailsView = ({ property }) => {
           <div className={style.otherDataContainer}>
   <div className={style.otherData}>
     <div className={style.pairContainer}>
-      {property.propertyType && <p>Tipo de propiedad: {property.propertyType}</p>}
-      {property.totalSquareMeters && <p>Superficie total: {property.totalSquareMeters} m²</p>}
+    {property.propertyType && property.propertyType !== 0 && <p>Tipo de propiedad: {property.propertyType}</p>}
+    {property.totalSquareMeters > 0 && <p>Superficie total: {property.totalSquareMeters} m²</p>}
     </div>
     <div className={style.pairContainer}>
-      {property.land && <p>Superficie terreno: {property.land} m²</p>}
-      {property.semiCoveredSquareMeters && <p>Superficie semicubierta: {property.semiCoveredSquareMeters} m²</p>}
+    {property.land > 0 && <p>Superficie terreno: {property.land} m²</p>}
+      {property.semiCoveredSquareMeters > 0 && (
+  <p>Superficie semicubierta: {property.semiCoveredSquareMeters} m²</p>
+)}
     </div>
     <div className={style.pairContainer}>
-      {property.age && <p>Años de antiguedad: {displayAge(property.age)}</p>}
-      {property.rooms && <p>Dormitorios: {property.rooms}</p>}
+    {property.age !== null && property.age !== undefined && (
+  <p>Años de antigüedad: {property.age === 0 || displayAge(property.age) === 0 ? "A estrenar" : displayAge(property.age)}</p>
+
+)}
+
+      {property.rooms > 0 && <p>Dormitorios: {property.rooms}</p>}
     </div>
     <div className={style.pairContainer}>
-      {property.bathrooms && <p>Baños: {property.bathrooms}</p>}
-      {property.toilettes && <p>Toilets: {property.toilettes}</p>}
+    {property.bathrooms > 0 && <p>Baños: {property.bathrooms}</p>}
+    {property.toilettes > 0 && <p>Toilets: {property.toilettes}</p>}
+
     </div>
     <div className={style.pairContainer}>
-      {property.garages && <p>Cocheras: {property.garages}</p>}
-      {property.floorPlans && <p>Pisos de la propiedad: {property.floorPlans}</p>}
+    {property.garages > 0 && <p>Cocheras: {property.garages}</p>}
+{property.floorPlans > 0 && <p>Pisos de la propiedad: {property.floorPlans}</p>}
+
     </div>
   </div>
 </div>
