@@ -15,6 +15,10 @@ import {
     GET_LUXURY_PROPERTIES_REQUEST,
     GET_LUXURY_PROPERTIES_SUCCESS,
     GET_LUXURY_PROPERTIES_FAILURE, 
+    GET_ALL_SELLERS_SUCCESS,
+    GET_ALL_SELLERS_FAIL,
+    GET_ALL_MARTILLERS_SUCCESS,
+    GET_ALL_MARTILLERS_FAIL,
 } from './actionTypes';
 
 export const createUserRequest = () => ({
@@ -134,3 +138,35 @@ export const getActivePropertiesForSaleRequest = () => ({
       dispatch(getLuxuryPropertiesFailure(error.message));
     }
   };
+
+  // Action para obtener todos los vendedores
+export const getAllSellers = () => async (dispatch) => {
+  try {
+    const response = await axios.get('/sellers');
+    dispatch({
+      type: GET_ALL_SELLERS_SUCCESS,
+      payload: response.data // Asume que el servidor devuelve una lista de vendedores
+    });
+  } catch (error) {
+    console.error('Error al obtener los vendedores:', error);
+    dispatch({
+      type: GET_ALL_SELLERS_FAIL,
+      payload: error.message || 'Error al obtener los vendedores'
+    });
+  }
+};
+export const getActiveMartiller = () => async (dispatch) => {
+  try {
+    const response = await axios.get('/martillers/active');
+    dispatch({
+      type: GET_ALL_MARTILLERS_SUCCESS,
+      payload: response.data, // Asume que el servidor devuelve una lista de martilleros
+    });
+  } catch (error) {
+    console.error('Error al obtener los martilleros:', error);
+    dispatch({
+      type: GET_ALL_MARTILLERS_FAIL,
+      payload: error.message || 'Error al obtener los martilleros',
+    });
+  }
+};

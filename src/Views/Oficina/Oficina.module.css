@@ -1,0 +1,64 @@
+.container {
+    display: flex;
+    flex-direction: column; /* Aseguramos que los elementos se apilen verticalmente */
+    padding: 20px;
+  }
+  
+  .containerContent {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 40px; /* Espacio entre la oficina y las tarjetas de vendedores */
+    margin-top: 20px; /* Añadimos margen superior entre el banner y el contenido */
+  }
+  
+  .containerBanner {
+    height: 300px;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .banner {
+    width: 100%;
+    object-fit: cover; /* La imagen se recorta para llenar el contenedor manteniendo su proporción */
+    margin-top: -200px;
+  }
+  
+  .officeDetail{
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid rgb(184, 184, 184);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+    margin-top: 10px; /* Mueve la tarjeta hacia arriba para superponerse al banner */
+    position: relative; /* Añadir esta propiedad para controlar mejor la posición */
+    margin-left: 30px;
+  
+  }
+  
+  
+  .officeDetail p {
+    margin: 5px 0;
+    font-size: 16px;
+  }
+  
+  .cardSellersContainer {
+    flex: 2; /* El contenedor de tarjetas de vendedores ocupará el doble del espacio */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media (max-width: 900px) {
+    .containerContent {
+      flex-direction: column; /* En pantallas pequeñas, los elementos se apilan verticalmente */
+    }
+  
+    .officeDetail, .cardSellersContainer {
+      max-width: 100%;
+    }
+  }
+  

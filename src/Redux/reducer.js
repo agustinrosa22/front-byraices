@@ -14,6 +14,10 @@ import {
   GET_LUXURY_PROPERTIES_REQUEST,
   GET_LUXURY_PROPERTIES_SUCCESS,
   GET_LUXURY_PROPERTIES_FAILURE, 
+  GET_ALL_SELLERS_SUCCESS,
+  GET_ALL_SELLERS_FAIL,
+  GET_ALL_MARTILLERS_SUCCESS,
+  GET_ALL_MARTILLERS_FAIL,
 } from './Actions/actionTypes';
 
 const initialState = {
@@ -25,6 +29,8 @@ const initialState = {
   createUserError: null,
   loading: false, 
   error: null, 
+  sellers: [],
+  martillers: []
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -123,6 +129,30 @@ const rootReducer = (state = initialState, action) => {
                       loading: false,
                       error: action.payload,
                     };
+                    case GET_ALL_SELLERS_SUCCESS:
+                      return {
+                        ...state,
+                        sellers: action.payload, // Guarda la lista de vendedores en el estado
+                        error: null
+                      };
+                    case GET_ALL_SELLERS_FAIL:
+                      return {
+                        ...state,
+                        sellers: [], // Limpia la lista de vendedores en caso de fallo
+                        error: action.payload
+                      };
+                      case GET_ALL_MARTILLERS_SUCCESS:
+                        return {
+                          ...state,
+                          martillers: action.payload, // Guarda la lista de martilleros en el estado
+                          error: null,
+                        };
+                      case GET_ALL_MARTILLERS_FAIL:
+                        return {
+                          ...state,
+                          martillers: [], // Limpia la lista de martilleros en caso de fallo
+                          error: action.payload,
+                        };
       default:
           return state;
   }

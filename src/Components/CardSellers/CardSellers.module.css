@@ -1,0 +1,44 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px; /* Ajusta el ancho de la tarjeta según sea necesario */
+  height: 250px;
+  border: 1px solid #ddd; /* Borde alrededor de la tarjeta */
+  border-radius: 8px; /* Bordes redondeados */
+  overflow: hidden; /* Asegura que el contenido no sobresalga del borde redondeado */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+  cursor: pointer; /* Muestra un cursor de mano al pasar sobre la tarjeta */
+  transition: border-color 0.3s;
+}
+
+.card:hover {
+ border-color: #3D2F87;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.photo {
+  width: 150px; /* Ocupa todo el ancho del contenedor */
+  height: 150px; /* Altura fija para la foto */
+  object-fit: cover; /* Ajusta la imagen para cubrir el contenedor sin distorsionar */
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.name h3 {
+  margin: 10px 0 0; /* Margen arriba y abajo del nombre */
+  font-size: 18px; /* Tamaño del texto del nombre */
+  color: #333; /* Color del texto */
+  text-align: center; /* Centra el texto del nombre */
+}

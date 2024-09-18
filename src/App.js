@@ -19,6 +19,7 @@ import QuienesSomos from './Views/QuienesSomos/QuienesSomos';
 import SumateANuestroEquipo from './Views/SumateANuestroEquipo/SumateANuestroEquipo';
 import Franquicia from './Views/Franquicia/Franquicia';
 import DetailMartiller from './Views/DetailMartiller/DetailMartiller'
+import Oficina from './Views/Oficina/Oficina';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
       <Route path='/SumateANuestroEquipo'element={ <SumateANuestroEquipo />}/>
       <Route path='/about'element={ <About />}/>
       <Route path='/franquicias'element={ <Franquicia />}/>
+      <Route path='/oficina'element={ <Oficina />}/>
     </Routes>
     <Footer />
   </div>
