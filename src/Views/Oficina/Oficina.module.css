@@ -54,11 +54,44 @@
   
   @media (max-width: 900px) {
     .containerContent {
-      flex-direction: column; /* En pantallas pequeñas, los elementos se apilan verticalmente */
+      flex-direction: column; /* Los elementos se apilan verticalmente */
+      align-items: center;    /* Alinea los elementos al centro */
     }
   
-    .officeDetail, .cardSellersContainer {
-      max-width: 100%;
+    .banner {
+      margin-top: 0; /* Corrige el desplazamiento negativo en pantallas pequeñas */
+      height: 200px; /* Ajusta la altura para pantallas más pequeñas */
+    }
+  
+    .officeDetail {
+      max-width: 80%;   /* Asegura que la carta de la oficina ocupe el ancho completo */
+      margin-left: auto; /* Centra el div horizontalmente */
+      margin-right: auto; /* Centra el div horizontalmente */
+      text-align: center; /* Centra el texto dentro del div */
+      padding: 20px;      /* Añade padding para mayor espaciado interno */
+    }
+  
+    .cardSellersContainer {
+      max-width: 100%; /* Asegura que el contenedor de las tarjetas de vendedores ocupe el ancho completo */
+      margin-top: 20px; /* Añade margen entre las tarjetas de vendedores y la carta de la oficina */
     }
   }
   
+  @media (max-width: 600px) {
+    .containerBanner {
+      height: 150px; /* Reduce la altura del banner para pantallas más pequeñas */
+    }
+  
+    .banner {
+      height: 150px; /* Asegura que la imagen del banner se ajuste bien */
+    }
+  
+    .officeDetail {
+      max-width: 80%;   /* Reduce el ancho para dispositivos muy pequeños */
+      padding: 15px;    /* Reduce el padding en pantallas más pequeñas */
+      font-size: 14px;  /* Ajusta el tamaño del texto */
+      margin-left: auto; /* Centra el div horizontalmente */
+      margin-right: auto; /* Centra el div horizontalmente */
+      text-align: center; /* Asegura que el texto esté centrado */
+    }
+  }

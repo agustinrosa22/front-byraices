@@ -28,7 +28,7 @@ const CardMartillerContainer = () => {
 
   return (
     <div className={styles.containerWrapper}>
-      <h1>Martilleros Activos</h1>
+      <h1>Martilleros</h1>
       <div className={styles.cardContainer}>
         {martillers.map((martiller) => (
           <CardMartiller key={martiller.id} martiller={martiller} />

@@ -106,11 +106,13 @@ const DetailSeller = () => {
           )}
 
           {office && (
+               <Link to="/oficina" className={style.link}> {/* Agregamos el enlace aquí */}
             <div className={style.officeDetail}>
-              <p>{office.name}</p>
+                <h3>{office.name}</h3>
               <p>{office.street} {office.number}, {office.locality}, {office.departments}, {office.province}, {office.country}</p>
               <p>{office.phone_number}</p>
             </div>
+              </Link>
           )}
 
           

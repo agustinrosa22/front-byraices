@@ -14,7 +14,13 @@
     padding: 20px;
     position: relative; /* Añadir esta propiedad para posicionar los elementos de manera relativa */
   }
-  .officeDetail{
+
+  .link {
+    text-decoration: none; /* Elimina el subrayado */
+    color: inherit;        /* Hereda el color del texto del contenedor padre */
+  }
+  
+  .officeDetail {
     background-color: #fff;
     border-radius: 8px;
     border: 1px solid rgb(184, 184, 184);
@@ -24,12 +30,24 @@
     width: 100%;
     text-align: center;
     z-index: 10;
-    margin-top: 10px; /* Mueve la tarjeta hacia arriba para superponerse al banner */
-    position: relative; /* Añadir esta propiedad para controlar mejor la posición */
+    margin-top: 10px;
+    position: relative;
     margin-left: 30px;
-  
   }
   
+  /* Estilo para el enlace dentro de .officeDetail */
+  .officeDetail a {
+    text-decoration: none; /* Elimina el subrayado */
+    color: inherit;        /* Hereda el color del contenedor padre, en lugar del azul predeterminado */
+  }
+  
+  /* Para asegurarse de que los estilos no cambian cuando el enlace es visitado o activo */
+  .officeDetail a:visited,
+  .officeDetail a:active {
+    color: inherit;        /* Mantener el color heredado en estados visitado o activo */
+    text-decoration: none; /* No subrayar en estos estados */
+  }
+
   .detail {
     background-color: #fff;
     border-radius: 8px;

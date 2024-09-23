@@ -27,19 +27,29 @@
   /* Ajuste de columnas en pantallas más pequeñas */
   @media (max-width: 1200px) {
     .cardContainer {
-      grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas más pequeñas */
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas más pequeñas */
     }
+}
+
+@media (max-width: 900px) {
+  .containerWrapper h1 {
+    text-align: center; /* Centra el texto solo en pantallas más pequeñas */
+    margin-bottom: 20px; /* Espacio debajo del título */
   }
-  
-  @media (max-width: 900px) {
     .cardContainer {
-      grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas medianas */
+        grid-template-columns: repeat(1, 1fr); /* Una sola columna en pantallas medianas */
+        max-width: 85%; /* Se asegura que ocupe el ancho completo en pantallas más pequeñas */
     }
+}
+
+@media (max-width: 600px) {
+  .containerWrapper h1 {
+    text-align: center; /* Centra el texto solo en pantallas más pequeñas */
+    margin-bottom: 20px; /* Espacio debajo del título */
   }
-  
-  @media (max-width: 600px) {
     .cardContainer {
-      grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+        grid-template-columns: 1fr; /* Una sola columna en pantallas muy pequeñas */
+        max-width: 85%;
     }
-  }
+}
   

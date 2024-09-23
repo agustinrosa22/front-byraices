@@ -42,3 +42,11 @@
   color: #333; /* Color del texto */
   text-align: center; /* Centra el texto del nombre */
 }
+
+
+@media (max-width: 600px) {
+  .card {
+    max-width: 85%; /* Ancho máximo del 95% en pantallas muy pequeñas */
+  }
+
+}
