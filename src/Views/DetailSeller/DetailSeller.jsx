@@ -8,6 +8,18 @@ import { Carousel } from 'react-bootstrap';
 import carga from '../../Assets/carga.gif';
 
 const PropertyCard = ({ property }) => {
+
+  const formatPrice = (price) => {
+    if (price) {
+      // Eliminar cualquier punto ya existente
+      let cleanedPrice = price.toString().replace(/\./g, '');
+
+      // Convertir el precio en formato de miles con puntos
+      return cleanedPrice.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    }
+    return price;
+  };
+  
   return (
     <div className={style.propertyCard}>
       <Link to={`/detail/${property.id}`} className={style.link}>
@@ -21,7 +33,7 @@ const PropertyCard = ({ property }) => {
         </Carousel>
         <div className={style.propertyInfo}>
           <h3>{property.title}</h3>
-          <p>{property.price} {property.currency}</p>
+          <p>{formatPrice(property.price)}{property.currency}</p>
         </div>
       </Link>
     </div>
@@ -38,6 +50,8 @@ const DetailSeller = () => {
   const [error, setError] = useState(null);
   const [propertyError, setPropertyError] = useState(null); // Estado para manejar errores de propiedades
   const cantidad = properties.length;
+
+ 
 
   useEffect(() => {
     const fetchSeller = async () => {

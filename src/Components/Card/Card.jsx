@@ -18,6 +18,17 @@ const Card = (props) => {
   const [contact, setContact] = useState(null);
   const [isMartiller, setIsMartiller] = useState(false);
 
+  const formatPrice = (price) => {
+    if (price) {
+      // Eliminar cualquier punto ya existente
+      let cleanedPrice = price.toString().replace(/\./g, '');
+
+      // Convertir el precio en formato de miles con puntos
+      return cleanedPrice.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    }
+    return price;
+  };
+
   useEffect(() => {
     const fetchContact = async () => {
       try {
@@ -79,7 +90,9 @@ const Card = (props) => {
 </div>
       <div className={styles.detailsCardContainer}>
         <Link to={`/detail/${props.id}`} className={styles.link}>
-          <p className={styles.price}>{props.price} {props.currency}</p>
+        <p className={styles.price}>
+            {formatPrice(props.price)} {props.currency}
+          </p>
           <p className={styles.street}>{props.street} {props.number}</p>
           <p className={styles.locality}>{props.locality}, {props.departments}, {props.province}</p>
           <div className={styles.datos}>

@@ -54,12 +54,12 @@
   align-items: center;
   width: 400px; /* Ajusta el ancho de la tarjeta según sea necesario */
   height: 250px;
-  border: 1px solid #ddd; /* Borde alrededor de la tarjeta */
+
   border-radius: 8px; /* Bordes redondeados */
   overflow: hidden; /* Asegura que el contenido no sobresalga del borde redondeado */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+
   cursor: pointer; /* Muestra un cursor de mano al pasar sobre la tarjeta */
-  transition: border-color 0.3s;
+
 }
 
 @media (max-width: 600px) {

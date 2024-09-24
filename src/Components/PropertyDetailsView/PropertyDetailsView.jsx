@@ -258,6 +258,19 @@ const PropertyDetailsView = ({ property }) => {
   const [selectedPreview, setSelectedPreview] = useState(0);
   const [seller, setSeller] = useState(null);
 
+  
+  const formatPrice = (price) => {
+    if (price) {
+      // Eliminar cualquier punto ya existente
+      let cleanedPrice = price.toString().replace(/\./g, '');
+
+      // Convertir el precio en formato de miles con puntos
+      return cleanedPrice.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    }
+    return price;
+  };
+
+
   useEffect(() => {
     const fetchContact = async () => {
       try {
@@ -381,7 +394,7 @@ const PropertyDetailsView = ({ property }) => {
             <h3>{title}</h3>
             </div>
             <h1>{property.title}</h1>
-            <p> {property.price} {property.currency}</p>
+            <p> {formatPrice(property.price)}{property.currency}</p>
           </div>
           <div className={style.ContainerPrincipalData}>
             <p>{property.totalSquareMeters} m² totales</p>
@@ -398,8 +411,8 @@ const PropertyDetailsView = ({ property }) => {
         <div className={style.descriptionContainer}>
           <h2>Descripción</h2>
           <div className={style.description}>
-            <p>{property.description}</p>
-          </div>
+  <p style={{ whiteSpace: 'pre-line' }}>{property.description}</p>
+</div>
 
           <div className={style.otherDataContainer}>
   <div className={style.otherData}>
