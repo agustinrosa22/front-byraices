@@ -10,6 +10,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
   cursor: pointer; /* Muestra un cursor de mano al pasar sobre la tarjeta */
   transition: border-color 0.3s;
+
 }
 
 .card:hover {
@@ -46,7 +47,8 @@
 
 @media (max-width: 600px) {
   .card {
-    max-width: 85%; /* Ancho máximo del 95% en pantallas muy pequeñas */
+    max-width: 850%; /* Ancho máximo del 95% en pantallas muy pequeñas */
+   
   }
 
 }

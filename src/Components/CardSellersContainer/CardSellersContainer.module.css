@@ -3,59 +3,61 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  max-width: 1200px;
+
 }
 
-.cardContainer {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Dos columnas */
-  gap: 20px; /* Espacio entre las cartas */
-  margin-bottom: 20px; /* Espacio para los botones */
+
+.slider {
+  width: 100%; /* Asegura que el slider ocupe todo el ancho */
+  margin-right: 20px;
+  margin: 0 auto; /* Asegura que el slider esté centrado */
+  
 }
 
-.navigationButtons {
+.cardWrapper {
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  padding: 10px; /* Añade un espacio alrededor de cada carta */
+  margin-left: 65px;
 }
 
-.navigationButtons button {
-  padding: 10px 20px;
-  background-color: #3D2F87;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-}
 
-.navigationButtons button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
 
+/* Para pantallas más pequeñas */
 @media (max-width: 900px) {
-  .cardContainer {
-    grid-template-columns: repeat(1, 1fr); /* Una sola columna en pantallas muy pequeñas */
+  .slider {
+    width: 100%; /* Mantiene el slider en 100% */
+  }
+
+  .cardWrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%; /* Asegura que las cartas ocupen todo el ancho */
+    margin-left: 0;
+    padding: 10px;
+    gap: 10px; /* Ajusta el espacio entre cartas */
+  }
+
+  .cardWrapper > div {
+    width: 100%; /* Asegura que las cartas ocupen todo el ancho disponible */
+    margin: 0; /* Elimina el margen para evitar desplazamiento lateral */
   }
 }
 
-.navigationButtons {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
+/* Para pantallas muy pequeñas (menores a 600px) */
+@media (max-width: 600px) {
+  .slider {
+    width: 110%; 
 
-.navigationButtons button {
-  padding: 10px 20px;
-  background-color: #3D2F87;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-}
+    margin: 0; /* Asegura que el slider esté centrado */
+  }
 
-.navigationButtons button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+  .cardWrapper {
+    width: 100%;
+    gap: 5px; /* Ajusta el espaciado entre cartas */
+  }
+
+  .cardWrapper > div {
+    width: 100%; /* Asegura que las cartas ocupen todo el ancho en pantallas pequeñas */
+  }
 }

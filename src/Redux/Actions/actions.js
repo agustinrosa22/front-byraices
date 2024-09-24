@@ -142,7 +142,7 @@ export const getActivePropertiesForSaleRequest = () => ({
   // Action para obtener todos los vendedores
 export const getAllSellers = () => async (dispatch) => {
   try {
-    const response = await axios.get('/sellers');
+    const response = await axios.get('/sellers/active');
     dispatch({
       type: GET_ALL_SELLERS_SUCCESS,
       payload: response.data // Asume que el servidor devuelve una lista de vendedores
