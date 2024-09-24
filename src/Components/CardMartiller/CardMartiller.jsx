@@ -1,10 +1,15 @@
 import React from 'react';
 import styles from './CardMartiller.module.css';
+import { Link } from 'react-router-dom';
 
 const CardMartiller = ({ martiller }) => {
-  const { name, last_name, img } = martiller;
+  const { name, last_name, img, id } = martiller;
 
   return (
+    <Link
+                  to={`/martiller/${martiller.id}`}
+                  className={styles.link}
+                  >
     <div className={styles.card}>
       <div className={styles.header}>
         <img 
@@ -17,6 +22,7 @@ const CardMartiller = ({ martiller }) => {
         </div>
       </div>
     </div>
+    </Link>
   );
 };
 

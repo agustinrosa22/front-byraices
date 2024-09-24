@@ -6,13 +6,13 @@ const CardSellers = ({ seller }) => {
   const { name, last_name, mail, phone_number, photo, type, status, officeId } = seller;
 
 
-
+//Solucionar poder poner el link arriba de los div sin que se desajuste el css 
   return (
+    <div className={styles.card} >
       <Link
                   to={`/seller/${seller.id}`}
                   className={styles.link}
                   >
-    <div className={styles.card} >
       <div className={styles.header}>
         <img 
           src={photo || '/default-avatar.png'} // Usar una imagen por defecto si no hay foto
@@ -24,8 +24,8 @@ const CardSellers = ({ seller }) => {
         </div>
       </div>
       
-    </div>
       </Link>
+    </div>
   );
 };
 

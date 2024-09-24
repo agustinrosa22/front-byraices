@@ -51,6 +51,20 @@
     display: flex;
     flex-direction: column;
   }
+
+  .containerCarga{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Altura completa de la pantalla */
+    text-align: center; /* Centra el texto */
+  }
+
+  .carga{
+    width: 400px; /* Ajusta el tamaño de la imagen según lo necesites */
+  
+  }
   
   @media (max-width: 900px) {
     .containerContent {
