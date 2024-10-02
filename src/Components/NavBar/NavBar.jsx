@@ -56,6 +56,12 @@ const NavBar = () => {
                         Franquicias
                     </Nav.Link>
                     <Nav.Link 
+                        href="/oficina" 
+                        onClick={() => handleNavLinkClick('oficina')} 
+                        className={activeLink === 'oficina' ? styles.active : ''}>
+                        Staff
+                    </Nav.Link>
+                    <Nav.Link 
                         href="/contact" 
                         onClick={() => handleNavLinkClick('contacto')} 
                         className={activeLink === 'contacto' ? styles.active : ''}>

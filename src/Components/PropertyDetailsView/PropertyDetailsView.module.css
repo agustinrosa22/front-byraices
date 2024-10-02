@@ -11,6 +11,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+ 
 }
 
 .imageContainer {
@@ -20,6 +21,7 @@
   justify-content: center;
   align-items: center;
   z-index: 1;
+
 }
 
 .carousel-img {
@@ -27,6 +29,36 @@
   max-width: 100%;
   object-fit: contain; /* Ajusta la imagen para mantener la proporción sin recortarla */
   z-index: 1; /* Asegura que la imagen esté delante */
+}
+
+/* Estilos para el modo fullscreen */
+.fullScreen {
+  width: 100vw; /* Ocupa todo el ancho de la ventana */
+  height: 100vh; /* Ocupa todo el alto de la ventana */
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff; /* Fondo blanco en modo fullscreen */
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.fullScreenSwiper {
+  width: 100vw; /* Ocupa todo el ancho de la pantalla en fullscreen */
+  height: 100vh; /* Ocupa todo el alto de la pantalla en fullscreen */
+}
+.fullScreen .imageContainer {
+  height: 100vh; /* En fullscreen ocupa el 100% de la altura de la pantalla */
+}
+
+
+.fullScreenImage {
+  width: auto;
+  height: 100%; /* Ocupa todo el alto de la pantalla en fullscreen */
+  object-fit: contain; /* Mantiene la proporción de la imagen */
+ 
 }
 
 .ContainerIntro {
