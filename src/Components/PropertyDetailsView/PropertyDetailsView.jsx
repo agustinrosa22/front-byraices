@@ -346,6 +346,14 @@ const PropertyDetailsView = ({ property }) => {
   }
   setIsFullScreen(!isFullScreen);  // Cambia el estado
 };
+
+
+const formatSellerName = (name, last_name) => {
+  const formattedName = name.trim().toLowerCase().replace(/\s+/g, '-');
+  const formattedLastName = last_name.trim().toLowerCase().replace(/\s+/g, '-');
+  return `${formattedName}-${formattedLastName}`;
+};
+
   return (
     <div>
       <div> 
@@ -537,7 +545,7 @@ const PropertyDetailsView = ({ property }) => {
 
 
                   <Link
-                  to={property.martillerId !== null ? `/martiller/${seller.id}` : `/seller/${seller.id}`}
+                  to={property.martillerId !== null ? `/martiller/${seller.id}` : `/vendedor/${formatSellerName(seller.name, seller.last_name)}/${seller.id}`}
                   className={style.link}
                   >
             <div className={style.sellerDetails}>
