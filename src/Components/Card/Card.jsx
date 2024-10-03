@@ -96,15 +96,34 @@ const Card = (props) => {
           <p className={styles.street}>{props.street} {props.number}</p>
           <p className={styles.locality}>{props.locality}, {props.departments}, {props.province}</p>
           <div className={styles.datos}>
-            <img className={styles.baño} src={m2} alt="" />
-            <p>{props.totalSquareMeters} m² totales</p>
-            <img className={styles.baño} src={m2Casa} alt="" />
-            <p>{props.coveredSquareMeters} m² cubiertos</p>
-            <img className={styles.baño} src={m2Casa} alt="" />
-            <p>{props.environments} ambientes</p>
-            <img className={styles.baño} src={baño} alt="" />
-            <p>{props.bathrooms} baños</p>
-          </div>
+  {props.totalSquareMeters > 0 && (
+    <>
+      <img className={styles.baño} src={m2} alt="" />
+      <p>{props.totalSquareMeters} m² totales</p>
+    </>
+  )}
+
+  {props.coveredSquareMeters > 0 && (
+    <>
+      <img className={styles.baño} src={m2Casa} alt="" />
+      <p>{props.coveredSquareMeters} m² cubiertos</p>
+    </>
+  )}
+
+  {props.environments > 0 && (
+    <>
+      <img className={styles.baño} src={m2Casa} alt="" />
+      <p>{props.environments} ambientes</p>
+    </>
+  )}
+
+  {props.bathrooms > 0 && (
+    <>
+      <img className={styles.baño} src={baño} alt="" />
+      <p>{props.bathrooms} baños</p>
+    </>
+  )}
+</div>
           <div className={styles.tituloContainer}>
     <p className={styles.titulo}>{props.title}</p>
   </div>
