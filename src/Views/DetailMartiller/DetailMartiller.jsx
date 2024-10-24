@@ -98,7 +98,7 @@ const DetailMartiller = () => {
           {martiller && (
             <div className={style.officeDetail}>
               <img src={martiller.img} alt={`${martiller.name} ${martiller.last_name}`} className={style.photo} />
-              <h2>Martillero</h2>
+              <h2>Corredor</h2>
               <p>{martiller.name} {martiller.last_name}</p>
               <p>{martiller.mail}</p>
               <p>{martiller.phone_number}</p>

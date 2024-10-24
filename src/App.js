@@ -35,7 +35,7 @@ function App() {
       <Route path='/desarrollo'element={ <Desarrollos />}/>
       <Route path='/rent'element={ <Rent />}/>
       <Route path='/detail/:id'element={ <PropertyDetailsPage />}/>
-      <Route path='/seller/:id'element={ <DetailSeller />}/>
+      <Route path='/vendedor/:name/:id' element={<DetailSeller />} />
       <Route path='/martiller/:id'element={ <DetailMartiller />}/>
       <Route path='/luxury'element={ <Luxury />}/>
       <Route path='/QuienesSomos'element={ <QuienesSomos />}/>

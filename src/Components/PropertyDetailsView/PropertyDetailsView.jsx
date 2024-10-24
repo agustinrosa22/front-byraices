@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef  } from 'react';
 import axios from 'axios';
 import { Carousel, Col, Row } from 'react-bootstrap';
 import MapContainer from '../Maps/MapContainer';
@@ -246,6 +246,9 @@ const renderDetailsServicios = (details) => {
 
 
 const PropertyDetailsView = ({ property }) => {
+  const carouselRef = useRef(null);
+  const [isFullScreen, setIsFullScreen] = useState(false);
+
   let title;
 
   if (property.isForSale) {
@@ -316,66 +319,120 @@ const PropertyDetailsView = ({ property }) => {
     return age.toString().length === 4 ? calculateAntiquity(age) : age;
   };
 
+ // Función para activar o desactivar el modo pantalla completa
+ const toggleFullScreen = () => {
+  if (!isFullScreen) {
+    if (carouselRef.current) {
+      if (carouselRef.current.requestFullscreen) {
+        carouselRef.current.requestFullscreen();
+      } else if (carouselRef.current.mozRequestFullScreen) { // Firefox
+        carouselRef.current.mozRequestFullScreen();
+      } else if (carouselRef.current.webkitRequestFullscreen) { // Chrome, Safari y Opera
+        carouselRef.current.webkitRequestFullscreen();
+      } else if (carouselRef.current.msRequestFullscreen) { // IE/Edge
+        carouselRef.current.msRequestFullscreen();
+      }
+    }
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) { // Firefox
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) { // Chrome, Safari y Opera
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { // IE/Edge
+      document.msExitFullscreen();
+    }
+  }
+  setIsFullScreen(!isFullScreen);  // Cambia el estado
+};
 
+
+const formatSellerName = (name, last_name) => {
+  const formattedName = name.trim().toLowerCase().replace(/\s+/g, '-');
+  const formattedLastName = last_name.trim().toLowerCase().replace(/\s+/g, '-');
+  return `${formattedName}-${formattedLastName}`;
+};
 
   return (
     <div>
-      <div>
-      <Row>
-  <Col sm={9} className="mx-auto">
-    <div className={style.carouselContainer}>
+      <div> 
+      <Row className={isFullScreen ? '' : "mx-auto"}>
+  <Col sm={isFullScreen ? 12 : 9} className={isFullScreen ? '' : "mx-auto"}>
+    <div
+      className={`${style.carouselContainer} ${isFullScreen ? style.fullScreen : ''}`}
+      ref={carouselRef}
+    >
       {Array.isArray(property.photo) && property.photo.length > 0 ? (
         <>
-              <Swiper
-      effect="fade"
-      spaceBetween={30}
-      slidesPerView={1}
-      pagination={{ clickable: true }}
-      navigation={{
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      }}
-      loop={true}
-      modules={[Navigation, Pagination, Autoplay]}
-      autoplay={{
-        delay: 5000, 
-        disableOnInteraction: false, 
-      }}
-    >
+          <Swiper
+            effect="fade"
+            spaceBetween={30}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            navigation={{
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            }}
+            loop={true}
+            modules={[Navigation, Pagination, Autoplay]}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            className={isFullScreen ? style.fullScreenSwiper : ''}
+          >
             {property.photo.map((image, index) => (
               <SwiperSlide key={index}>
                 <div className={style.imageContainer}>
                   <img
                     src={image}
-                    className={style['carousel-img']}
+                    className={`${style['carousel-img']} ${isFullScreen ? style.fullScreenImage : ''}`}
                     alt={`Slide ${index}`}
                   />
                 </div>
               </SwiperSlide>
             ))}
-             {/* Botones de navegación personalizados */}
-      <div
-        className="swiper-button-prev"
-        style={{
-          color: '#3e2f877c', // Color personalizado
-          cursor: 'pointer', // Cambia el cursor al pasar por encima
-          userSelect: 'none', // Previene la selección de texto
-          left: '10px', // Posición personalizada
-          zIndex: 10, // Asegura que esté encima de las imágenes
-        }}
-      ></div>
 
-      <div
-        className="swiper-button-next"
-        style={{
-          color: '#3e2f877c', // Color personalizado
-          cursor: 'pointer', // Cambia el cursor al pasar por encima
-          userSelect: 'none', // Previene la selección de texto
-          right: '10px', // Posición personalizada
-          zIndex: 10, // Asegura que esté encima de las imágenes
-        }}
-      ></div>
+            <div
+              className="swiper-button-prev"
+              style={{
+                color: '#3e2f877c',
+                cursor: 'pointer',
+                userSelect: 'none',
+                left: '10px',
+                zIndex: 10,
+              }}
+            ></div>
+
+            <div
+              className="swiper-button-next"
+              style={{
+                color: '#3e2f877c',
+                cursor: 'pointer',
+                userSelect: 'none',
+                right: '10px',
+                zIndex: 10,
+              }}
+            ></div>
           </Swiper>
+
+          <button
+            onClick={toggleFullScreen}
+            style={{
+              position: 'absolute',
+              top: '10px',
+              right: '10px',
+              zIndex: 20,
+              background: 'rgba(0,0,0,0.5)',
+              color: '#fff',
+              padding: '10px',
+              borderRadius: '5px',
+              cursor: 'pointer',
+            }}
+          >
+            {isFullScreen ? 'Salir de pantalla completa' : 'Pantalla completa'}
+          </button>
         </>
       ) : (
         <p>No hay imágenes disponibles.</p>
@@ -383,7 +440,6 @@ const PropertyDetailsView = ({ property }) => {
     </div>
   </Col>
 </Row>
-
 
       </div>
       <div className={style.container}>
@@ -489,7 +545,7 @@ const PropertyDetailsView = ({ property }) => {
 
 
                   <Link
-                  to={property.martillerId !== null ? `/martiller/${seller.id}` : `/seller/${seller.id}`}
+                  to={property.martillerId !== null ? `/martiller/${seller.id}` : `/vendedor/${formatSellerName(seller.name, seller.last_name)}/${seller.id}`}
                   className={style.link}
                   >
             <div className={style.sellerDetails}>

@@ -19,16 +19,16 @@ const CardMartillerContainer = () => {
 
   if (!Array.isArray(martillers)) {
     console.error('martillers no es un array:', martillers);
-    return <p>Hubo un problema al cargar los martilleros.</p>;
+    return <p>Hubo un problema al cargar los Corredores.</p>;
   }
 
   if (martillers.length === 0) {
-    return <p>No hay martilleros disponibles.</p>; // Mensaje si no hay martilleros
+    return <p>No hay Corredores disponibles.</p>; // Mensaje si no hay Corredores
   }
 
   return (
     <div className={styles.containerWrapper}>
-      <h1>Martilleros</h1>
+      <h1>Corredores</h1>
       <div className={styles.cardContainer}>
         {martillers.map((martiller) => (
           <CardMartiller key={martiller.id} martiller={martiller} />
