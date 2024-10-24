@@ -40,7 +40,7 @@ const CardContainer = () => {
       </p>
     </div>;
   }
-
+// const propiedades = properties.length
   return (
     <div>
       {properties.map(property => (
