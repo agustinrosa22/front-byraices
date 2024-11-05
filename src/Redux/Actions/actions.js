@@ -62,15 +62,36 @@ export const getActivePropertiesForSaleRequest = () => ({
   });
   
   // Thunk to fetch active properties for sale
-  export const fetchActivePropertiesForSale = () => async (dispatch) => {
-    dispatch(getActivePropertiesForSaleRequest());
-    try {
-      const response = await axios.get('/properties/active/sale'); 
-      dispatch(getActivePropertiesForSaleSuccess(response.data));
-    } catch (error) {
-      dispatch(getActivePropertiesForSaleFailure(error.message));
+// Thunk para obtener propiedades activas a la venta con filtros opcionales
+// actions.js
+export const fetchActivePropertiesForSale = (filters = {}) => async (dispatch) => {
+  dispatch(getActivePropertiesForSaleRequest());
+
+  try {
+    let endpoint = '/properties/active/sale';
+
+    const { departments, minPrice, maxPrice, propertyType } = filters;
+    const params = new URLSearchParams();
+
+    if (departments) params.append('departments', departments);
+    if (minPrice) params.append('minPrice', minPrice);
+    if (maxPrice) params.append('maxPrice', maxPrice);
+    if (propertyType) params.append('propertyType', propertyType);
+    params.append('currency', 'USD');
+
+    // Añadir filtros a la URL si existen
+    if (params.toString()) {
+      endpoint += `?${params.toString()}`;
     }
-  };
+
+    const response = await axios.get(endpoint);
+    dispatch(getActivePropertiesForSaleSuccess(response.data));
+  } catch (error) {
+    dispatch(getActivePropertiesForSaleFailure(error.message));
+  }
+};
+
+
 
   export const fetchActivePropertiesForRent = () => async (dispatch) => {
     dispatch({ type: GET_ACTIVE_PROPERTIES_FOR_RENT_REQUEST });
@@ -139,13 +160,17 @@ export const getActivePropertiesForSaleRequest = () => ({
     }
   };
 
-  // Action para obtener todos los vendedores
+// Action para obtener todos los vendedores
 export const getAllSellers = () => async (dispatch) => {
   try {
     const response = await axios.get('/sellers/active');
+
+    // Filtrar vendedores para excluir al vendedor con ID 10
+    const filteredSellers = response.data.filter(seller => seller.id !== 10);
+
     dispatch({
       type: GET_ALL_SELLERS_SUCCESS,
-      payload: response.data // Asume que el servidor devuelve una lista de vendedores
+      payload: filteredSellers // Envía la lista filtrada de vendedores
     });
   } catch (error) {
     console.error('Error al obtener los vendedores:', error);
@@ -155,6 +180,7 @@ export const getAllSellers = () => async (dispatch) => {
     });
   }
 };
+
 export const getActiveMartiller = () => async (dispatch) => {
   try {
     const response = await axios.get('/martillers/active');

@@ -1,46 +1,78 @@
 .searchBarContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: white;
-    border-radius: 4px;
-    padding: 10px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos generales para los campos de entrada */
+.inputField,
+.dropdown {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-right: 10px;
+  flex: 1; /* Cambiado para permitir que ambos elementos crezcan igualmente */
+}
+
+.inputField:hover,
+.dropdown:hover {
+  border: 1px solid #3D2F87;
+}
+
+/* Estilos del botón de filtrar */
+.filterButton {
+  background-color: #3D2F87; /* Color de fondo */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px 20px; /* Espaciado interno */
+  font-size: 16px; /* Tamaño de la fuente */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  transition: background-color 0.3s ease; /* Animación para el cambio de color */
+}
+
+.filterButton:hover {
+  background-color: #A83E52; /* Color de fondo al pasar el mouse */
+}
+
+/* Media Query para Tablets */
+@media (max-width: 768px) {
+  .searchBarContainer {
+    flex-direction: column; /* Cambia a columna */
+    align-items: stretch; /* Estira los elementos para que ocupen el ancho completo */
   }
-  
-  .inputField {
-    flex: 2;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-    margin-right: 10px;
-  }
-  
-  .dropdown {
-    flex: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: white;
-    font-size: 14px;
-    margin-right: 10px;
-  }
-  
+
+  .inputField,
+  .dropdown,
   .filterButton {
-    flex: 0;
+    margin-right: 0; /* Elimina margen derecho */
+    margin-bottom: 10px; /* Agrega un margen inferior */
+    flex: none; /* Evita que crezcan */
+    width: 100%; /* Establece el ancho completo */
+    font-size: 14px; /* Disminuir el tamaño de la fuente */
   }
-  
-  .filterBtn {
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 8px 12px;
-    border-radius: 4px;
-    font-size: 14px;
-    cursor: pointer;
+
+  .filterButton {
+    padding: 10px; /* Ajusta el padding para que sea más pequeño */
+    font-size: 15px; /* Disminuir el tamaño de la fuente */
   }
-  
-  .filterBtn:hover {
-    background-color: #f0f0f0;
+}
+
+/* Media Query para Smartphones */
+@media (max-width: 480px) {
+  .inputField,
+  .dropdown {
+    font-size: 12px; /* Disminuir aún más el tamaño de la fuente */
+    padding: 6px; /* Ajusta el padding para que sea más pequeño */
   }
-  
+
+  .filterButton {
+    padding: 8px; /* Ajusta el padding para que sea más pequeño */
+    font-size: 14px; /* Ajusta el tamaño de la fuente */
+  }
+}

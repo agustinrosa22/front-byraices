@@ -12,13 +12,23 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
+import youtube from '../../Assets/youtube.png'
 
 
+// Helper function to convert string to boolean if necessary
+const isTruthy = (value) => {
+  if (typeof value === 'string') {
+    return value.toLowerCase() === 'true'; // Convierte "true"/"false" strings a booleano
+  }
+  return Boolean(value); // Si ya es booleano, lo deja igual
+};
 
-
+const isValidUrl = (url) => {
+  const urlPattern = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/[\w\-]+(\?[\w\-=&]+)?$/;
+  return urlPattern.test(url);
+};
 
 const renderDetails = (details) => {
-  // Mapea las características verdaderas a su representación en texto
   const characteristicText = {
     placard: "Placard",
     parilla: "Parilla",
@@ -64,30 +74,28 @@ const renderDetails = (details) => {
   };
 
   const trueCharacteristics = Object.entries(details)
-  .filter(([key, value]) => value)
-  .map(([key]) => characteristicText[key]);
+    .filter(([key, value]) => isTruthy(value)) // Aquí convertimos string "true"/"false" a booleano si es necesario
+    .map(([key]) => characteristicText[key]);
 
-if (trueCharacteristics.length === 0) {
-  return null;
-}
+  if (trueCharacteristics.length === 0) {
+    return null;
+  }
 
-return (
-  <div className={style.dataContainer}>
-    <h2>Características</h2>
-    <div className={style.data}>
-      <ul>
-        {trueCharacteristics.map((characteristic, index) => (
-          <li key={index}>{characteristic}</li>
-        ))}
-      </ul>
+  return (
+    <div className={style.dataContainer}>
+      <h2>Características</h2>
+      <div className={style.data}>
+        <ul>
+          {trueCharacteristics.map((characteristic, index) => (
+            <li key={index}>{characteristic}</li>
+          ))}
+        </ul>
+      </div>
     </div>
-  </div>
-);
-
+  );
 };
 
 const renderDetailsAmenities = (details) => {
-  // Mapea las amenidades verdaderas a su representación en texto
   const amenityText = {
     aireAcondicionado: "Aire Acondicionado",
     portonAutomatico: "Portón Automático",
@@ -122,34 +130,32 @@ const renderDetailsAmenities = (details) => {
     calefaccion: "Calefacción"
   };
 
-  // Filtra las amenidades que son true y obtiene su representación en texto
   const trueAmenities = Object.entries(details)
-    .filter(([key, value]) => value)
+    .filter(([key, value]) => isTruthy(value)) // Convertir string a boolean si es necesario
     .map(([key]) => amenityText[key]);
 
-  // Si no hay amenidades verdaderas, no renderiza nada
   if (trueAmenities.length === 0) {
     return null;
   }
 
   return (
     <div>
-    <div className={style.dataContainer}>
-      <h2>Amenities</h2>
+      <div className={style.dataContainer}>
+        <h2>Amenities</h2>
       </div>
       <div className={style.data}>
-      <ul>
-        {trueAmenities.map((amenity, index) => (
-          <li key={index}>{amenity}</li>
-        ))}
-      </ul>
+        <ul>
+          {trueAmenities.map((amenity, index) => (
+            <li key={index}>{amenity}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );
 };
 
+// El mismo patrón se puede seguir para las demás funciones:
 const renderDetailsAmbientes = (details) => {
-  // Mapea las opciones de entornos verdaderas a su representación en texto
   const environmentOptionText = {
     dormitorio: "Dormitorio",
     comedor: "Comedor",
@@ -174,12 +180,10 @@ const renderDetailsAmbientes = (details) => {
     otro: "Otro"
   };
 
-  // Filtra las opciones de entornos que son true y obtiene su representación en texto
   const trueEnvironmentOptions = Object.entries(details)
-    .filter(([key, value]) => value)
+    .filter(([key, value]) => isTruthy(value)) // Convertir string a boolean si es necesario
     .map(([key]) => environmentOptionText[key]);
 
-  // Si no hay opciones de entornos verdaderas, no renderiza nada
   if (trueEnvironmentOptions.length === 0) {
     return null;
   }
@@ -187,22 +191,20 @@ const renderDetailsAmbientes = (details) => {
   return (
     <div>
       <div className={style.dataContainer}>
-      <h2>Ambientes</h2>
+        <h2>Ambientes</h2>
       </div>
       <div className={style.data}>
-      <ul>
-        {trueEnvironmentOptions.map((environmentOption, index) => (
-          <li key={index}>{environmentOption}</li>
-        ))}
-      </ul>
+        <ul>
+          {trueEnvironmentOptions.map((environmentOption, index) => (
+            <li key={index}>{environmentOption}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );
 };
 
 const renderDetailsServicios = (details) => {
- 
-  // Mapea las opciones de servicios verdaderas a su representación en texto
   const serviceText = {
     electricidad: "Electricidad",
     agua: "Agua",
@@ -216,27 +218,25 @@ const renderDetailsServicios = (details) => {
     aguaCorriente: "Agua Corriente"
   };
 
-  // Filtra las opciones de servicios que son true y obtiene su representación en texto
   const trueServices = Object.entries(details)
-    .filter(([key, value]) => value)
+    .filter(([key, value]) => isTruthy(value)) // Convertir string a boolean si es necesario
     .map(([key]) => serviceText[key]);
 
-  // Si no hay opciones de servicios verdaderas, no renderiza nada
   if (trueServices.length === 0) {
     return null;
   }
 
   return (
     <div>
-       <div className={style.dataContainer}>
-      <h2>Servicios</h2>
+      <div className={style.dataContainer}>
+        <h2>Servicios</h2>
       </div>
       <div className={style.data}>
-      <ul>
-        {trueServices.map((service, index) => (
-          <li key={index}>{service}</li>
-        ))}
-      </ul>
+        <ul>
+          {trueServices.map((service, index) => (
+            <li key={index}>{service}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );
@@ -439,10 +439,37 @@ const formatSellerName = (name, last_name) => {
       )}
     </div>
   </Col>
+  
+  {/* Centrado del botón en la mitad horizontal de la página */}
+  {property.videoLink && isValidUrl(property.videoLink) && (
+    
+      <a
+        href={property.videoLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={style.videoButton}
+        style={{
+          display: 'inline-block',
+          padding: '10px',
+          textDecoration: 'none',
+          textAlign: 'center'
+        }}
+      >
+        <img
+          src={youtube}
+          alt="Ver video en YouTube"
+          style={{ width: '50px', height: '50px' }}
+        />
+      </a>
+    
+  )}
 </Row>
 
+
       </div>
+      
       <div className={style.container}>
+    
       <div className={style.leftContent}>
         <div className={style.ContainerIntro}>
           <div className={style.ContainerSell}>

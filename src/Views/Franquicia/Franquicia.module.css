@@ -1,23 +1,52 @@
 .franquiciaContainer {
-    text-align: center;
-    padding: 20px;
+  text-align: center;
+  padding: 40px;
+
+}
+
+.presentationText {
+  font-size: 18px;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.sellerCard {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+  background-color: #fff;
+  margin: 20px auto;
+  background-color: #f4f4f4;
+}
+
+.sellerPhoto {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.contactIcons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.contactIcon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+@media (max-width: 767px){
+  .bannerContainer{
+
   }
-  
-  .buildingImage, .isologoImage {
-    max-width: 100%;
-    height: auto;
+  .banner{
+    width: 200px;
   }
-  
-  .mapContainer {
-    margin-top: 20px;
-  }
-  
-  .argentinaMap .province {
-    fill: #ccc;
-    transition: fill 0.2s;
-  }
-  
-  .argentinaMap .province:hover {
-    fill: blue;
-    cursor: pointer;
-  }
+}
