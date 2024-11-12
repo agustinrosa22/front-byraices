@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import styles from './Card.module.css';
 import { Link } from 'react-router-dom';
@@ -15,76 +15,93 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 import title from '../../Assets/titulo.png'
 
-const Card = (props) => {
+// Componente de spinner
+const Spinner = () => <div className={styles.spinner}>Cargando...</div>;
+
+const Card = React.memo((props) => {
   const [contact, setContact] = useState(null);
   const [isMartiller, setIsMartiller] = useState(false);
-  const [imagesLoaded, setImagesLoaded] = useState(false); // Estado para manejar la carga de imágenes
-  const [loadedImages, setLoadedImages] = useState(0); // Contador de imágenes cargadas
-  const [agentPhotoLoaded, setAgentPhotoLoaded] = useState(false); // Estado para manejar la carga de la foto del agente
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [loadedImages, setLoadedImages] = useState(0);
+  const [agentPhotoLoaded, setAgentPhotoLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false); // Nuevo estado para manejar errores en la imagen [0]
 
-  const formatPrice = (price) => {
+  // Formateador de precios
+  const formatPrice = useCallback((price) => {
     if (price) {
       let cleanedPrice = price.toString().replace(/\./g, '');
       return cleanedPrice.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
     }
     return price;
-  };
+  }, []);
 
-  useEffect(() => {
-    const fetchContact = async () => {
-      try {
-        let response;
-        if (props.martillerId !== null) {
-          response = await axios.get(`/martiller/${props.martillerId}`);
-          setIsMartiller(true);
-        } else if (props.sellerId !== null) {
-          response = await axios.get(`/seller/${props.sellerId}`);
-          setIsMartiller(false);
-        }
-        if (response) {
-          setContact(response.data.data);
-        }
-      } catch (error) {
-        console.error('Error al obtener los datos de contacto:', error);
+  // Fetch de los datos de contacto
+  const fetchContact = useCallback(async () => {
+    try {
+      let response;
+      if (props.martillerId !== null) {
+        response = await axios.get(`/martiller/${props.martillerId}`);
+        setIsMartiller(true);
+      } else if (props.sellerId !== null) {
+        response = await axios.get(`/seller/${props.sellerId}`);
+        setIsMartiller(false);
       }
-    };
-
-    fetchContact();
+      if (response) {
+        setContact(response.data.data);
+      }
+    } catch (error) {
+      console.error('Error al obtener los datos de contacto:', error);
+    }
   }, [props.martillerId, props.sellerId]);
 
-  const photos = props.photo;
+  useEffect(() => {
+    fetchContact();
+  }, [fetchContact]);
 
-  // Maneja cuando todas las imágenes del carrusel están cargadas
-  const handleImageLoad = () => {
-    setLoadedImages((prev) => prev + 1); // Aumentar el contador de imágenes cargadas
-    if (loadedImages + 1 === photos.length) {
-      setImagesLoaded(true); // Todas las imágenes están cargadas
+  // Manejador para detectar cuando una imagen se ha cargado
+  const handleImageLoad = useCallback(() => {
+    setLoadedImages((prev) => prev + 1);
+    if (loadedImages + 1 === props.photo.length) {
+      setImagesLoaded(true);
     }
-  };
+  }, [loadedImages, props.photo.length]);
+
+  // Manejador para errores en la imagen [0]
+  const handleImageError = useCallback(() => {
+    setImageError(true);  // Si la imagen [0] falla, se muestra el spinner
+  }, []);
+
+  const photos = props.photo || [];
 
   return (
     <div className={styles.card}>
       <div className={styles.imageContainer}>
-        {Array.isArray(photos) && photos.length > 0 ? (
+        {photos.length > 0 ? (
           <Swiper
             modules={[Autoplay]}
-            autoplay={imagesLoaded ? {  // Solo si las imágenes están cargadas
+            autoplay={imagesLoaded ? {
               delay: 3000,
               disableOnInteraction: false,
-            } : false} // Si las imágenes no están cargadas, desactiva autoplay
+            } : false}
             loop={true}
             allowTouchMove={false}
           >
             {photos.map((image, index) => (
               <SwiperSlide key={index}>
                 <div className={styles.imageContainer}>
-                  <img
-                    src={image}
-                    className={styles['carousel-img']}
-                    alt={`Slide ${index}`}
-                    onLoad={handleImageLoad}  // Marca la imagen como cargada
-                    onError={() => setImagesLoaded(false)} // En caso de error, desactiva autoplay
-                  />
+                  {/* Solo muestra el spinner si la imagen [0] no está disponible */}
+                  {index === 0 && imageError ? (
+                    <Spinner />
+                  ) : (
+                    <img
+                      src={image}
+                      className={styles['carousel-img']}
+                      alt={`Slide ${index}`}
+                      onLoad={handleImageLoad}
+                      onError={index === 0 ? handleImageError : null}  // Solo maneja error en la imagen [0]
+                      loading="lazy" // Lazy loading para mejorar el rendimiento
+                    />
+                  )}
                 </div>
               </SwiperSlide>
             ))}
@@ -120,13 +137,13 @@ const Card = (props) => {
         </Link>
         {contact && (
           <div className={styles.sellerContainer}>
-            {/* Foto del agente con un fallback a la imagen 'title' mientras carga */}
             <img
               src={agentPhotoLoaded && contact.photo ? contact.photo : title}
-              alt={title}
+              alt="Agente"
               className={styles.sellerimg}
               onLoad={() => setAgentPhotoLoaded(true)}
               onError={() => setAgentPhotoLoaded(false)}
+              loading="lazy" // Lazy load para optimizar imagen del agente
             />
             <div className={styles.sellerDetails}>
               <p className={styles.vendedorName}>
@@ -141,13 +158,13 @@ const Card = (props) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img className={styles.email} src={Mail} alt="" />
+                  <img className={styles.email} src={Mail} alt="Email" />
                 </a>
                 <a
                   href={`https://wa.me/${contact.phone_number}`}
                   className={styles.whatsappButton}
                 >
-                  <img className={styles.WhatsApp} src={WhatsApp} alt="" />
+                  <img className={styles.WhatsApp} src={WhatsApp} alt="WhatsApp" />
                 </a>
               </div>
             </div>
@@ -156,6 +173,6 @@ const Card = (props) => {
       </div>
     </div>
   );
-};
+});
 
 export default Card;
