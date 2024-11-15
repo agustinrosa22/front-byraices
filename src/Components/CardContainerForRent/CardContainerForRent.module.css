@@ -14,6 +14,12 @@
     
   }
 
+  .countPorperties{
+    font-size: 15px;
+    margin-left: 5px;
+    color: darkgray;
+  }
+
   .containerCarga{
     display: flex;
     flex-direction: column;

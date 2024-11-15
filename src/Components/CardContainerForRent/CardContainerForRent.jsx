@@ -45,7 +45,7 @@ const RentCardContainer = () => {
 const propiedades = propertiesForRent.length
   return (
     <div>
-      <h2>{propiedades}</h2>
+     <p className={style.countPorperties}>Cantidad de propiedades: {propiedades}</p>
       {propertiesForRent.map(property => (
         <Card
         key={property.id}

@@ -480,8 +480,9 @@ const formatSellerName = (name, last_name) => {
             <p> {formatPrice(property.price)}{property.currency}</p>
           </div>
           <div className={style.ContainerPrincipalData}>
-            <p>{property.totalSquareMeters} m² totales</p>
+            <p>{property.totalSquareMeters} m² construidos totales</p>
             {property.coveredSquareMeters > 0 && <p>{property.coveredSquareMeters} m² cubiertos</p>}
+            {property.land > 0 && <p>{property.land} m² terreno</p>}
             {property.environments > 0 && <p>{property.environments} ambientes</p>}
             {property.rooms > 0 && <p>{property.rooms} dormitorios</p>}
             {property.bathrooms > 0 && <p>{property.bathrooms} baños</p>}
@@ -507,6 +508,9 @@ const formatSellerName = (name, last_name) => {
     {property.land > 0 && <p>Superficie terreno: {property.land} m²</p>}
       {property.semiCoveredSquareMeters > 0 && (
   <p>Superficie semicubierta: {property.semiCoveredSquareMeters} m²</p>
+)}
+ {property.uncovered > 0 && (
+<p>Superficie descubierta: {property.uncovered} m²</p>
 )}
     </div>
     <div className={style.pairContainer}>

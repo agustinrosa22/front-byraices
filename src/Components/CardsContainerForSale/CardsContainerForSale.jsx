@@ -40,9 +40,10 @@ const CardContainer = () => {
       </p>
     </div>;
   }
-// const propiedades = properties.length
+const propiedades = properties.length
   return (
     <div>
+      <p className={style.countPorperties}>Cantidad de propiedades: {propiedades}</p>
       {properties.map(property => (
         <Card
           key={property.id}
