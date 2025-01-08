@@ -24,7 +24,28 @@ const Sale = () => {
     dispatch(fetchActivePropertiesForSale(filtersFromURL));
   }, [dispatch, filtersFromURL]);
 
+  // Guardar posición del scroll al salir
+  useEffect(() => {
+    const saveScrollPosition = () => {
+      sessionStorage.setItem("scrollPosition", window.scrollY);
+    };
+    window.addEventListener("beforeunload", saveScrollPosition);
+    return () => {
+      window.removeEventListener("beforeunload", saveScrollPosition);
+    };
+  }, []);
+
+  // Restaurar posición del scroll al cargar
+  useEffect(() => {
+    const savedScrollPosition = sessionStorage.getItem("scrollPosition");
+    if (savedScrollPosition) {
+      window.scrollTo(0, parseInt(savedScrollPosition, 10));
+    }
+  }, []);
+
   const handleFilterChange = (filters) => {
+    const queryParams = new URLSearchParams(filters).toString();
+    window.history.pushState(null, "", `?${queryParams}`);
     dispatch(fetchActivePropertiesForSale(filters));
   };
 
