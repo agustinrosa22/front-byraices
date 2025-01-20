@@ -32,6 +32,24 @@ const FilterView = ({ onFilterChange, initialFilters }) => {
         <option value="">Selecciona un departamento</option>
         {/* Opciones de departamentos */}
         <option value="Capital">Capital</option>
+        <option value="General Alvear">General Alvear</option>
+        <option value="Godoy Cruz">Godoy Cruz</option>
+        <option value="Guaymallén">Guaymallén</option>
+        <option value="Junín">Junín</option>
+        <option value="La Paz">La Paz</option>
+        <option value="Las Heras">Las Heras</option>
+        <option value="Lavalle">Lavalle</option>
+        <option value="Luján de Cuyo">Luján de Cuyo</option>
+        <option value="Maipú">Maipú</option>
+        <option value="Malargüe">Malargüe</option>
+        <option value="Rivadavia">Rivadavia</option>
+        <option value="San Carlos">San Carlos</option>
+        <option value="San Martín">San Martín</option>
+        <option value="San Rafael">San Rafael</option>
+        <option value="Santa Rosa">Santa Rosa</option>
+        <option value="Tunuyán">Tunuyán</option>
+        <option value="Tupungato">Tupungato</option>
+
         {/* Más opciones aquí */}
       </select>
 
@@ -45,6 +63,17 @@ const FilterView = ({ onFilterChange, initialFilters }) => {
         <option value="">Selecciona un tipo de propiedad</option>
         {/* Opciones de tipo de propiedad */}
         <option value="departamento">Departamento</option>
+    <option value="casa">Casa</option>
+    <option value="ph">PH</option>
+    <option value="local">Local</option>
+    <option value="terrenos y lotes">Terrenos y lotes</option>
+    <option value="campos y chacras">Campos y chacras</option>
+    <option value="fondo de comercio">Fondo de comercio</option>
+    <option value="cochera">Cochera</option>
+    <option value="oficina">Oficina</option>
+    <option value="galpon">Galpón</option>
+    <option value="quinta">Quinta</option>
+    <option value="otros">Otros</option>
         {/* Más opciones aquí */}
       </select>
 
