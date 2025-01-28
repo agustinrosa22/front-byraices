@@ -64,12 +64,11 @@ export const getActivePropertiesForSaleRequest = () => ({
   // Thunk to fetch active properties for sale
 // Thunk para obtener propiedades activas a la venta con filtros opcionales
 // actions.js
-export const fetchActivePropertiesForSale = (filters = {}) => async (dispatch) => {
+export const fetchActivePropertiesForSale = (filters = {}, page = 1) => async (dispatch) => {
   dispatch(getActivePropertiesForSaleRequest());
 
   try {
     let endpoint = '/properties/active/sale';
-
     const { departments, minPrice, maxPrice, propertyType } = filters;
     const params = new URLSearchParams();
 
@@ -78,8 +77,8 @@ export const fetchActivePropertiesForSale = (filters = {}) => async (dispatch) =
     if (maxPrice) params.append('maxPrice', maxPrice);
     if (propertyType) params.append('propertyType', propertyType);
     params.append('currency', 'USD');
+    params.append('page', page); // Agregar número de página a los parámetros
 
-    // Añadir filtros a la URL si existen
     if (params.toString()) {
       endpoint += `?${params.toString()}`;
     }

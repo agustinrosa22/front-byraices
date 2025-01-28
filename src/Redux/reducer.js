@@ -22,6 +22,8 @@ import {
 
 const initialState = {
     properties: [],
+    totalPages: 0, // Total de páginas
+  currentPage: 1, // Página actual
     propertiesForRent: [],
     developmentProperties: [],
     luxuryProperties: [],
@@ -62,9 +64,10 @@ const rootReducer = (state = initialState, action) => {
           case GET_ACTIVE_PROPERTIES_FOR_SALE_SUCCESS:
             return {
               ...state,
-              properties: action.payload,
+              properties: action.payload, // Propiedades actuales
+              totalPages: action.payload.totalPages, // Total de páginas desde el backend
+              currentPage: action.payload.currentPage, // Página actual desde el backend
               loading: false,
-              error: null,
             };
           case GET_ACTIVE_PROPERTIES_FOR_SALE_FAILURE:
             return {

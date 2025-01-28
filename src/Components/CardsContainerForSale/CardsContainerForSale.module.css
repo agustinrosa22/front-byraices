@@ -59,3 +59,56 @@
 .highlight {
     color: #A83E52; /* Color rojo solo para la palabra "PROPIEDADES" */
   }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    gap: 8px; /* Espaciado entre los botones */
+    flex-wrap: wrap; /* Para que los botones se acomoden en pantallas pequeñas */
+  }
+  
+  .pageButton {
+    background-color: #3D2F87; /* Azul */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Animación suave */
+  }
+  
+  .pageButton:hover {
+    background-color: #3D2F87; /* Azul más oscuro al hacer hover */
+    transform: scale(1.1); /* Agranda ligeramente el botón al pasar el mouse */
+  }
+  
+  .activePage {
+    background-color: #A83E52; /* Rojo */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: default; /* No cambia el cursor en el botón activo */
+  }
+  
+  .activePage:hover {
+    transform: none; /* Sin animación en el botón activo */
+  }
+  
+  @media (max-width: 768px) {
+    .pagination {
+      gap: 4px; /* Reduce el espaciado en pantallas pequeñas */
+    }
+  
+    .pageButton,
+    .activePage {
+      padding: 6px 10px;
+      font-size: 14px;
+    }
+  }
+  
