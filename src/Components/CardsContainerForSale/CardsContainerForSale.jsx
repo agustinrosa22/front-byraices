@@ -1,41 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchActivePropertiesForSale } from '../../Redux/Actions/actions';
-import Card from '../Card/Card';
-import style from './CardsContainerForSale.module.css';
-import carga from '../../Assets/carga.gif';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
+import { fetchActivePropertiesForSale } from "../../Redux/Actions/actions";
+import Card from "../Card/Card";
+import style from "./CardsContainerForSale.module.css";
+import carga from "../../Assets/carga.gif";
 
-const CardContainer = () => {
+const CardContainer = ({ filters }) => {
   const dispatch = useDispatch();
-  const { properties, totalPages, currentPage } = useSelector(state => state.properties);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const { properties, totalPages } = useSelector((state) => state.properties);
+
+  const currentPage = parseInt(searchParams.get("page"), 10) || 1;
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const storedPage = parseInt(localStorage.getItem('currentPage'), 10) || currentPage;
-    const storedScrollPosition = parseInt(localStorage.getItem('scrollPosition'), 10) || 0;
-
-    dispatch(fetchActivePropertiesForSale({}, storedPage));
-
-    setTimeout(() => {
-      window.scrollTo({ top: storedScrollPosition, behavior: 'auto' });
-    }, 100);
-
-    const timeoutId = setTimeout(() => setIsLoading(false), 2500);
-    return () => clearTimeout(timeoutId);
-  }, [dispatch]);
+    setIsLoading(true);
+    dispatch(fetchActivePropertiesForSale(filters, currentPage)).then(() => {
+      setIsLoading(false);
+    });
+  }, [dispatch, filters, currentPage]);
 
   const handlePageChange = (page) => {
     if (page < 1 || page > totalPages) return;
-
-    localStorage.setItem('currentPage', page);
-    localStorage.setItem('scrollPosition', 0);
-
-    dispatch(fetchActivePropertiesForSale({}, page));
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleCardClick = () => {
-    localStorage.setItem('scrollPosition', window.scrollY);
+    setSearchParams({ ...filters, page }); // Mantiene los filtros al cambiar de página
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   if (isLoading) {
@@ -72,7 +61,7 @@ const CardContainer = () => {
             province={property.province}
             departments={property.departments}
             locality={property.locality}
-            onClick={handleCardClick} // Llama a la función al hacer clic
+            
           />
         ))}
       </div>

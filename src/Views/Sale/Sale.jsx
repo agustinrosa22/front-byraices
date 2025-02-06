@@ -1,58 +1,41 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import CardContainer from '../../Components/CardsContainerForSale/CardsContainerForSale';
-import FilterView from '../../Components/FilterView/FilterView';
-import { fetchActivePropertiesForSale } from '../../Redux/Actions/actions';
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useSearchParams } from "react-router-dom";
+import CardContainer from "../../Components/CardsContainerForSale/CardsContainerForSale";
+import FilterView from "../../Components/FilterView/FilterView";
+import { fetchActivePropertiesForSale } from "../../Redux/Actions/actions";
 
 const Sale = () => {
   const dispatch = useDispatch();
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  // Extraer filtros de la URL
+  // Extraer filtros y página de la URL
   const getFiltersFromURL = () => {
-    const params = new URLSearchParams(window.location.search);
     return {
-      departments: params.get("departments") || "",
-      propertyType: params.get("propertyType") || "",
-      minPrice: params.get("minPrice") || "",
-      maxPrice: params.get("maxPrice") || ""
+      departments: searchParams.get("departments") || "",
+      propertyType: searchParams.get("propertyType") || "",
+      minPrice: searchParams.get("minPrice") || "",
+      maxPrice: searchParams.get("maxPrice") || "",
+      page: parseInt(searchParams.get("page"), 10) || 1,
     };
   };
 
   const filtersFromURL = getFiltersFromURL();
 
   useEffect(() => {
-    dispatch(fetchActivePropertiesForSale(filtersFromURL));
+    dispatch(fetchActivePropertiesForSale(filtersFromURL, filtersFromURL.page));
   }, [dispatch, filtersFromURL]);
 
-  // Guardar posición del scroll al salir
-  useEffect(() => {
-    const saveScrollPosition = () => {
-      sessionStorage.setItem("scrollPosition", window.scrollY);
-    };
-    window.addEventListener("beforeunload", saveScrollPosition);
-    return () => {
-      window.removeEventListener("beforeunload", saveScrollPosition);
-    };
-  }, []);
-
-  // Restaurar posición del scroll al cargar
-  useEffect(() => {
-    const savedScrollPosition = sessionStorage.getItem("scrollPosition");
-    if (savedScrollPosition) {
-      window.scrollTo(0, parseInt(savedScrollPosition, 10));
-    }
-  }, []);
-
+  // Manejar cambio de filtros sin afectar la página
   const handleFilterChange = (filters) => {
-    const queryParams = new URLSearchParams(filters).toString();
-    window.history.pushState(null, "", `?${queryParams}`);
-    dispatch(fetchActivePropertiesForSale(filters));
+    setSearchParams({ ...filters, page: 1 }); // Reinicia la paginación al aplicar filtros
+    dispatch(fetchActivePropertiesForSale(filters, 1));
   };
 
   return (
     <div>
       <FilterView onFilterChange={handleFilterChange} initialFilters={filtersFromURL} />
-      <CardContainer />
+      <CardContainer filters={filtersFromURL} />
     </div>
   );
 };
