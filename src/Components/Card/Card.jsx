@@ -111,30 +111,30 @@ const Card = React.memo((props) => {
         )}
       </div>
       <div className={styles.detailsCardContainer}>
-        <Link to={`/detail/${props.id}`} className={styles.link}>
-          <p className={styles.price}>
-            {formatPrice(props.price)} {props.currency}
-          </p>
-          <p className={styles.street}>
-            {props.street} {props.number}
-          </p>
-          <p className={styles.locality}>
-            {props.locality}, {props.departments}, {props.province}
-          </p>
-          <div className={styles.datos}>
-            <img className={styles.baño} src={m2} alt="" />
-            <p>{props.totalSquareMeters} m² totales</p>
-            <img className={styles.baño} src={m2Casa} alt="" />
-            <p>{props.coveredSquareMeters} m² cubiertos</p>
-            <img className={styles.baño} src={m2Casa} alt="" />
-            <p>{props.environments} ambientes</p>
-            <img className={styles.baño} src={baño} alt="" />
-            <p>{props.bathrooms} baños</p>
-          </div>
-          <div className={styles.tituloContainer}>
-            <p className={styles.titulo}>{props.title}</p>
-          </div>
-        </Link>
+  <a href={`/detail/${props.id}`} className={styles.link} target="_blank" rel="noopener noreferrer">
+    <p className={styles.price}>
+      {formatPrice(props.price)} {props.currency}
+    </p>
+    <p className={styles.street}>
+      {props.street} {props.number}
+    </p>
+    <p className={styles.locality}>
+      {props.locality}, {props.departments}, {props.province}
+    </p>
+    <div className={styles.datos}>
+      <img className={styles.baño} src={m2} alt="" />
+      <p>{props.totalSquareMeters} m² totales</p>
+      <img className={styles.baño} src={m2Casa} alt="" />
+      <p>{props.coveredSquareMeters} m² cubiertos</p>
+      <img className={styles.baño} src={m2Casa} alt="" />
+      <p>{props.environments} ambientes</p>
+      <img className={styles.baño} src={baño} alt="" />
+      <p>{props.bathrooms} baños</p>
+    </div>
+    <div className={styles.tituloContainer}>
+      <p className={styles.titulo}>{props.title}</p>
+    </div>
+  </a>
         {contact && (
           <div className={styles.sellerContainer}>
             <img
