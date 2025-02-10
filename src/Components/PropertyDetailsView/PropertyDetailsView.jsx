@@ -480,13 +480,13 @@ const formatSellerName = (name, last_name) => {
             <p> {formatPrice(property.price)}{property.currency}</p>
           </div>
           <div className={style.ContainerPrincipalData}>
-            <p>{property.totalSquareMeters} m² construidos totales</p>
-            {property.coveredSquareMeters > 0 && <p>{property.coveredSquareMeters} m² cubiertos</p>}
-            {property.land > 0 && <p>{property.land} m² terreno</p>}
-            {property.environments > 0 && <p>{property.environments} ambientes</p>}
-            {property.rooms > 0 && <p>{property.rooms} dormitorios</p>}
-            {property.bathrooms > 0 && <p>{property.bathrooms} baños</p>}
-            {property.garages > 0 && <p>{property.garages} cochera</p>}
+          {property.totalSquareMeters > 0 && <p>{property.totalSquareMeters} m² Construidos totales</p>}
+            {property.uncovered > 0 && <p>{property.uncovered} m² Descubiertos</p>}
+            {property.land > 0 && <p>{property.land} m² Terreno</p>}
+            {property.environments > 0 && <p>{property.environments} Ambientes</p>}
+            {property.rooms > 0 && <p>{property.rooms} Dormitorios</p>}
+            {property.bathrooms > 0 && <p>{property.bathrooms} Baños</p>}
+            {property.garages > 0 && <p>{property.garages} Cochera</p>}
 
             <p>{property.age === 0 || displayAge(property.age) === 0 ? "A estrenar" : `${displayAge(property.age)} Años de antigüedad`}</p>
 
@@ -507,8 +507,9 @@ const formatSellerName = (name, last_name) => {
     <div className={style.pairContainer}>
     {property.land > 0 && <p>Superficie terreno: {property.land} m²</p>}
       {property.semiCoveredSquareMeters > 0 && (
-  <p>Superficie semicubierta: {property.semiCoveredSquareMeters} m²</p>
+  <p>Superficie Semicubierta: {property.semiCoveredSquareMeters} m²</p>
 )}
+{property.coveredSquareMeters > 0 && <p>Superficie cubierta: {property.coveredSquareMeters} m²</p>}
  {property.uncovered > 0 && (
 <p>Superficie descubierta: {property.uncovered} m²</p>
 )}
