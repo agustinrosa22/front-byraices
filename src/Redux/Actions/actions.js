@@ -91,23 +91,41 @@ export const fetchActivePropertiesForSale = (filters = {}, page = 1) => async (d
 };
 
 
+export const fetchActivePropertiesForRent = (filters = {}, page = 1) => async (dispatch) => {
+  dispatch({ type: GET_ACTIVE_PROPERTIES_FOR_RENT_REQUEST });
 
-  export const fetchActivePropertiesForRent = () => async (dispatch) => {
-    dispatch({ type: GET_ACTIVE_PROPERTIES_FOR_RENT_REQUEST });
-    
-    try {
-      const response = await axios.get('/properties/active/rent');
-      dispatch({
-        type: GET_ACTIVE_PROPERTIES_FOR_RENT_SUCCESS,
-        payload: response.data
-      });
-    } catch (error) {
-      dispatch({
-        type: GET_ACTIVE_PROPERTIES_FOR_RENT_FAILURE,
-        payload: error.message
-      });
+  try {
+    let endpoint = '/properties/active/rent';
+    const { departments, minPrice, maxPrice, propertyType } = filters;
+    const params = new URLSearchParams();
+
+    if (departments) params.append('departments', departments);
+    if (minPrice) params.append('minPrice', minPrice);
+    if (maxPrice) params.append('maxPrice', maxPrice);
+    if (propertyType) params.append('propertyType', propertyType);
+    params.append('page', page); // Agregar número de página
+
+    if (params.toString()) {
+      endpoint += `?${params.toString()}`;
     }
-  };
+
+    const response = await axios.get(endpoint);
+
+    console.log("🚀 Respuesta del backend:", response.data);  // 🔍 Verificar la API
+
+    dispatch({
+      type: GET_ACTIVE_PROPERTIES_FOR_RENT_SUCCESS,
+      payload: response.data
+    });
+
+  } catch (error) {
+    dispatch({
+      type: GET_ACTIVE_PROPERTIES_FOR_RENT_FAILURE,
+      payload: error.message
+    });
+  }
+};
+
 
   export const getDevelopmentPropertiesRequest = () => ({
     type: GET_DEVELOPMENT_PROPERTIES_REQUEST,

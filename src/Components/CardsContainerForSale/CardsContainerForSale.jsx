@@ -5,6 +5,7 @@ import { fetchActivePropertiesForSale } from "../../Redux/Actions/actions";
 import Card from "../Card/Card";
 import style from "./CardsContainerForSale.module.css";
 import carga from "../../Assets/carga.gif";
+import title from '../../Assets/titulo.png'
 
 const CardContainer = ({ filters }) => {
   const dispatch = useDispatch();
@@ -12,6 +13,8 @@ const CardContainer = ({ filters }) => {
   const { properties, totalPages } = useSelector((state) => state.properties);
 
   const currentPage = parseInt(searchParams.get("page"), 10) || 1;
+
+  const error = useSelector(state => state.error);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -35,8 +38,15 @@ const CardContainer = ({ filters }) => {
     );
   }
 
-  if (!properties?.length) {
-    return <div>No hay propiedades disponibles</div>;
+  if (error || properties.length === 0) {
+    return <div className={style.containerError}>
+      <img className={style.img} src={title} alt="byraices" />
+      <p className={style.errorMessage}>
+        NO SE ENCONTRARON
+        <span className={style.highlight}> PROPIEDADES </span>
+        DISPONIBLES
+      </p>
+    </div>;
   }
   return (
     <div>
