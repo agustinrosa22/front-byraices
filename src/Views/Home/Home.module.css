@@ -86,13 +86,14 @@
   }
   
   .searchButton {
-    padding: 15px 20px;
-    background-color: #3D2F87; /* Color de fondo del botón */
+    padding: 5px 5px;
+    background-color: #3e2f8700; /* Color de fondo del botón */
     color: #fff; /* Color del texto del botón */
     border: none;
-    border-radius: 10px;
+    border-radius: 50px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    border: 1px solid #3D2F87;
   }
 
   .searchButton img {
@@ -101,9 +102,7 @@
     margin-right: 5px; /* Ajusta el margen entre la imagen y el texto según sea necesario */
 }
   
-  .searchButton:hover {
-    background-color: darkblue; /* Color de fondo al pasar el mouse */
-  }
+
   .declaracion{
     font-size: 0.8rem; /* Tamaño de la fuente pequeño */
     color: gray; /* Color de la fuente gris */

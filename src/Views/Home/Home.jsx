@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import style from './Home.module.css';
 import Lupa from '../../Assets/lupa.png';
 import LuxuryCard from "../../Components/LuxuryCard/LuxuryCard";
@@ -7,6 +7,9 @@ import CardDesarrollo from "../../Components/CardDesarollo/CardDesarrollo";
 import ContactUs from "../../Components/ContactUs/ContactUs";
 import WorkUs from '../../Components/WorkUs/WorkUs';
 import YouTubeVideo from "../../Components/YoutubeVideo/YoutubeVideo";
+import search from '../../Assets/search.json'
+import Lottie from "lottie-react";
+import lottie from "lottie-web";
 
 const Home = () => {
     const [searchParams, setSearchParams] = useState({
@@ -25,6 +28,23 @@ const Home = () => {
           [e.target.name]: e.target.value
         });
     };
+
+    const container = useRef(null);
+
+    useEffect(() => {
+      lottie.loadAnimation({
+        container: container.current,
+        renderer: "svg",
+        loop: true,
+        autoplay: false,
+        animationData: search
+
+      });
+  
+      return () => {
+        lottie.destroy();
+      };
+    }, []);
 
     return (
         <div className={style.container}>
@@ -87,8 +107,12 @@ const Home = () => {
                             <option value="otros">Otros</option>
                         </select>
                         
-                        <button className={style.searchButton} onClick={handleSearch}>
-                            <img src={Lupa} alt="Buscar" />
+                        <button className={style.searchButton} onClick={handleSearch} >
+                        <div
+        ref={container}
+        onMouseEnter={() => lottie.play()}
+        onMouseLeave={() => lottie.pause()}
+      />
                         </button>
                     </div>
                 </div>
@@ -101,7 +125,7 @@ const Home = () => {
             <WorkUs/>
             {/* <CardsInformacion/> */}
             <p className={style.declaracion}>
-                By Raices (bajo la sociedad Ditova SAS) NO ejerce el corretaje inmobiliario. Cada oficina es de propiedad y gestión independiente...
+            By Raices (bajo la sociedad Ditova SAS) NO ejerce el corretaje inmobiliario. Cada oficina es de propiedad y gestión independiente. En cumplimiento de las leyes vigentes que regulan el corretaje inmobiliario, Ley Nacional 25.028, Ley 22.802 de Lealtad Comercial, Ley 24.240 de Defensa al Consumidor, las normas del Código Civil y Comercial de la Nación y Constitucionales, los agentes/gestores de By Raices NO ejercen el corretaje inmobiliario. Todas las operaciones inmobiliarias son objeto de intermediación y conclusión por parte de los corredores públicos inmobiliarios colegiados, cuyos datos se exhiben en cada publicación de propiedad objeto de comercialización.
             </p>
         </div>
     );
