@@ -58,6 +58,89 @@
     font-family: monospace; /* Fuente de tipo monoespaciada para efecto de máquina de escribir */
     animation: typing 4s steps(40, end), blinkCaret .75s step-end infinite; /* Animaciones */
   }
-.highlight {
+  .highlight {
     color: #A83E52; /* Color rojo solo para la palabra "PROPIEDADES" */
   }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .pageButton,
+  .arrowButton {
+    background-color: #3D2F87;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    opacity: 0.7;
+  }
+  
+  .pageButton:hover,
+  .arrowButton:hover {
+    background-color: #2C1E60;
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  
+  .activePage {
+    background-color: #A83E52;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: default;
+    opacity: 1;
+  }
+  
+  .activePage:hover {
+    transform: none;
+  }
+  
+  /* Deshabilitar botones de flecha cuando no se pueden usar */
+  .arrowButton:disabled {
+    background-color: #888;
+    cursor: not-allowed;
+    opacity: 0.5;
+    transform: none;
+  }
+  
+  /* Animación de difuminado */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .pagination button {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @media (max-width: 768px) {
+    .pagination {
+      gap: 4px; /* Reduce el espaciado en pantallas pequeñas */
+    }
+  
+    .pageButton,
+    .activePage {
+      padding: 6px 10px;
+      font-size: 14px;
+    }
+  }
+  

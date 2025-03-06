@@ -1,27 +1,41 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useSearchParams } from "react-router-dom";
 import { fetchActivePropertiesForRent } from '../../Redux/Actions/actions';
 import Card from '../Card/Card';
 import style from './CardContainerForRent.module.css'
 import title from '../../Assets/titulo.png'
 import carga from '../../Assets/carga.gif'
 
-const RentCardContainer = () => {
+const RentCardContainer = ({ filters }) => {
   const dispatch = useDispatch();
-  const propertiesForRent = useSelector(state => state.propertiesForRent);
+  const {propertiesForRent, totalPages } = useSelector((state) => state);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const currentPage = parseInt(searchParams.get("page"), 10) || 1;
+
   const loading = useSelector(state => state.loading);
   const error = useSelector(state => state.error);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    dispatch(fetchActivePropertiesForRent());
-
-    const timeoutId = setTimeout(() => {
+    setIsLoading(true);
+    dispatch(fetchActivePropertiesForRent(filters, currentPage)).then(() => {
       setIsLoading(false);
-    }, 2500); // Cambia el tiempo de espera según sea necesario (en milisegundos)
+    });
+  
+    // 🔍 Verificar qué datos llegan al estado global
+    setTimeout(() => {
+      console.log("🚀 Estado Global (Redux) - propertiesForRent:", propertiesForRent);
+    }, 2000);
+  }, [dispatch, filters, currentPage]);
 
-    return () => clearTimeout(timeoutId);
-  }, [dispatch]);
+  const handlePageChange = (page) => {
+    if (page < 1 || page > totalPages) return;
+    setSearchParams({ ...filters, page }); // Mantiene los filtros al cambiar de página
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
 
   if (loading || isLoading) {
     return (
@@ -32,7 +46,7 @@ const RentCardContainer = () => {
   }
 
 
-  if (error || propertiesForRent.length === 0) {
+  if (error || propertiesForRent?.length === 0) {
     return <div className={style.containerError}>
       <img className={style.img} src={title} alt="byraices" />
       <p className={style.errorMessage}>
@@ -42,10 +56,13 @@ const RentCardContainer = () => {
       </p>
     </div>;
   }
-const propiedades = propertiesForRent.length
+const propiedades = propertiesForRent?.length
+
+console.log("🛠️ Propiedades que se renderizan en Cards:", propertiesForRent);
+
   return (
     <div>
-     <p className={style.countPorperties}>Cantidad de propiedades: {propiedades}</p>
+     <div className={style.cardsContainer}>
       {propertiesForRent.map(property => (
         <Card
         key={property.id}
@@ -68,7 +85,33 @@ const propiedades = propertiesForRent.length
           locality={property.locality}
         />
       ))}
-    </div>
+</div>
+
+{/* PAGINACIÓN */}
+<div className={style.pagination}>
+ <button className={style.arrowButton} onClick={() => handlePageChange(currentPage - 3)} disabled={currentPage <= 3}>⫷</button>
+ <button className={style.arrowButton} onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>⪡</button>
+
+ {currentPage > 1 && (
+   <button className={style.pageButton} onClick={() => handlePageChange(currentPage - 1)}>
+     {currentPage - 1}
+   </button>
+ )}
+
+ <button className={style.activePage}>{currentPage}</button>
+
+ {currentPage < totalPages && (
+   <button className={style.pageButton} onClick={() => handlePageChange(currentPage + 1)}>
+     {currentPage + 1}
+   </button>
+ )}
+
+ <button className={style.arrowButton} onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>⪢</button>
+ <button className={style.arrowButton} onClick={() => handlePageChange(currentPage + 3)} disabled={currentPage > totalPages - 3}>⫸</button>
+</div>
+</div>
+
+    
   );
 };
 

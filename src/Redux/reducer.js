@@ -84,7 +84,10 @@ const rootReducer = (state = initialState, action) => {
               case GET_ACTIVE_PROPERTIES_FOR_RENT_SUCCESS:
                 return {
                   ...state,
-                  propertiesForRent: action.payload,
+                  ...state,
+                  propertiesForRent: action.payload.properties || [], // Aseguramos que sea un array de propiedades
+                  totalPages: action.payload.totalPages || 1,
+                  currentPage: action.payload.currentPage || 1,
                   loading: false,
                   error: null
                 };
